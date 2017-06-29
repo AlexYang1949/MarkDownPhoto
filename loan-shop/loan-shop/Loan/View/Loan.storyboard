@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Loan Controller-->
+        <scene sceneID="Lz3-9b-0gf">
+            <objects>
+                <viewController storyboardIdentifier="LoanController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="TQR-RK-ADB" customClass="LoanController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="v1j-g1-d1K"/>
+                        <viewControllerLayoutGuide type="bottom" id="elY-a5-K0j"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8ch-N0-RUr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="46s-EM-6XQ" customClass="LoanCollectionView">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qVp-oS-CiJ">
+                                    <size key="itemSize" width="257" height="90"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="loanCell" id="zqM-Xa-dqW" customClass="LoanChannelCell">
+                                        <rect key="frame" x="59" y="0.0" width="257" height="90"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="257" height="90"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon" translatesAutoresizingMaskIntoConstraints="NO" id="SmJ-HF-dcN">
+                                                    <rect key="frame" x="10" y="10" width="60" height="60"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="60" id="HgU-tE-4P1"/>
+                                                        <constraint firstAttribute="height" constant="60" id="K87-KG-Uj3"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最高贷款100万    今天你贷款了么" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HzC-4i-dbd">
+                                                    <rect key="frame" x="78" y="30.5" width="169" height="19.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="SmJ-HF-dcN" firstAttribute="top" secondItem="zqM-Xa-dqW" secondAttribute="top" constant="10" id="B68-Qf-iL2"/>
+                                            <constraint firstItem="SmJ-HF-dcN" firstAttribute="leading" secondItem="zqM-Xa-dqW" secondAttribute="leading" constant="10" id="BHH-D8-dly"/>
+                                            <constraint firstAttribute="trailing" secondItem="HzC-4i-dbd" secondAttribute="trailing" constant="10" id="Gx0-a0-Cco"/>
+                                            <constraint firstItem="HzC-4i-dbd" firstAttribute="leading" secondItem="SmJ-HF-dcN" secondAttribute="trailing" constant="8" id="JW3-j5-y3C"/>
+                                            <constraint firstItem="HzC-4i-dbd" firstAttribute="centerY" secondItem="SmJ-HF-dcN" secondAttribute="centerY" id="bJ3-Fk-IeR"/>
+                                        </constraints>
+                                        <size key="customSize" width="257" height="90"/>
+                                        <connections>
+                                            <outlet property="icon" destination="SmJ-HF-dcN" id="2K3-5l-acq"/>
+                                            <outlet property="title" destination="HzC-4i-dbd" id="OtL-c5-q67"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="TQR-RK-ADB" id="AYv-Tg-yVr"/>
+                                    <outlet property="delegate" destination="TQR-RK-ADB" id="bjx-3F-SaO"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="46s-EM-6XQ" firstAttribute="leading" secondItem="8ch-N0-RUr" secondAttribute="leading" id="7l4-da-4am"/>
+                            <constraint firstAttribute="trailing" secondItem="46s-EM-6XQ" secondAttribute="trailing" id="8k7-K5-yMF"/>
+                            <constraint firstItem="elY-a5-K0j" firstAttribute="top" secondItem="46s-EM-6XQ" secondAttribute="bottom" id="i3B-zw-BRY"/>
+                            <constraint firstItem="46s-EM-6XQ" firstAttribute="top" secondItem="v1j-g1-d1K" secondAttribute="bottom" id="nwc-KV-PxS"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="46s-EM-6XQ" id="Fb7-kt-yhW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LI5-tz-zjc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-396" y="-291"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="icon" width="62" height="62"/>
+    </resources>
+</document>
