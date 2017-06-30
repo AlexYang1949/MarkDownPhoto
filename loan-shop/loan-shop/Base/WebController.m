@@ -16,6 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"跳转网页";
     _webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:_webView];
     [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_urlStr]]];

@@ -8,11 +8,15 @@
 
 #import "HomeViewController.h"
 #import "KNBannerView.h"
+#import "HotCollectionView.h"
+#import "HotLoanCell.h"
+#import "HotCreditCell.h"
 
-@interface HomeViewController ()<KNBannerViewDelegate>
+@interface HomeViewController ()<KNBannerViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 @property (nonatomic, strong) NSMutableArray *dataArr;
 @property (nonatomic, strong) NSMutableArray *urlArr;
 @property (nonatomic,weak  ) KNBannerView *bannerView;
+@property (weak, nonatomic) IBOutlet HotCollectionView *collectionView;
 @end
 
 @implementation HomeViewController
@@ -21,12 +25,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setupBanner];
+    [self loadCollectionView];
 }
 
 // 样式1
 - (void)setupBanner{
     KNBannerView *bannerView = [KNBannerView bannerViewWithNetWorkImagesArr:self.urlArr
-                                                                      frame:CGRectMake(0, 0, self.view.frame.size.width, 180)];
+                                                                      frame:CGRectMake(0, 0, self.view.frame.size.width, 100)];
     /*
      * 以下都是 基本属性的设置
      */
@@ -39,6 +44,52 @@
     [self.view addSubview:bannerView];
     _bannerView = bannerView;
 }
+
+- (void)loadCollectionView{
+    [self.collectionView setCollectionViewLayout:[self layout]];
+}
+
+- (UICollectionViewFlowLayout *)layout{
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    layout.headerReferenceSize = CGSizeMake(MAIN_BOUNDS_WIDTH, 40);
+    //行与行的最小间距
+    layout.minimumLineSpacing = 0;
+    //每行的item与item之间最小间隔
+    layout.minimumInteritemSpacing = 0;
+    return layout;
+}
+
+#pragma mark - collectionView datasource
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return 10;
+}
+
+-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+    return 2;
+}
+
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section==0) {
+        HotLoanCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HotLoanCell" forIndexPath:indexPath];
+        return cell;
+    }else{
+        HotCreditCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HotCreditCell" forIndexPath:indexPath];
+        return cell;
+    }
+}
+
+-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section==0) {
+        return CGSizeMake(MAIN_BOUNDS_WIDTH/2 ,80);
+    }else{
+        return CGSizeMake(MAIN_BOUNDS_WIDTH ,80);
+    }
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    [self openHtml:@"https://www.baidu.com"];
+}
+
 
 - (void)bannerView:(KNBannerView *)bannerView collectionView:(UICollectionView *)collectionView collectionViewCell:(KNBannerCollectionViewCell *)collectionViewCell didSelectItemAtIndexPath:(NSInteger)index{
     

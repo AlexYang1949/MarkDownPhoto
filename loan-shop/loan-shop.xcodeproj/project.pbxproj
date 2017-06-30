@@ -44,6 +44,9 @@
 		701D00C01F0510FD00BAFA4D /* KNBannerViewSource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 701D00B61F0510FD00BAFA4D /* KNBannerViewSource.bundle */; };
 		701D00C11F0510FD00BAFA4D /* KNBannerViewText.m in Sources */ = {isa = PBXBuildFile; fileRef = 701D00B81F0510FD00BAFA4D /* KNBannerViewText.m */; };
 		701D00C21F0510FD00BAFA4D /* UIView+KNExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 701D00BA1F0510FD00BAFA4D /* UIView+KNExtension.m */; };
+		70F10D3A1F05EA3E000565BA /* HotCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F10D391F05EA3E000565BA /* HotCollectionView.m */; };
+		70F10D401F05EAB5000565BA /* HotCreditCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F10D3F1F05EAB5000565BA /* HotCreditCell.m */; };
+		70F10D431F05EC63000565BA /* HotLoanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F10D421F05EC63000565BA /* HotLoanCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -117,6 +120,12 @@
 		701D00B81F0510FD00BAFA4D /* KNBannerViewText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNBannerViewText.m; sourceTree = "<group>"; };
 		701D00B91F0510FD00BAFA4D /* UIView+KNExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+KNExtension.h"; sourceTree = "<group>"; };
 		701D00BA1F0510FD00BAFA4D /* UIView+KNExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+KNExtension.m"; sourceTree = "<group>"; };
+		70F10D381F05EA3E000565BA /* HotCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotCollectionView.h; sourceTree = "<group>"; };
+		70F10D391F05EA3E000565BA /* HotCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotCollectionView.m; sourceTree = "<group>"; };
+		70F10D3E1F05EAB5000565BA /* HotCreditCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotCreditCell.h; sourceTree = "<group>"; };
+		70F10D3F1F05EAB5000565BA /* HotCreditCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotCreditCell.m; sourceTree = "<group>"; };
+		70F10D411F05EC63000565BA /* HotLoanCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotLoanCell.h; sourceTree = "<group>"; };
+		70F10D421F05EC63000565BA /* HotLoanCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotLoanCell.m; sourceTree = "<group>"; };
 		900E8CE1C98C5FAFDD2DD735 /* Pods_loan_shop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_loan_shop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -263,6 +272,12 @@
 			isa = PBXGroup;
 			children = (
 				701D002E1F04E94300BAFA4D /* Main.storyboard */,
+				70F10D411F05EC63000565BA /* HotLoanCell.h */,
+				70F10D421F05EC63000565BA /* HotLoanCell.m */,
+				70F10D381F05EA3E000565BA /* HotCollectionView.h */,
+				70F10D391F05EA3E000565BA /* HotCollectionView.m */,
+				70F10D3E1F05EAB5000565BA /* HotCreditCell.h */,
+				70F10D3F1F05EAB5000565BA /* HotCreditCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -566,6 +581,7 @@
 				701D00831F04F27E00BAFA4D /* MineController.m in Sources */,
 				701D00BB1F0510FD00BAFA4D /* KNBannerCollectionViewCell.m in Sources */,
 				701D00611F04EE1000BAFA4D /* MainTabBarController.m in Sources */,
+				70F10D3A1F05EA3E000565BA /* HotCollectionView.m in Sources */,
 				701D00941F04FBCF00BAFA4D /* HomeCardModel.m in Sources */,
 				701D00BF1F0510FD00BAFA4D /* KNBannerViewModel.m in Sources */,
 				701D007B1F04F19500BAFA4D /* UIImage+Additional.m in Sources */,
@@ -574,11 +590,13 @@
 				701D00271F04E94300BAFA4D /* main.m in Sources */,
 				701D007C1F04F19500BAFA4D /* UILabel+FlickerNumber.m in Sources */,
 				701D00C11F0510FD00BAFA4D /* KNBannerViewText.m in Sources */,
+				70F10D401F05EAB5000565BA /* HotCreditCell.m in Sources */,
 				701D00BE1F0510FD00BAFA4D /* KNBannerView.m in Sources */,
 				701D00911F04FBA600BAFA4D /* LoanChannelCell.m in Sources */,
 				701D007E1F04F19500BAFA4D /* UIView+Category.m in Sources */,
 				701D00881F04F2EC00BAFA4D /* LoanController.m in Sources */,
 				701D008E1F04F9E000BAFA4D /* ProcessViewController.m in Sources */,
+				70F10D431F05EC63000565BA /* HotLoanCell.m in Sources */,
 				701D00BD1F0510FD00BAFA4D /* KNCustomPageControl.m in Sources */,
 				701D00551F04E9D300BAFA4D /* HomeViewController.m in Sources */,
 			);
@@ -705,7 +723,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = Y364PD6P4Y;
-				GCC_PREFIX_HEADER = "/Users/yangzhaoheng/Documents/project/loan-shop/loan-shop/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "${SRCROOT}/loan-shop/PrefixHeader.pch";
 				INFOPLIST_FILE = "loan-shop/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -720,7 +738,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = Y364PD6P4Y;
-				GCC_PREFIX_HEADER = "/Users/yangzhaoheng/Documents/project/loan-shop/loan-shop/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "${SRCROOT}/loan-shop/PrefixHeader.pch";
 				INFOPLIST_FILE = "loan-shop/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

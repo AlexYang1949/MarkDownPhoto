@@ -9,7 +9,7 @@
 #import "LoanController.h"
 #import "LoanChannelCell.h"
 #import "LoanCollectionView.h"
-static NSString *cellId = @"loanChannelCell";
+static NSString *cellId = @"loanCell";
 @interface LoanController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet LoanCollectionView *collectionView;
 
@@ -18,7 +18,6 @@ static NSString *cellId = @"loanChannelCell";
 @implementation LoanController
 -(void)viewDidLoad{
     [self.collectionView setCollectionViewLayout:[self layout]];
-//    [self.collectionView registerClass:[LoanChannelCell class] forCellWithReuseIdentifier:@"loanCell"];
 }
 
 - (UICollectionViewFlowLayout *)layout{
@@ -43,7 +42,7 @@ static NSString *cellId = @"loanChannelCell";
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    LoanChannelCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"loanCell" forIndexPath:indexPath];
+    LoanChannelCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
     return cell;
 }
 
