@@ -7,6 +7,8 @@
 //
 
 #import "MineController.h"
+#import "LoginController.h"
+#import "BaseNavController.h"
 
 @interface MineController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -39,6 +41,7 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.textLabel.text = _dataArray[indexPath.section][indexPath.row];
     cell.imageView.image = [UIImage imageNamed:@"icon"];
     return cell;
@@ -49,6 +52,14 @@
         return 0;
     }
     return 15;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section==_dataArray.count-1 && indexPath.row==1) {
+        LoginController *loginVc = [self getViewController:@"LoginController" onStoryBoard:@"Mine"];
+        BaseNavController *loginNav = [[BaseNavController alloc] initWithRootViewController:loginVc];
+        [self presentViewController:loginNav animated:YES completion:nil];
+    }
 }
 
 @end

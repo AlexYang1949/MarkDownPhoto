@@ -29,11 +29,6 @@
     UIPageControl *pageControl = [[UIPageControl alloc] init];
     _pageControl = pageControl;
     [self addSubview:pageControl];
-    
-    // 2.KNCustomPageControl
-    KNCustomPageControl *customPageControl = [[KNCustomPageControl alloc] init];
-    _customPageControl = customPageControl;
-    [self addSubview:customPageControl];
 }
 
 - (void)setBannerViewModel:(KNBannerViewModel *)bannerViewModel{
@@ -80,7 +75,6 @@
 
 - (void)layoutSubviews{
     [super layoutSubviews];
-    
     // 4 * 10 + ( 4 - 1) * 5 : pageControl base enum to set frame
     switch ([_bannerViewModel pageControlStyle]) {
         case KNBannerPageControlStyleMiddel:
@@ -94,27 +88,6 @@
             break;
         default:
             break;
-    }
-    
-    if(![self isEmptyArray:[_bannerViewModel pageControlImgArr]]){
-        UIImage *image = [_bannerViewModel pageControlImgArr][0];
-        CGFloat width = [_bannerViewModel numberOfPages] * (image.size.width + 5);
-        switch ([_bannerViewModel pageControlStyle]) {
-            case KNBannerPageControlStyleLeft:{
-                _customPageControl.frame = CGRectMake(5, 0, width, 30);
-            }
-                break;
-            case KNBannerPageControlStyleMiddel:{
-                _customPageControl.frame = CGRectMake((self.width - width) * 0.5, 0, width, 30);
-            }
-                break;
-            case KNBannerPageControlStyleRight:{
-                _customPageControl.frame = CGRectMake(self.width - width - 5, 0, width, 30);
-            }
-                break;
-            default:
-                break;
-        }
     }
 }
 

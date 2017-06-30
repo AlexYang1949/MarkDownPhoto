@@ -259,17 +259,14 @@ static NSString *const KNCollectionViewID = @"KNBannerViewCollectionViewID";
         [_pageControl setHidden:NO];
     }
     
-    if(![self isEmptyArray:[_bannerViewModel pageControlImgArr]]){ // 自定义 PageControl
-        [_bannerViewModel setNumberOfPages:self.imageArr.count];
-        [_pageControl setBannerViewModel:_bannerViewModel];
-    }else{ //UIPageControl
-        KNBannerViewModel *bannerViewModel = [[KNBannerViewModel alloc] init];
-        [bannerViewModel setPageControlStyle:[_bannerViewModel pageControlStyle]];
-        [bannerViewModel setPageIndicatorTintColor:[_bannerViewModel PageIndicatorTintColor]];
-        [bannerViewModel setCurrentPageIndicatorTintColor:[_bannerViewModel CurrentPageIndicatorTintColor]];
-        [bannerViewModel setNumberOfPages:self.imageArr.count];
-        [_pageControl setBannerViewModel:bannerViewModel];
-    }
+    bannerViewModel = [[KNBannerViewModel alloc] init];
+    
+    [bannerViewModel setPageControlStyle:[_bannerViewModel pageControlStyle]];
+    [bannerViewModel setPageIndicatorTintColor:[_bannerViewModel PageIndicatorTintColor]];
+    [bannerViewModel setCurrentPageIndicatorTintColor:[_bannerViewModel CurrentPageIndicatorTintColor]];
+    [bannerViewModel setNumberOfPages:self.imageArr.count];
+    [_pageControl setBannerViewModel:bannerViewModel];
+
     _defaultModel = bannerViewModel;
 }
 
@@ -292,6 +289,7 @@ static NSString *const KNCollectionViewID = @"KNBannerViewCollectionViewID";
     }
     
     KNBannerPageControl *pageControl = [[KNBannerPageControl alloc] init];
+    pageControl.frame = CGRectMake(0, 0, 100, 30);
     [pageControl setHidden:YES];
     _pageControl = pageControl;
     [self addSubview:pageControl];

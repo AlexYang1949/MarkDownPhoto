@@ -48,6 +48,9 @@
 		70F10D401F05EAB5000565BA /* HotCreditCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F10D3F1F05EAB5000565BA /* HotCreditCell.m */; };
 		70F10D431F05EC63000565BA /* HotLoanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F10D421F05EC63000565BA /* HotLoanCell.m */; };
 		70F10D461F05F77E000565BA /* HotHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F10D451F05F77E000565BA /* HotHeaderCell.m */; };
+		70F10D491F062CB4000565BA /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F10D481F062CB4000565BA /* LoginController.m */; };
+		70F10D4C1F062CC3000565BA /* ForgetPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F10D4B1F062CC3000565BA /* ForgetPwdViewController.m */; };
+		70F10D4F1F062CDB000565BA /* RegistController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F10D4E1F062CDB000565BA /* RegistController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -129,6 +132,12 @@
 		70F10D421F05EC63000565BA /* HotLoanCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotLoanCell.m; sourceTree = "<group>"; };
 		70F10D441F05F77E000565BA /* HotHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotHeaderCell.h; sourceTree = "<group>"; };
 		70F10D451F05F77E000565BA /* HotHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotHeaderCell.m; sourceTree = "<group>"; };
+		70F10D471F062CB4000565BA /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
+		70F10D481F062CB4000565BA /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
+		70F10D4A1F062CC3000565BA /* ForgetPwdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPwdViewController.h; sourceTree = "<group>"; };
+		70F10D4B1F062CC3000565BA /* ForgetPwdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPwdViewController.m; sourceTree = "<group>"; };
+		70F10D4D1F062CDB000565BA /* RegistController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistController.h; sourceTree = "<group>"; };
+		70F10D4E1F062CDB000565BA /* RegistController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistController.m; sourceTree = "<group>"; };
 		900E8CE1C98C5FAFDD2DD735 /* Pods_loan_shop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_loan_shop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -340,6 +349,12 @@
 			children = (
 				701D00811F04F27E00BAFA4D /* MineController.h */,
 				701D00821F04F27E00BAFA4D /* MineController.m */,
+				70F10D471F062CB4000565BA /* LoginController.h */,
+				70F10D481F062CB4000565BA /* LoginController.m */,
+				70F10D4A1F062CC3000565BA /* ForgetPwdViewController.h */,
+				70F10D4B1F062CC3000565BA /* ForgetPwdViewController.m */,
+				70F10D4D1F062CDB000565BA /* RegistController.h */,
+				70F10D4E1F062CDB000565BA /* RegistController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -587,12 +602,15 @@
 				701D00BB1F0510FD00BAFA4D /* KNBannerCollectionViewCell.m in Sources */,
 				701D00611F04EE1000BAFA4D /* MainTabBarController.m in Sources */,
 				70F10D3A1F05EA3E000565BA /* HotCollectionView.m in Sources */,
+				70F10D4F1F062CDB000565BA /* RegistController.m in Sources */,
 				701D00941F04FBCF00BAFA4D /* HomeCardModel.m in Sources */,
+				70F10D4C1F062CC3000565BA /* ForgetPwdViewController.m in Sources */,
 				701D00BF1F0510FD00BAFA4D /* KNBannerViewModel.m in Sources */,
 				701D007B1F04F19500BAFA4D /* UIImage+Additional.m in Sources */,
 				701D00511F04E9A900BAFA4D /* BaseViewController.m in Sources */,
 				701D009D1F05077900BAFA4D /* WebController.m in Sources */,
 				701D00271F04E94300BAFA4D /* main.m in Sources */,
+				70F10D491F062CB4000565BA /* LoginController.m in Sources */,
 				701D007C1F04F19500BAFA4D /* UILabel+FlickerNumber.m in Sources */,
 				701D00C11F0510FD00BAFA4D /* KNBannerViewText.m in Sources */,
 				70F10D401F05EAB5000565BA /* HotCreditCell.m in Sources */,
