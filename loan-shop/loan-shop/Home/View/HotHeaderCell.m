@@ -9,6 +9,8 @@
 #import "HotHeaderCell.h"
 @interface HotHeaderCell()
 @property(nonatomic, strong)UILabel *titleLable;
+@property(nonatomic, strong)UIButton *moreButton;
+
 @end
 
 @implementation HotHeaderCell
@@ -19,13 +21,33 @@
     return self;
 }
 
+-(void)setHiddenMore:(BOOL)hiddenMore{
+    _hiddenMore = hiddenMore;
+    _moreButton.hidden = YES;
+}
+
 - (void)loadUI{
-    _titleLable = [[UILabel alloc] initWithFrame:CGRectMake(20, self.height - HEIGHT_TITLE, self.width, HEIGHT_TITLE)];
+    _titleLable = [[UILabel alloc] initWithFrame:CGRectMake(20, self.height - HEIGHT_TITLE, self.width/2, HEIGHT_TITLE)];
     _titleLable.text = @"标题";
     _titleLable.textColor = [UIColor darkGrayColor];
-    self.backgroundColor = COLORHEX(0xf6f6f6);
     [self addSubview:_titleLable];
+    
+    _moreButton = [[UIButton alloc] initWithFrame:CGRectMake(self.width-100, self.height-HEIGHT_TITLE, 80, HEIGHT_TITLE)];
+    [_moreButton setTitle:@"更多.." forState:UIControlStateNormal];
+    [_moreButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+    [_moreButton setFont:[UIFont systemFontOfSize:15]];
+    [_moreButton addTarget:self action:@selector(more) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:_moreButton];
+
+    self.backgroundColor = COLORHEX(0xf6f6f6);
 }
+
+- (void)more{
+    if (_moreBlcok) {
+        _moreBlcok();
+    }
+}
+   
 
 -(void)setTitle:(NSString *)title{
     _title = title;

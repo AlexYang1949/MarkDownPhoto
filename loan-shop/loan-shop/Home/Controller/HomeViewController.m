@@ -91,6 +91,15 @@
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     HotHeaderCell *header = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HotHeaderCell" forIndexPath:indexPath];
+    if (indexPath.section==0) {
+        header.moreBlcok =^(){
+            [self.tabBarController setSelectedIndex:1];
+        };
+    }else{
+        header.moreBlcok =^(){
+            [self.tabBarController setSelectedIndex:2];
+        };
+    }
     return  header;
 }
 
