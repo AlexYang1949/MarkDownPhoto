@@ -29,21 +29,17 @@
     [self loadCollectionView];
 }
 
-// 样式1
-- (void)setupBanner{
+- (KNBannerView *)setupBanner{
     KNBannerView *bannerView = [KNBannerView bannerViewWithNetWorkImagesArr:self.urlArr
-                                                                      frame:CGRectMake(0, 0, self.view.frame.size.width, 120)];
-    /*
-     * 以下都是 基本属性的设置
-     */
+                                                                      frame:CGRectMake(0, 0, self.view.frame.size.width, HEIGHT_BANNER)];
     [bannerView setDelegate:self]; // 设置代理, 为了实现代理方法
 
-    
     KNBannerViewModel *viewM = [[KNBannerViewModel alloc] init]; // 统一通过 设置 模型来设置 里面的参数
     [bannerView setBannerViewModel:viewM]; // 通过模型设置属性 -->赋值
 
-    [self.view addSubview:bannerView];
+    [self.collectionView addSubview:bannerView];
     _bannerView = bannerView;
+    return _bannerView;
 }
 
 - (void)loadCollectionView{
@@ -53,6 +49,7 @@
 
 - (UICollectionViewFlowLayout *)layout{
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    
     layout.headerReferenceSize = CGSizeMake(MAIN_BOUNDS_WIDTH, 30);
     //行与行的最小间距
     layout.minimumLineSpacing = 0;
@@ -85,11 +82,19 @@
     return  header;
 }
 
+-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
+    if (section==0) {
+        return CGSizeMake(MAIN_BOUNDS_WIDTH, HEIGHT_BANNER+HEIGHT_TITLE);
+    }else{
+        return CGSizeMake(MAIN_BOUNDS_WIDTH, HEIGHT_TITLE);
+    }
+}
+
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section==0) {
-        return CGSizeMake(MAIN_BOUNDS_WIDTH/2 ,80);
+        return CGSizeMake(MAIN_BOUNDS_WIDTH/2 ,HEIGHT_CELL);
     }else{
-        return CGSizeMake(MAIN_BOUNDS_WIDTH ,80);
+        return CGSizeMake(MAIN_BOUNDS_WIDTH ,HEIGHT_CELL);
     }
 }
 

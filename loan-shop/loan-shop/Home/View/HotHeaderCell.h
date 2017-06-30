@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface HotHeaderCell : UICollectionViewCell
-
+@property(nonatomic ,strong) NSString *title;
 @end

@@ -20,12 +20,12 @@
     UINavigationBar *navBar = [UINavigationBar appearanceWhenContainedIn:[BaseNavController class], nil];
     UIImage * image = nil;
 
-    image = [UIImage imageWithColor:[UIColor whiteColor] size:CGSizeMake(MAIN_BOUNDS_WIDTH, 128)];
+    image = [UIImage imageWithColor:COLOR_MAIN size:CGSizeMake(MAIN_BOUNDS_WIDTH, 128)];
 
     [navBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
-    NSDictionary *attr = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:19.0f], NSForegroundColorAttributeName: [UIColor colorWithWhite:0.141 alpha:1.000]};
+    NSDictionary *attr = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:19.0f], NSForegroundColorAttributeName: [UIColor whiteColor]};
     [navBar setTitleTextAttributes:attr];
-    [navBar setTintColor:[UIColor colorWithWhite:0.141 alpha:1.000]];
+    [navBar setTintColor:[UIColor whiteColor]];
 }
 
 #pragma mark 控制状态颜色

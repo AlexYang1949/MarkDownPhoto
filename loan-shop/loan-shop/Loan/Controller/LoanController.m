@@ -24,8 +24,8 @@ static NSString *cellId = @"loanCell";
 
 - (UICollectionViewFlowLayout *)layout{
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    layout.itemSize = CGSizeMake(MAIN_BOUNDS_WIDTH/2 ,80);
-    layout.headerReferenceSize = CGSizeMake(MAIN_BOUNDS_WIDTH, 30);
+    layout.itemSize = CGSizeMake(MAIN_BOUNDS_WIDTH/2 ,HEIGHT_CELL);
+    layout.headerReferenceSize = CGSizeMake(MAIN_BOUNDS_WIDTH, HEIGHT_TITLE);
     //行与行的最小间距
     layout.minimumLineSpacing = 0;
     //每行的item与item之间最小间隔

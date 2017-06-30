@@ -78,13 +78,13 @@
     
     // 设置tabBarItem的普通文字颜色
     NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
-    textAttrs[NSForegroundColorAttributeName] = UIColorFromRGB(0xa8a7a7);
+    textAttrs[NSForegroundColorAttributeName] = COLORHEX(0xa8a7a7);
     textAttrs[NSFontAttributeName] = [UIFont systemFontOfSize:11];
     [childVc.tabBarItem setTitleTextAttributes:textAttrs forState:UIControlStateNormal];
     
     // 设置tabBarItem的选中文字颜色
     NSMutableDictionary *selectedTextAttrs = [NSMutableDictionary dictionary];
-    selectedTextAttrs[NSForegroundColorAttributeName] = kNavBackGround;
+    selectedTextAttrs[NSForegroundColorAttributeName] = COLOR_MAIN;
     [childVc.tabBarItem setTitleTextAttributes:selectedTextAttrs forState:UIControlStateSelected];
     
     // 设置选中的图标

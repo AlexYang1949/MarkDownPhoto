@@ -48,7 +48,7 @@
     if (section==_dataArray.count-1) {
         return 0;
     }
-    return 10;
+    return 15;
 }
 
 @end
