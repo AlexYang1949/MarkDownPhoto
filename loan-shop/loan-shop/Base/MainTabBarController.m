@@ -43,19 +43,19 @@
     
     HomeViewController *liveVC = [self getViewController:@"HomeViewController" onStoryBoard:@"Main"];
     
-    [self addOneChlildVc:liveVC title:@"首页" imageName:@"fuwu" selectedImageName:@"fuwu_select"];
+    [self addOneChlildVc:liveVC title:@"首页" imageName:@"tab_home_nor" selectedImageName:@"tab_home_sel"];
     
     LoanController *loanVc = [self getViewController:@"LoanController" onStoryBoard:@"Loan"];
     
-    [self addOneChlildVc:loanVc title:@"贷款" imageName:@"fuwu" selectedImageName:@"fuwu_select"];
+    [self addOneChlildVc:loanVc title:@"贷款" imageName:@"tab_home_nor" selectedImageName:@"tab_home_sel"];
     
     CreditCardController *creditCardVc = [self getViewController:@"CreditCardController" onStoryBoard:@"CreditCard"];
     
-    [self addOneChlildVc:creditCardVc title:@"信用卡" imageName:@"fuwu" selectedImageName:@"fuwu_select"];
+    [self addOneChlildVc:creditCardVc title:@"信用卡" imageName:@"tab_home_nor" selectedImageName:@"tab_home_nor"];
     
     MineController *mineVC = [self getViewController:@"MineController" onStoryBoard:@"Mine"];
     
-    [self addOneChlildVc:mineVC title:@"我的" imageName:@"fuwu" selectedImageName:@"fuwu_select"];
+    [self addOneChlildVc:mineVC title:@"我的" imageName:@"tab_home_nor" selectedImageName:@"tab_home_nor"];
     
 }
 
