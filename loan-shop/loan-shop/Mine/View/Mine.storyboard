@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Mine Controller-->
+        <!--我的-->
         <scene sceneID="2QU-nG-G5z">
             <objects>
-                <viewController storyboardIdentifier="MineController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="V4g-Py-qwC" customClass="MineController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MineController" title="我的" useStoryboardIdentifierAsRestorationIdentifier="YES" id="V4g-Py-qwC" customClass="MineController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mhP-3w-GqI"/>
                         <viewControllerLayoutGuide type="bottom" id="htC-sG-op8"/>
@@ -20,8 +20,27 @@
                     <view key="view" contentMode="scaleToFill" id="y0W-rA-BEP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ktm-9p-mAy">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="V4g-Py-qwC" id="9FQ-iq-qDh"/>
+                                    <outlet property="delegate" destination="V4g-Py-qwC" id="7FH-xO-Vn2"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ktm-9p-mAy" firstAttribute="top" secondItem="mhP-3w-GqI" secondAttribute="bottom" id="DCB-ms-VLH"/>
+                            <constraint firstItem="ktm-9p-mAy" firstAttribute="leading" secondItem="y0W-rA-BEP" secondAttribute="leading" id="KIf-BE-XI3"/>
+                            <constraint firstItem="htC-sG-op8" firstAttribute="top" secondItem="ktm-9p-mAy" secondAttribute="bottom" id="hPH-qN-kKg"/>
+                            <constraint firstAttribute="trailing" secondItem="ktm-9p-mAy" secondAttribute="trailing" id="q47-qM-qYk"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="ktm-9p-mAy" id="dWE-Pr-jIQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VhD-wM-hho" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

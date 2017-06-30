@@ -47,6 +47,7 @@
 		70F10D3A1F05EA3E000565BA /* HotCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F10D391F05EA3E000565BA /* HotCollectionView.m */; };
 		70F10D401F05EAB5000565BA /* HotCreditCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F10D3F1F05EAB5000565BA /* HotCreditCell.m */; };
 		70F10D431F05EC63000565BA /* HotLoanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F10D421F05EC63000565BA /* HotLoanCell.m */; };
+		70F10D461F05F77E000565BA /* HotHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F10D451F05F77E000565BA /* HotHeaderCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -126,6 +127,8 @@
 		70F10D3F1F05EAB5000565BA /* HotCreditCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotCreditCell.m; sourceTree = "<group>"; };
 		70F10D411F05EC63000565BA /* HotLoanCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotLoanCell.h; sourceTree = "<group>"; };
 		70F10D421F05EC63000565BA /* HotLoanCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotLoanCell.m; sourceTree = "<group>"; };
+		70F10D441F05F77E000565BA /* HotHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotHeaderCell.h; sourceTree = "<group>"; };
+		70F10D451F05F77E000565BA /* HotHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotHeaderCell.m; sourceTree = "<group>"; };
 		900E8CE1C98C5FAFDD2DD735 /* Pods_loan_shop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_loan_shop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -278,6 +281,8 @@
 				70F10D391F05EA3E000565BA /* HotCollectionView.m */,
 				70F10D3E1F05EAB5000565BA /* HotCreditCell.h */,
 				70F10D3F1F05EAB5000565BA /* HotCreditCell.m */,
+				70F10D441F05F77E000565BA /* HotHeaderCell.h */,
+				70F10D451F05F77E000565BA /* HotHeaderCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -597,6 +602,7 @@
 				701D00881F04F2EC00BAFA4D /* LoanController.m in Sources */,
 				701D008E1F04F9E000BAFA4D /* ProcessViewController.m in Sources */,
 				70F10D431F05EC63000565BA /* HotLoanCell.m in Sources */,
+				70F10D461F05F77E000565BA /* HotHeaderCell.m in Sources */,
 				701D00BD1F0510FD00BAFA4D /* KNCustomPageControl.m in Sources */,
 				701D00551F04E9D300BAFA4D /* HomeViewController.m in Sources */,
 			);

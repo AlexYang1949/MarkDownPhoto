@@ -11,6 +11,7 @@
 #import "HotCollectionView.h"
 #import "HotLoanCell.h"
 #import "HotCreditCell.h"
+#import "HotHeaderCell.h"
 
 @interface HomeViewController ()<KNBannerViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 @property (nonatomic, strong) NSMutableArray *dataArr;
@@ -31,7 +32,7 @@
 // 样式1
 - (void)setupBanner{
     KNBannerView *bannerView = [KNBannerView bannerViewWithNetWorkImagesArr:self.urlArr
-                                                                      frame:CGRectMake(0, 0, self.view.frame.size.width, 100)];
+                                                                      frame:CGRectMake(0, 0, self.view.frame.size.width, 120)];
     /*
      * 以下都是 基本属性的设置
      */
@@ -47,11 +48,12 @@
 
 - (void)loadCollectionView{
     [self.collectionView setCollectionViewLayout:[self layout]];
+    [self.collectionView registerClass:[HotHeaderCell class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HotHeaderCell"];
 }
 
 - (UICollectionViewFlowLayout *)layout{
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    layout.headerReferenceSize = CGSizeMake(MAIN_BOUNDS_WIDTH, 40);
+    layout.headerReferenceSize = CGSizeMake(MAIN_BOUNDS_WIDTH, 30);
     //行与行的最小间距
     layout.minimumLineSpacing = 0;
     //每行的item与item之间最小间隔
@@ -78,6 +80,11 @@
     }
 }
 
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    HotHeaderCell *header = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HotHeaderCell" forIndexPath:indexPath];
+    return  header;
+}
+
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section==0) {
         return CGSizeMake(MAIN_BOUNDS_WIDTH/2 ,80);
@@ -92,9 +99,6 @@
 
 
 - (void)bannerView:(KNBannerView *)bannerView collectionView:(UICollectionView *)collectionView collectionViewCell:(KNBannerCollectionViewCell *)collectionViewCell didSelectItemAtIndexPath:(NSInteger)index{
-    
-    NSLog(@"%@",collectionViewCell.imageView);
-    
     
     NSLog(@"BannerView :%zd -- index :%zd",bannerView.tag,index);
 }

@@ -9,6 +9,7 @@
 #import "LoanController.h"
 #import "LoanChannelCell.h"
 #import "LoanCollectionView.h"
+#import "HotHeaderCell.h"
 static NSString *cellId = @"loanCell";
 @interface LoanController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet LoanCollectionView *collectionView;
@@ -18,12 +19,13 @@ static NSString *cellId = @"loanCell";
 @implementation LoanController
 -(void)viewDidLoad{
     [self.collectionView setCollectionViewLayout:[self layout]];
+    [self.collectionView registerClass:[HotHeaderCell class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HotHeaderCell"];
 }
 
 - (UICollectionViewFlowLayout *)layout{
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     layout.itemSize = CGSizeMake(MAIN_BOUNDS_WIDTH/2 ,80);
-    layout.headerReferenceSize = CGSizeMake(MAIN_BOUNDS_WIDTH, 40);
+    layout.headerReferenceSize = CGSizeMake(MAIN_BOUNDS_WIDTH, 30);
     //行与行的最小间距
     layout.minimumLineSpacing = 0;
     //每行的item与item之间最小间隔
@@ -51,11 +53,10 @@ static NSString *cellId = @"loanCell";
 }
 
 // header footer
-//- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
-//    TTAppLayoutHeader *header = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:SUPPLEMENT_ID forIndexPath:indexPath];
-//    header.titleName = @"应用";
-//    return  header;
-//}
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    HotHeaderCell *header = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HotHeaderCell" forIndexPath:indexPath];
+    return  header;
+}
 
 
 @end
