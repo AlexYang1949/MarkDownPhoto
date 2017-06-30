@@ -19,4 +19,5 @@
 
 #define COLORHEX(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 #define COLOR_MAIN COLORHEX(0x267cef)
+#define COLOR_BACK COLORHEX(0xf6f6f6)
 #endif /* Config_h */

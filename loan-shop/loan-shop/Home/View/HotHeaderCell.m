@@ -26,6 +26,11 @@
     _moreButton.hidden = YES;
 }
 
+-(void)setTitle:(NSString *)title{
+    _title = title;
+    _titleLable.text = title;
+}
+
 - (void)loadUI{
     _titleLable = [[UILabel alloc] initWithFrame:CGRectMake(20, self.height - HEIGHT_TITLE, self.width/2, HEIGHT_TITLE)];
     _titleLable.text = @"标题";
@@ -47,10 +52,5 @@
         _moreBlcok();
     }
 }
-   
 
--(void)setTitle:(NSString *)title{
-    _title = title;
-    _titleLable.text = title;
-}
 @end

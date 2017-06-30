@@ -20,8 +20,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.rightBarButtonItem =[[UIBarButtonItem alloc] initWithTitle:@"进度查询" style:UIBarButtonItemStylePlain target:self action:@selector(process)];
-    
-                                             
 }
 
 - (void)process{
@@ -57,4 +55,15 @@
     [self openHtml:@"https://www.baidu.com"];
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 30;
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, MAIN_BOUNDS_WIDTH, 30)];
+    label.text = @"   信用卡推荐";
+    label.textColor = [UIColor blackColor];
+    label.backgroundColor = COLOR_BACK;
+    return label;
+}
 @end

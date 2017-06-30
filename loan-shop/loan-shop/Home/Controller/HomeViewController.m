@@ -92,10 +92,12 @@
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     HotHeaderCell *header = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HotHeaderCell" forIndexPath:indexPath];
     if (indexPath.section==0) {
+        header.title = @"热门推荐";
         header.moreBlcok =^(){
             [self.tabBarController setSelectedIndex:1];
         };
     }else{
+        header.title = @"推荐办卡";
         header.moreBlcok =^(){
             [self.tabBarController setSelectedIndex:2];
         };
