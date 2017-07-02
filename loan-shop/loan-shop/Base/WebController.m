@@ -21,7 +21,15 @@
     [self.view addSubview:_webView];
     [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_urlStr]]];
 }
+- (void)viewWillAppear:(BOOL)animated{
+    
+    self.tabBarController.tabBar.hidden = YES;
+    
+}
 
+-(void)viewWillDisappear:(BOOL)animated{
+    self.tabBarController.tabBar.hidden = YES;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

@@ -153,6 +153,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		27FAD6711F0890D700073615 /* NetWork */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NetWork;
+			sourceTree = "<group>";
+		};
 		701D00191F04E94200BAFA4D = {
 			isa = PBXGroup;
 			children = (
@@ -377,6 +384,7 @@
 		701D005C1F04ECC500BAFA4D /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				27FAD6711F0890D700073615 /* NetWork */,
 				701D005D1F04ECC500BAFA4D /* Category */,
 				701D005E1F04ECC500BAFA4D /* Tools */,
 			);

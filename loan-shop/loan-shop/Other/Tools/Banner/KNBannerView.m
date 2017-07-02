@@ -172,7 +172,7 @@ static NSString *const KNCollectionViewID = @"KNBannerViewCollectionViewID";
     [_defaultModel setPlaceHolder:[UIImage imageNamed:@"KNBannerViewSource.bundle/placeHolder.png"]];
     
     [_defaultModel setPageControlImgArr:nil];
-    [_defaultModel setCurrentPageIndicatorTintColor:[UIColor greenColor]];
+    [_defaultModel setCurrentPageIndicatorTintColor:COLOR_MAIN];
     [_defaultModel setPageIndicatorTintColor:[UIColor whiteColor]];
     [_defaultModel setIsNeedPageControl:NO];
     [_defaultModel setPageControlStyle:KNBannerPageControlStyleRight];
