@@ -242,17 +242,17 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="申请条件:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6IG-kp-x4A">
-                                                    <rect key="frame" x="20" y="10" width="84" height="19.5"/>
+                                                    <rect key="frame" x="20" y="10" width="84" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="84" id="0Nf-Pj-iou"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="年龄满18岁，年龄满18岁，年龄满18岁，年龄满18岁，年龄满18岁，年龄满18岁，年龄满18岁" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VvU-fe-WNO">
-                                                    <rect key="frame" x="20" y="39.5" width="335" height="36"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123123" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VvU-fe-WNO">
+                                                    <rect key="frame" x="20" y="38" width="335" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -266,6 +266,10 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.92621901543476348" green="0.92513433665540989" blue="0.93584034974093266" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="condition" destination="VvU-fe-WNO" id="1Sv-92-QSf"/>
+                                            <outlet property="titleName" destination="6IG-kp-x4A" id="2j6-Nl-gRj"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

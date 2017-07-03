@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface LoanQualifyCell : UITableViewCell
-
+@property(nonatomic ,strong)NSString *title;
 @end

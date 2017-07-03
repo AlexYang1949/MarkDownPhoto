@@ -12,7 +12,7 @@
 
 @interface LoanDetailController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
+@property (strong, nonatomic) NSArray *titleArray;
 @end
 
 @implementation LoanDetailController
@@ -20,6 +20,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    _titleArray = @[@"申请条件",@"申请材料",@"审核说明"];
+    // 申请条件 申请材料 审核说明
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -42,6 +44,7 @@
     }else{
         LoanQualifyCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LoanQualifyCell"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.title = _titleArray[indexPath.row-1];
         return cell;
     }
 }
