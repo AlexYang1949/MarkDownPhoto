@@ -9,6 +9,7 @@
 #import "LoanController.h"
 #import "LoanChannelCell.h"
 #import "LoanCollectionView.h"
+#import "LoanDetailController.h"
 #import "HotHeaderCell.h"
 static NSString *cellId = @"loanCell";
 @interface LoanController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
@@ -49,7 +50,9 @@ static NSString *cellId = @"loanCell";
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    [self openHtml:@"https://www.baidu.com"];
+    LoanDetailController *detailVc = [self getViewController:@"LoanDetailController" onStoryBoard:@"Loan"];
+    [self.navigationController pushViewController:detailVc animated:YES];
+//    [self openHtml:@"https://www.baidu.com"];
 }
 
 // header footer
