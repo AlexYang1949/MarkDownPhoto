@@ -19,11 +19,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 4;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row==0) {
+        return 180;
+    }else{
+        return 80;
+    }
+    
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -32,6 +41,7 @@
         return cell;
     }else{
         LoanQualifyCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LoanQualifyCell"];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
 }
