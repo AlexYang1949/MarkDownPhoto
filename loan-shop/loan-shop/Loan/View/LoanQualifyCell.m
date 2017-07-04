@@ -7,6 +7,7 @@
 //
 
 #import "LoanQualifyCell.h"
+
 @interface LoanQualifyCell()
 @property (weak, nonatomic) IBOutlet UILabel *condition;
 @property (weak, nonatomic) IBOutlet UILabel *titleName;
@@ -24,10 +25,12 @@
 -(void)setTitle:(NSString *)title{
     self.titleName.text = title;
 }
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-    
-    // Configure the view for the selected state
-}
+
+//+(CGFloat)countHeightWithTitle:(NSString *)title{
+//    NSDictionary *attributes = @{NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue" size:14]};
+//    CGSize size = CGSizeMake([UIScreen mainScreen].bounds.size.width-3*SidePadding-TitleImageH, MAXFLOAT);
+//    CGFloat textHeight =  [title boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil].size.height;
+//    return NormalHeight + textHeight;
+//}
 
 @end
