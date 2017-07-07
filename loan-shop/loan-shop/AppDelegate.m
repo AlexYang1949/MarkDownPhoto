@@ -20,13 +20,13 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    if (YES) {
-        HomeViewController *liveVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"HomeViewController"];
-        self.window.rootViewController = liveVC;
-    }else{
-        self.window.rootViewController = [MainTabBarController sharedInstance];
+//    if (YES) {
+//        HomeViewController *liveVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"HomeViewController"];
+//        self.window.rootViewController = liveVC;
+//    }else{
+    self.window.rootViewController = [MainTabBarController sharedInstance];
         
-    }
+//    }
     
     return YES;
 }

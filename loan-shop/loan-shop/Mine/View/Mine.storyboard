@@ -363,7 +363,7 @@
         <!--Rare Book Controller-->
         <scene sceneID="ZaG-Ym-l1Y">
             <objects>
-                <viewController storyboardIdentifier="RareBookController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ou0-82-OJs" customClass="RareBookController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RareBookController" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ou0-82-OJs" customClass="RareBookController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vwC-Oc-jHJ"/>
                         <viewControllerLayoutGuide type="bottom" id="lJ6-OG-Sfw"/>
@@ -431,7 +431,7 @@
                                 <rect key="frame" x="0.0" y="46" width="375" height="621"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="94" id="VM2-zZ-heW">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RareBookCell" rowHeight="94" id="VM2-zZ-heW" customClass="RareBookCell">
                                         <rect key="frame" x="0.0" y="28" width="375" height="94"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VM2-zZ-heW" id="Ra1-nW-bgn">
@@ -462,6 +462,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Ou0-82-OJs" id="Viz-c6-dCV"/>
+                                    <outlet property="delegate" destination="Ou0-82-OJs" id="F9E-ou-1cU"/>
+                                </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rzO-gD-I6m">
                                 <rect key="frame" x="0.0" y="45" width="375" height="1"/>
@@ -508,10 +512,13 @@
                             <constraint firstItem="HyA-qr-NIY" firstAttribute="top" secondItem="zh3-1A-6H8" secondAttribute="top" id="yCM-Qb-1Bc"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="xe0-OH-sCr" id="V7G-JI-U5u"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n61-Us-MzT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2329" y="-96"/>
+            <point key="canvasLocation" x="2422" y="-101"/>
         </scene>
     </scenes>
     <resources>

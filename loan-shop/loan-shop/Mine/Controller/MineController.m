@@ -58,7 +58,6 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section==1 &&indexPath.row==1) {
         RareBookController *rareVc = [self getViewController:@"RareBookController" onStoryBoard:@"Mine"];
-//        BaseNavController *rareNav = [[BaseNavController alloc] initWithRootViewController:rareVc];
         [self.navigationController pushViewController:rareVc animated:YES];
     }
     if (indexPath.section==_dataArray.count-1 && indexPath.row==1) {
