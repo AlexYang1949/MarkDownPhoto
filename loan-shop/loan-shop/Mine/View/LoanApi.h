@@ -17,5 +17,17 @@ typedef void(^finishBlock)(BOOL success,id resultObj, NSError *error);
 @interface LoanApi : NSObject
 + (instancetype)sharedInstance;
 
+// 首页
 + (void)getAdImagePageNum:(NSUInteger)pageNum Size:(NSUInteger)size finish:(finishBlock)finished;
++ (void)getHotPageNum:(NSUInteger)pageNum Size:(NSUInteger)size finish:(finishBlock)finished;
+
+// 贷款
++ (void)getLoanListPageNum:(NSUInteger)pageNum Size:(NSUInteger)size finish:(finishBlock)finished;
++ (void)getLoanDetailId:(NSString *)Id finish:(finishBlock)finished;
+
+// 信用卡
++ (void)getBankListPageNum:(NSUInteger)pageNum Size:(NSUInteger)size finish:(finishBlock)finished;
++ (void)getCreditWithBankId:(NSString *)bankId finish:(finishBlock)finished;
++ (void)getCreditDetailId:(NSString *)bankId finish:(finishBlock)finished;
+
 @end
