@@ -28,6 +28,10 @@
     // Do any additional setup after loading the view.
     [self setupBanner];
     [self loadCollectionView];
+    
+    [LoanApi getAdImagePageNum:0 Size:10 finish:^(BOOL success, id resultObj, NSError *error) {
+        
+    }];
 }
 
 - (KNBannerView *)setupBanner{
