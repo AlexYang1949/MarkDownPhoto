@@ -33,17 +33,15 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     HomeCardModel *cardInfo = [[HomeCardModel alloc] init];
-    cardInfo.icon = @"icon";
-    cardInfo.bankName = @"柠檬银行";
-    cardInfo.subTitle = @"新用户办理即送100000万红包";
+
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.textLabel.text = cardInfo.bankName;
-    cell.detailTextLabel.text = cardInfo.subTitle;
-    cell.imageView.image = [UIImage imageNamed:cardInfo.icon];
+    cell.textLabel.text = cardInfo.name;
+    cell.detailTextLabel.text = cardInfo.remark;
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:cardInfo.iconShowUrl]];
     return cell;
 }
 

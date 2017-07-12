@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Loan Controller-->
+        <!--贷款-->
         <scene sceneID="Lz3-9b-0gf">
             <objects>
-                <viewController storyboardIdentifier="LoanController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="TQR-RK-ADB" customClass="LoanController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoanController" title="贷款" useStoryboardIdentifierAsRestorationIdentifier="YES" id="TQR-RK-ADB" customClass="LoanController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="v1j-g1-d1K"/>
                         <viewControllerLayoutGuide type="bottom" id="elY-a5-K0j"/>

@@ -13,7 +13,7 @@
 @end
 
 
-typedef void(^finishBlock)(BOOL success,id resultObj, NSError *error);
+typedef void(^finishBlock)(BOOL success,NSDictionary * resultObj, NSError *error);
 @interface LoanApi : NSObject
 + (instancetype)sharedInstance;
 

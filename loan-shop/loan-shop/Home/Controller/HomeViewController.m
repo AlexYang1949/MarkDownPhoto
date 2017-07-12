@@ -13,12 +13,20 @@
 #import "HotCreditCell.h"
 #import "HotHeaderCell.h"
 
+
+
+// model
+#import "HomeCardModel.h"
+
 @interface HomeViewController ()<KNBannerViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 @property (nonatomic, strong) NSMutableArray *dataArr;
 @property (nonatomic, strong) NSMutableArray *urlArr;
 @property (nonatomic, strong) UIPageControl *pageControl;
 @property (nonatomic, strong) KNBannerView *bannerView;
 @property (weak, nonatomic) IBOutlet HotCollectionView *collectionView;
+
+@property (nonatomic, strong) NSArray *bankArray;
+@property (nonatomic, strong) NSArray *loanArray;
 @end
 
 @implementation HomeViewController
@@ -28,9 +36,23 @@
     // Do any additional setup after loading the view.
     [self setupBanner];
     [self loadCollectionView];
+    [self setupData];
     
-    [LoanApi getAdImagePageNum:0 Size:10 finish:^(BOOL success, id resultObj, NSError *error) {
+}
+
+- (void)setupData{
+    [LoanApi getAdImagePageNum:0 Size:1000 finish:^(BOOL success, NSDictionary * resultObj, NSError *error) {
+        NSDictionary *result = resultObj[@"result"];
+//        NSArray *adArray = [@"content"];
         
+    }];
+    
+    [LoanApi getHotPageNum:0 Size:1000 finish:^(BOOL success, NSDictionary *resultObj, NSError *error) {
+        NSDictionary *result = resultObj[@"result"];
+        if (!ISNULL(result)) {
+            _bankArray = [HomeCardModel mj_objectArrayWithKeyValuesArray:(NSArray *)result[@"banks"]];
+            [_collectionView reloadData];
+        }
     }];
 }
 
@@ -76,7 +98,11 @@
 
 #pragma mark - collectionView datasource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 10;
+    if (section==0) {
+        return 10;
+    }else{
+        return _bankArray.count;
+    }
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
@@ -89,6 +115,7 @@
         return cell;
     }else{
         HotCreditCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HotCreditCell" forIndexPath:indexPath];
+        cell.model = _bankArray[indexPath.row];
         return cell;
     }
 }

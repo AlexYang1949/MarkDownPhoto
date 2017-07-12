@@ -9,7 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @interface HomeCardModel : NSObject
-@property(nonatomic ,strong) NSString *bankName;
-@property(nonatomic ,strong) NSString *subTitle;
-@property(nonatomic ,strong) NSString *icon;
+@property(nonatomic ,strong) NSString *name;
+@property(nonatomic ,strong) NSString *remark;
+@property(nonatomic ,strong) NSString *iconShowUrl;
+@property(nonatomic ,strong) NSString *link;
+@property(nonatomic ,strong) NSString *progress;
 @end

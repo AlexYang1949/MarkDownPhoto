@@ -24,5 +24,8 @@
 // 常用define
 #define ISNULL(val) (val==nil || (NSNull*)val== [NSNull null])
 
-#include "LoanApi.h"
+#import "LoanApi.h"
+#import "MJExtension.h"
+
+
 #endif /* Config_h */

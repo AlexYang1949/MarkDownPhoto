@@ -90,7 +90,7 @@
 		701D00621F04EEFD00BAFA4D /* MainTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBar.h; sourceTree = "<group>"; };
 		701D00631F04EEFD00BAFA4D /* MainTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBar.m; sourceTree = "<group>"; };
 		701D00651F04EF4900BAFA4D /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		701D00661F04EF6C00BAFA4D /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
+		701D00661F04EF6C00BAFA4D /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Config.h; path = Other/Tools/Config.h; sourceTree = "<group>"; };
 		701D00671F04F05D00BAFA4D /* BaseNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavController.h; sourceTree = "<group>"; };
 		701D00681F04F05D00BAFA4D /* BaseNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavController.m; sourceTree = "<group>"; };
 		701D006A1F04F19500BAFA4D /* NSString+Additional.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Additional.h"; sourceTree = "<group>"; };
@@ -232,6 +232,7 @@
 		701D00251F04E94300BAFA4D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				701D00661F04EF6C00BAFA4D /* Config.h */,
 				701D00311F04E94300BAFA4D /* Assets.xcassets */,
 				701D00331F04E94300BAFA4D /* LaunchScreen.storyboard */,
 				701D00291F04E94300BAFA4D /* AppDelegate.m */,
@@ -465,7 +466,6 @@
 			isa = PBXGroup;
 			children = (
 				701D009E1F050C2600BAFA4D /* Banner */,
-				701D00661F04EF6C00BAFA4D /* Config.h */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
