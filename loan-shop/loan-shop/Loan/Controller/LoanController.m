@@ -14,13 +14,20 @@
 static NSString *cellId = @"loanCell";
 @interface LoanController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet LoanCollectionView *collectionView;
-
+@property(nonatomic ,strong) NSArray *dataArray;
 @end
 
 @implementation LoanController
 -(void)viewDidLoad{
     [self.collectionView setCollectionViewLayout:[self layout]];
     [self.collectionView registerClass:[HotHeaderCell class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HotHeaderCell"];
+    [self setupData];
+}
+
+- (void)setupData{
+    [LoanApi getLoanListPageNum:0 Size:10000 finish:^(BOOL success, NSDictionary *resultObj, NSError *error) {
+        
+    }];
 }
 
 - (UICollectionViewFlowLayout *)layout{
@@ -32,7 +39,6 @@ static NSString *cellId = @"loanCell";
     //每行的item与item之间最小间隔
     layout.minimumInteritemSpacing = 0;
     return layout;
-//    layout.sectionInset = UIEdgeInsetsMake(0, 0, 15, 0);
 }
 
 #pragma mark - collectionView datasource
@@ -52,7 +58,6 @@ static NSString *cellId = @"loanCell";
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     LoanDetailController *detailVc = [self getViewController:@"LoanDetailController" onStoryBoard:@"Loan"];
     [self.navigationController pushViewController:detailVc animated:YES];
-//    [self openHtml:@"https://www.baidu.com"];
 }
 
 // header footer

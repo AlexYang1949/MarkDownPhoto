@@ -21,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
      self.tableView.tableFooterView=[[UIView alloc]init];
-    _dataArray = @[@[@"浏览记录",@"信用卡进度查询"],@[@"交流群",@"秘籍",@"关于我们"],@[@"设置",@"注册登录"]];
+    _dataArray = @[@[@"注册/登录"],@[@"浏览记录",@"信用卡进度查询"],@[@"交流群",@"秘籍",@"关于我们"],@[@"设置"]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,6 +48,14 @@
     return cell;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section==0&&indexPath.row==0) {
+        return 60;
+    }else{
+        return 50;
+    }
+}
+
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     if (section==_dataArray.count-1) {
         return 0;
@@ -60,7 +68,7 @@
         RareBookController *rareVc = [self getViewController:@"RareBookController" onStoryBoard:@"Mine"];
         [self.navigationController pushViewController:rareVc animated:YES];
     }
-    if (indexPath.section==_dataArray.count-1 && indexPath.row==1) {
+    if (indexPath.section==0 && indexPath.row==0) {
         LoginController *loginVc = [self getViewController:@"LoginController" onStoryBoard:@"Mine"];
         BaseNavController *loginNav = [[BaseNavController alloc] initWithRootViewController:loginVc];
         [self presentViewController:loginNav animated:YES completion:nil];

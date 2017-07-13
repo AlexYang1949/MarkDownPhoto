@@ -22,6 +22,13 @@
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _titleArray = @[@"申请条件",@"申请材料",@"审核说明"];
     // 申请条件 申请材料 审核说明
+    [self setupData];
+}
+
+- (void)setupData{
+    [LoanApi getLoanDetailId:_loanId finish:^(BOOL success, NSDictionary *resultObj, NSError *error) {
+        
+    }];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

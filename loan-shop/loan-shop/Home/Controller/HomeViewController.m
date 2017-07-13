@@ -37,7 +37,6 @@
     [self setupBanner];
     [self loadCollectionView];
     [self setupData];
-    
 }
 
 - (void)setupData{
@@ -59,24 +58,15 @@
 - (KNBannerView *)setupBanner{
     KNBannerView *bannerView = [KNBannerView bannerViewWithNetWorkImagesArr:self.urlArr
                                                                       frame:CGRectMake(0, 0, self.view.frame.size.width, HEIGHT_BANNER)];
-    /*
-     * 以下都是 基本属性的设置
-     */
     [bannerView setDelegate:self]; // 设置代理, 为了实现代理方法
-    
     KNBannerViewModel *viewM = [[KNBannerViewModel alloc] init]; // 统一通过 设置 模型来设置 里面的参数
-    
     [viewM setIsNeedPageControl:YES]; // 默认系统PageControl
     [viewM setPageControlStyle:KNBannerPageControlStyleMiddel]; // 设置pageControl 在居中
-    
     [viewM setIsNeedTimerRun:YES]; // 是否需要定时
     [viewM setBannerTimeInterval:1]; // 改变 定时器时间
-    
     [bannerView setBannerViewModel:viewM]; // 通过模型设置属性 -->赋值
-    
     [self.collectionView addSubview:bannerView];
     _bannerView = bannerView;
-
     return _bannerView;
 }
 
@@ -87,7 +77,6 @@
 
 - (UICollectionViewFlowLayout *)layout{
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    
     layout.headerReferenceSize = CGSizeMake(MAIN_BOUNDS_WIDTH, 30);
     //行与行的最小间距
     layout.minimumLineSpacing = 0;
