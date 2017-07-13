@@ -21,4 +21,11 @@
 #define COLOR_MAIN COLORHEX(0x267cef)
 #define COLOR_BACK COLORHEX(0xf6f6f6)
 #define COLOR_GRAY COLORHEX(0xB8B8B8)
+
+// 常用define
+#define ISNULL(val) (val==nil || (NSNull*)val== [NSNull null])
+
+#import "LoanApi.h"
+#import "MJExtension.h"
+
 #endif /* Config_h */

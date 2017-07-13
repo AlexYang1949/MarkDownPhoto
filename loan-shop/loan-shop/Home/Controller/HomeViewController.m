@@ -13,12 +13,20 @@
 #import "HotCreditCell.h"
 #import "HotHeaderCell.h"
 
+
+
+// model
+#import "HomeCardModel.h"
+
 @interface HomeViewController ()<KNBannerViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 @property (nonatomic, strong) NSMutableArray *dataArr;
 @property (nonatomic, strong) NSMutableArray *urlArr;
 @property (nonatomic, strong) UIPageControl *pageControl;
 @property (nonatomic, strong) KNBannerView *bannerView;
 @property (weak, nonatomic) IBOutlet HotCollectionView *collectionView;
+
+@property (nonatomic, strong) NSArray *bankArray;
+@property (nonatomic, strong) NSArray *loanArray;
 @end
 
 @implementation HomeViewController
@@ -28,29 +36,37 @@
     // Do any additional setup after loading the view.
     [self setupBanner];
     [self loadCollectionView];
+    [self setupData];
+}
+
+- (void)setupData{
+    [LoanApi getAdImagePageNum:0 Size:1000 finish:^(BOOL success, NSDictionary * resultObj, NSError *error) {
+        NSDictionary *result = resultObj[@"result"];
+//        NSArray *adArray = [@"content"];
+        
+    }];
+    
+    [LoanApi getHotPageNum:0 Size:1000 finish:^(BOOL success, NSDictionary *resultObj, NSError *error) {
+        NSDictionary *result = resultObj[@"result"];
+        if (!ISNULL(result)) {
+            _bankArray = [HomeCardModel mj_objectArrayWithKeyValuesArray:(NSArray *)result[@"banks"]];
+            [_collectionView reloadData];
+        }
+    }];
 }
 
 - (KNBannerView *)setupBanner{
     KNBannerView *bannerView = [KNBannerView bannerViewWithNetWorkImagesArr:self.urlArr
                                                                       frame:CGRectMake(0, 0, self.view.frame.size.width, HEIGHT_BANNER)];
-    /*
-     * 以下都是 基本属性的设置
-     */
     [bannerView setDelegate:self]; // 设置代理, 为了实现代理方法
-    
     KNBannerViewModel *viewM = [[KNBannerViewModel alloc] init]; // 统一通过 设置 模型来设置 里面的参数
-    
     [viewM setIsNeedPageControl:YES]; // 默认系统PageControl
     [viewM setPageControlStyle:KNBannerPageControlStyleMiddel]; // 设置pageControl 在居中
-    
     [viewM setIsNeedTimerRun:YES]; // 是否需要定时
     [viewM setBannerTimeInterval:1]; // 改变 定时器时间
-    
     [bannerView setBannerViewModel:viewM]; // 通过模型设置属性 -->赋值
-    
     [self.collectionView addSubview:bannerView];
     _bannerView = bannerView;
-
     return _bannerView;
 }
 
@@ -61,7 +77,6 @@
 
 - (UICollectionViewFlowLayout *)layout{
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    
     layout.headerReferenceSize = CGSizeMake(MAIN_BOUNDS_WIDTH, 30);
     //行与行的最小间距
     layout.minimumLineSpacing = 0;
@@ -72,7 +87,11 @@
 
 #pragma mark - collectionView datasource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 10;
+    if (section==0) {
+        return 10;
+    }else{
+        return _bankArray.count;
+    }
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
@@ -85,6 +104,7 @@
         return cell;
     }else{
         HotCreditCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HotCreditCell" forIndexPath:indexPath];
+        cell.model = _bankArray[indexPath.row];
         return cell;
     }
 }

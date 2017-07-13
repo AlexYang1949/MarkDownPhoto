@@ -9,5 +9,5 @@
 #import "BaseViewController.h"
 
 @interface LoanDetailController : BaseViewController
-
+@property(nonatomic ,strong) NSString *loanId;
 @end

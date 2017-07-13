@@ -51,6 +51,7 @@
 		701D00C11F0510FD00BAFA4D /* KNBannerViewText.m in Sources */ = {isa = PBXBuildFile; fileRef = 701D00B81F0510FD00BAFA4D /* KNBannerViewText.m */; };
 		701D00C21F0510FD00BAFA4D /* UIView+KNExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 701D00BA1F0510FD00BAFA4D /* UIView+KNExtension.m */; };
 		702E42361F0F84FB002B3706 /* RareBookCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 702E42351F0F84FB002B3706 /* RareBookCell.m */; };
+		703332A71F1485E5007BFB9F /* LoanApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 703332A61F1485E5007BFB9F /* LoanApi.m */; };
 		703C13B91F09F9E40029A9B2 /* LoanDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 703C13B81F09F9E40029A9B2 /* LoanDetailController.m */; };
 		703C13BE1F09FD3B0029A9B2 /* LoanDetailHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 703C13BD1F09FD3B0029A9B2 /* LoanDetailHeaderCell.m */; };
 		703C13C11F09FD790029A9B2 /* LoanQualifyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 703C13C01F09FD790029A9B2 /* LoanQualifyCell.m */; };
@@ -101,7 +102,7 @@
 		701D00621F04EEFD00BAFA4D /* MainTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBar.h; sourceTree = "<group>"; };
 		701D00631F04EEFD00BAFA4D /* MainTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBar.m; sourceTree = "<group>"; };
 		701D00651F04EF4900BAFA4D /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		701D00661F04EF6C00BAFA4D /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
+		701D00661F04EF6C00BAFA4D /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Config.h; path = Other/Tools/Config.h; sourceTree = "<group>"; };
 		701D00671F04F05D00BAFA4D /* BaseNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavController.h; sourceTree = "<group>"; };
 		701D00681F04F05D00BAFA4D /* BaseNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavController.m; sourceTree = "<group>"; };
 		701D006A1F04F19500BAFA4D /* NSString+Additional.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Additional.h"; sourceTree = "<group>"; };
@@ -151,6 +152,8 @@
 		701D00BA1F0510FD00BAFA4D /* UIView+KNExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+KNExtension.m"; sourceTree = "<group>"; };
 		702E42341F0F84FB002B3706 /* RareBookCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RareBookCell.h; sourceTree = "<group>"; };
 		702E42351F0F84FB002B3706 /* RareBookCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RareBookCell.m; sourceTree = "<group>"; };
+		703332A51F1485E5007BFB9F /* LoanApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoanApi.h; path = "loan-shop/Mine/View/LoanApi.h"; sourceTree = SOURCE_ROOT; };
+		703332A61F1485E5007BFB9F /* LoanApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoanApi.m; path = "loan-shop/Mine/View/LoanApi.m"; sourceTree = SOURCE_ROOT; };
 		703C13B71F09F9E40029A9B2 /* LoanDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoanDetailController.h; sourceTree = "<group>"; };
 		703C13B81F09F9E40029A9B2 /* LoanDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoanDetailController.m; sourceTree = "<group>"; };
 		703C13BC1F09FD3B0029A9B2 /* LoanDetailHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoanDetailHeaderCell.h; sourceTree = "<group>"; };
@@ -198,6 +201,8 @@
 		27FAD6711F0890D700073615 /* NetWork */ = {
 			isa = PBXGroup;
 			children = (
+				703332A51F1485E5007BFB9F /* LoanApi.h */,
+				703332A61F1485E5007BFB9F /* LoanApi.m */,
 			);
 			path = NetWork;
 			sourceTree = "<group>";
@@ -238,6 +243,7 @@
 		701D00251F04E94300BAFA4D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				701D00661F04EF6C00BAFA4D /* Config.h */,
 				701D00311F04E94300BAFA4D /* Assets.xcassets */,
 				701D00331F04E94300BAFA4D /* LaunchScreen.storyboard */,
 				701D00291F04E94300BAFA4D /* AppDelegate.m */,
@@ -472,7 +478,6 @@
 			isa = PBXGroup;
 			children = (
 				701D009E1F050C2600BAFA4D /* Banner */,
-				701D00661F04EF6C00BAFA4D /* Config.h */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -736,6 +741,7 @@
 				701D00C11F0510FD00BAFA4D /* KNBannerViewText.m in Sources */,
 				701CCDE71F0B89EF007788A2 /* RareBookController.m in Sources */,
 				70F10D401F05EAB5000565BA /* HotCreditCell.m in Sources */,
+				703332A71F1485E5007BFB9F /* LoanApi.m in Sources */,
 				701D00BE1F0510FD00BAFA4D /* KNBannerView.m in Sources */,
 				703C13C11F09FD790029A9B2 /* LoanQualifyCell.m in Sources */,
 				701D00911F04FBA600BAFA4D /* LoanChannelCell.m in Sources */,

@@ -18,8 +18,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self setNavLeftButtonwithImg:@"backNavItem" selImg:@"backNavItem" title:nil action:@selector(back)];
 }
+
+- (void)back{
+   [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -35,6 +40,7 @@
     [self.navigationController pushViewController:RegistVc animated:YES];
 }
 - (IBAction)lognClick:(id)sender {
+
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

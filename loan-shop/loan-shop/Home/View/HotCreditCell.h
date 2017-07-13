@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "HomeCardModel.h"
 @interface HotCreditCell : UICollectionViewCell
-
+@property(nonatomic ,strong) HomeCardModel *model;
 @end

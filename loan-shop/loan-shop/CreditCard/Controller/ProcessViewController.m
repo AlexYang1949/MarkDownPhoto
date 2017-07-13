@@ -9,34 +9,43 @@
 #import "ProcessViewController.h"
 #import "HomeCardModel.h"
 
+
 @interface ProcessViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
+@property (nonatomic, strong) NSArray *bankList;
 @end
 
 @implementation ProcessViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setupData];
     // Do any additional setup after loading the view.
 }
 
+- (void)setupData{
+    [LoanApi getBankListPageNum:0 Size:100 finish:^(BOOL success, NSDictionary *resultObj, NSError *error) {
+        NSDictionary *result = resultObj[@"result"];
+        if (!ISNULL(result)) {
+            _bankList = [HomeCardModel mj_objectArrayWithKeyValuesArray:(NSArray *)result[@"content"]];
+            [_tableView reloadData];
+        }
+    }];
+}
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 10;
+    return _bankList.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    HomeCardModel *cardInfo = [[HomeCardModel alloc] init];
-    cardInfo.icon = @"icon";
-    cardInfo.bankName = @"柠檬银行";
-    cardInfo.subTitle = @"新用户办理即送100000万红包";
+    HomeCardModel *cardInfo = _bankList[indexPath.row];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.textLabel.text = cardInfo.bankName;
-    cell.imageView.image = [UIImage imageNamed:cardInfo.icon];
+    cell.textLabel.text = cardInfo.name;
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:cardInfo.iconShowUrl] placeholderImage:[UIImage imageNamed:@"icon"]];
     return cell;
 }
 
@@ -45,7 +54,8 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [self openHtml:@"https://www.baidu.com"];
+    HomeCardModel *cardInfo = _bankList[indexPath.row];
+    [self openHtml:cardInfo.link];
 }
 
 

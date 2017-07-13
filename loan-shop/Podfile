@@ -7,6 +7,7 @@ use_frameworks!
 pod 'MBProgressHUD'
 pod 'AFNetworking'
 pod 'SDWebImage'
+pod 'MJExtension'
   # Pods for loan-shop
 
 end
