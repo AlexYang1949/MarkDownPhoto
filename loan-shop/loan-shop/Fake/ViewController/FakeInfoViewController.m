@@ -7,8 +7,12 @@
 //
 
 #import "FakeInfoViewController.h"
+#import "FakeInfoCell.h"
+#import "ProcessView.h"
+#import "FakeResultController.h"
 
-@interface FakeInfoViewController ()
+@interface FakeInfoViewController ()<UITableViewDelegate,UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet UIView *topView;
 
 @end
 
@@ -16,7 +20,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    ProcessView *pv =  [[[NSBundle mainBundle] loadNibNamed:@"FackHeader" owner:nil options:nil] lastObject];
+    pv.frame = _topView.frame;
+    pv.index = _index;
+    [_topView addSubview:pv];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,14 +32,35 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return _titleArray.count;
 }
-*/
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 50;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    FakeInfoCell *fakeCell = [tableView dequeueReusableCellWithIdentifier:@"FakeInfoCell"];
+    fakeCell.name = _titleArray[indexPath.row];
+    return fakeCell;
+}
+
+- (IBAction)nextPage:(UIButton *)sender {
+    if (_index==3) {
+        FakeResultController *resultVc = [self getViewController:@"FakeResultController" onStoryBoard:@"Fake"];
+        [self.navigationController pushViewController:resultVc animated:YES];
+    }else{
+        FakeInfoViewController *fakeVc = [self getViewController:@"FakeInfoViewController" onStoryBoard:@"Fake"];
+        fakeVc.index = _index+1;
+        if (_index==1) {
+            fakeVc.titleArray = @[@"运营商信息"];
+        }else if (_index==2){
+            fakeVc.titleArray = @[@"父亲姓名",@"父亲手机号",@"母亲姓名",@"母亲手机号"];
+        }
+        [self.navigationController pushViewController:fakeVc animated:YES];
+    }
+}
+
 
 @end

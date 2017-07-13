@@ -9,5 +9,6 @@
 #import "BaseViewController.h"
 
 @interface FakeInfoViewController : BaseViewController
-
+@property (nonatomic , strong) NSArray *titleArray;
+@property (nonatomic , assign) NSUInteger index;
 @end

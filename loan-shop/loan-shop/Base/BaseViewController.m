@@ -25,7 +25,8 @@
 }
 
 -(void)openHtml:(NSString *)url{
-    WebController *webVc = [[WebController alloc] init];
+    
+    WebController *webVc = [self getViewController:@"WebController" onStoryBoard:@"Base"];
     webVc.urlStr = url;
     [self.navigationController pushViewController:webVc animated:YES];
 }

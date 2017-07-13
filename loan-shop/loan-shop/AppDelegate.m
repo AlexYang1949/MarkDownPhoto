@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "MainTabBarController.h"
 #import "HomeViewController.h"
+#import "FakeHomeController.h"
+#import "BaseNavController.h"
 @interface AppDelegate ()
 
 @end
@@ -21,11 +23,12 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
 //    if (YES) {
-//        HomeViewController *liveVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"HomeViewController"];
-//        self.window.rootViewController = liveVC;
+    FakeHomeController *fakeVc = [[UIStoryboard storyboardWithName:@"Fake" bundle:nil] instantiateViewControllerWithIdentifier:@"FakeHomeController"];
+    BaseNavController *fakeNav = [[BaseNavController alloc] initWithRootViewController:fakeVc];
+    self.window.rootViewController = fakeNav;
 //    }else{
-    self.window.rootViewController = [MainTabBarController sharedInstance];
-        
+//    self.window.rootViewController = [MainTabBarController sharedInstance];
+    
 //    }
     
     return YES;

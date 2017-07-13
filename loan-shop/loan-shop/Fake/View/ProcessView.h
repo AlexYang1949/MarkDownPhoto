@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface ProcessView : UIView
+@property (nonatomic, assign) NSUInteger index;
 
 @end

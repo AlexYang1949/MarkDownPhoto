@@ -7,15 +7,40 @@
 //
 
 #import "ProcessView.h"
+@interface ProcessView()
+@property (weak, nonatomic) IBOutlet UILabel *moneyLabel;
+@property (weak, nonatomic) IBOutlet UILabel *idLabel;
+@property (weak, nonatomic) IBOutlet UILabel *phoneLabel;
+@property (weak, nonatomic) IBOutlet UILabel *loanLabel;
 
+@end
 @implementation ProcessView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+-(void)awakeFromNib{
+    [super awakeFromNib];
 }
-*/
+
+-(void)setIndex:(NSUInteger)index{
+    _moneyLabel.textColor = COLOR_GRAY;
+    _idLabel.textColor = COLOR_GRAY;
+    _phoneLabel.textColor = COLOR_GRAY;
+    _loanLabel.textColor = COLOR_GRAY;
+    switch (index) {
+        case 0:
+            _moneyLabel.textColor = COLOR_MAIN;
+            break;
+        case 1:
+            _idLabel.textColor = COLOR_MAIN;
+            break;
+        case 2:
+            _phoneLabel.textColor = COLOR_MAIN;
+            break;
+        case 3:
+            _loanLabel.textColor = COLOR_MAIN;
+            break;
+        default:
+            break;
+    }
+}
 
 @end
