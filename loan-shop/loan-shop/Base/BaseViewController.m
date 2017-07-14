@@ -68,6 +68,13 @@
     [self.navigationController pushViewController:webVc animated:YES];
 }
 
+- (void)showHudTitle:(NSString *)title delay:(CGFloat)delay{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    hud.mode = MBProgressHUDModeText;
 
+    hud.label.text = title;
+    
+    [hud hideAnimated:YES afterDelay:delay];
+}
 
 @end

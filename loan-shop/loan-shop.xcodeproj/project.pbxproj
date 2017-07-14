@@ -56,6 +56,7 @@
 		704333D71F0C7A72001377F6 /* FakeInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 704333D61F0C7A72001377F6 /* FakeInfoViewController.m */; };
 		704333DA1F0C7BEF001377F6 /* ProcessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 704333D91F0C7BEF001377F6 /* ProcessView.m */; };
 		704333DC1F0C7C04001377F6 /* ProcessView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 704333DB1F0C7C04001377F6 /* ProcessView.xib */; };
+		70A2AC8B1F189DBA00B3A0A3 /* AFURLSessionManager+Swizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A2AC8A1F189DBA00B3A0A3 /* AFURLSessionManager+Swizzle.m */; };
 		70F10D3A1F05EA3E000565BA /* HotCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F10D391F05EA3E000565BA /* HotCollectionView.m */; };
 		70F10D401F05EAB5000565BA /* HotCreditCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F10D3F1F05EAB5000565BA /* HotCreditCell.m */; };
 		70F10D431F05EC63000565BA /* HotLoanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F10D421F05EC63000565BA /* HotLoanCell.m */; };
@@ -158,6 +159,8 @@
 		704333D81F0C7BEF001377F6 /* ProcessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessView.h; sourceTree = "<group>"; };
 		704333D91F0C7BEF001377F6 /* ProcessView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessView.m; sourceTree = "<group>"; };
 		704333DB1F0C7C04001377F6 /* ProcessView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProcessView.xib; sourceTree = "<group>"; };
+		70A2AC891F189DBA00B3A0A3 /* AFURLSessionManager+Swizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AFURLSessionManager+Swizzle.h"; sourceTree = "<group>"; };
+		70A2AC8A1F189DBA00B3A0A3 /* AFURLSessionManager+Swizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AFURLSessionManager+Swizzle.m"; sourceTree = "<group>"; };
 		70F10D381F05EA3E000565BA /* HotCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotCollectionView.h; sourceTree = "<group>"; };
 		70F10D391F05EA3E000565BA /* HotCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotCollectionView.m; sourceTree = "<group>"; };
 		70F10D3E1F05EAB5000565BA /* HotCreditCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotCreditCell.h; sourceTree = "<group>"; };
@@ -458,6 +461,8 @@
 				701D00751F04F19500BAFA4D /* UITextField+Check.m */,
 				701D00761F04F19500BAFA4D /* UIView+Category.h */,
 				701D00771F04F19500BAFA4D /* UIView+Category.m */,
+				70A2AC891F189DBA00B3A0A3 /* AFURLSessionManager+Swizzle.h */,
+				70A2AC8A1F189DBA00B3A0A3 /* AFURLSessionManager+Swizzle.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -708,6 +713,7 @@
 				70F10D3A1F05EA3E000565BA /* HotCollectionView.m in Sources */,
 				70F10D4F1F062CDB000565BA /* RegistController.m in Sources */,
 				701D00941F04FBCF00BAFA4D /* HomeCardModel.m in Sources */,
+				70A2AC8B1F189DBA00B3A0A3 /* AFURLSessionManager+Swizzle.m in Sources */,
 				70F10D4C1F062CC3000565BA /* ForgetPwdViewController.m in Sources */,
 				701D00BF1F0510FD00BAFA4D /* KNBannerViewModel.m in Sources */,
 				701D007B1F04F19500BAFA4D /* UIImage+Additional.m in Sources */,

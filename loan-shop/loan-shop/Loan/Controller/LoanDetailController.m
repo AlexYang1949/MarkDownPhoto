@@ -26,6 +26,7 @@
 }
 
 - (void)setupData{
+    
     [LoanApi getLoanDetailId:_loanId finish:^(BOOL success, NSDictionary *resultObj, NSError *error) {
         
     }];

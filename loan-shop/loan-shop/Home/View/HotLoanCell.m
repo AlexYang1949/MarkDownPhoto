@@ -7,7 +7,18 @@
 //
 
 #import "HotLoanCell.h"
+@interface HotLoanCell()
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *termLable;
+@property (weak, nonatomic) IBOutlet UILabel *limitLabel;
+
+@end
 
 @implementation HotLoanCell
-
+-(void)setModel:(LoanDetailModel *)model{
+    _model = model;
+    _nameLabel.text = model.name;
+    _termLable.text = model.term;
+    _limitLabel.text = model.limitation;
+}
 @end

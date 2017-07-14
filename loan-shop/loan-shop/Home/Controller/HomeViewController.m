@@ -40,17 +40,20 @@
 }
 
 - (void)setupData{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [LoanApi getAdImagePageNum:0 Size:1000 finish:^(BOOL success, NSDictionary * resultObj, NSError *error) {
         NSDictionary *result = resultObj[@"result"];
-//        NSArray *adArray = [@"content"];
-        
+        [hud hideAnimated:YES];
     }];
-    
     [LoanApi getHotPageNum:0 Size:1000 finish:^(BOOL success, NSDictionary *resultObj, NSError *error) {
+        [hud hideAnimated:YES];
         NSDictionary *result = resultObj[@"result"];
         if (!ISNULL(result)) {
             _bankArray = [HomeCardModel mj_objectArrayWithKeyValuesArray:(NSArray *)result[@"banks"]];
+            _loanArray = [LoanDetailModel mj_objectArrayWithKeyValuesArray:(NSArray *)result[@"loans"]];
             [_collectionView reloadData];
+        }else{
+            [self showHudTitle:@"网络错误！" delay:2];
         }
     }];
 }
@@ -88,7 +91,7 @@
 #pragma mark - collectionView datasource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     if (section==0) {
-        return 10;
+        return _loanArray.count;
     }else{
         return _bankArray.count;
     }
@@ -101,6 +104,7 @@
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section==0) {
         HotLoanCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HotLoanCell" forIndexPath:indexPath];
+        cell.model = _loanArray[indexPath.row];
         return cell;
     }else{
         HotCreditCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HotCreditCell" forIndexPath:indexPath];
@@ -110,6 +114,7 @@
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+
     HotHeaderCell *header = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HotHeaderCell" forIndexPath:indexPath];
     if (indexPath.section==0) {
         header.title = @"热门推荐";

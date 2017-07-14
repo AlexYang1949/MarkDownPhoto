@@ -26,6 +26,8 @@
 
 #import "LoanApi.h"
 #import "MJExtension.h"
-
+#import "LoanDetailModel.h"
+#import "HomeCardModel.h"
+#import "MBProgressHUD.h"
 
 #endif /* Config_h */

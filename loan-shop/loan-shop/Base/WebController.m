@@ -28,7 +28,7 @@
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
-    self.tabBarController.tabBar.hidden = YES;
+    self.tabBarController.tabBar.hidden = NO;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
