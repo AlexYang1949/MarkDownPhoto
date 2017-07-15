@@ -550,10 +550,10 @@
             </objects>
             <point key="canvasLocation" x="2422" y="-101"/>
         </scene>
-        <!--History Controller-->
+        <!--浏览记录-->
         <scene sceneID="C0B-jq-xI9">
             <objects>
-                <viewController id="QOB-LH-HYy" customClass="HistoryController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HistoryController" title="浏览记录" useStoryboardIdentifierAsRestorationIdentifier="YES" id="QOB-LH-HYy" customClass="HistoryController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BTG-au-lIN"/>
                         <viewControllerLayoutGuide type="bottom" id="jEd-t1-wpJ"/>
@@ -563,24 +563,34 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ai-cH-8tc">
-                                <rect key="frame" x="0.0" y="20" width="187.5" height="30"/>
+                                <rect key="frame" x="0.0" y="20" width="187.5" height="45"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="v6C-JN-jhr"/>
+                                    <constraint firstAttribute="height" constant="45" id="v6C-JN-jhr"/>
                                 </constraints>
                                 <state key="normal" title="贷款">
                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="topClick:" destination="QOB-LH-HYy" eventType="touchUpInside" id="vrQ-lS-NeB"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pyt-0r-UbA">
-                                <rect key="frame" x="187.5" y="20" width="187.5" height="30"/>
-                                <state key="normal" title="银行卡">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pyt-0r-UbA">
+                                <rect key="frame" x="187.5" y="20" width="187.5" height="45"/>
+                                <state key="normal" title="信用卡">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="topClick:" destination="QOB-LH-HYy" eventType="touchUpInside" id="Jz1-Yz-Hhb"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CSU-2e-3VR">
-                                <rect key="frame" x="0.0" y="50" width="375" height="617"/>
+                                <rect key="frame" x="0.0" y="65" width="375" height="602"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="QOB-LH-HYy" id="y5Z-4j-Pim"/>
+                                    <outlet property="delegate" destination="QOB-LH-HYy" id="dsT-i3-Z2I"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -598,6 +608,9 @@
                             <constraint firstAttribute="trailing" secondItem="CSU-2e-3VR" secondAttribute="trailing" id="xG8-Vz-RLl"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="CSU-2e-3VR" id="nrT-0z-mdZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lH4-FI-D0f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

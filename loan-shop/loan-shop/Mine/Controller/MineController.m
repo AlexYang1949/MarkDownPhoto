@@ -11,6 +11,7 @@
 #import "BaseNavController.h"
 #import "RareBookController.h"
 #import "ProcessViewController.h"
+#import "HistoryController.h"
 
 @interface MineController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -86,6 +87,12 @@
     if (indexPath.section==4) {
         _dataArray[0] = @"注册／登录";
         [_tableView reloadData];
+    }
+    
+    if (indexPath.section==1&&indexPath.row==0) {
+        HistoryController *loginVc = [self getViewController:@"HistoryController" onStoryBoard:@"Mine"];
+        [self.navigationController pushViewController:loginVc animated:YES];
+
     }
 }
 

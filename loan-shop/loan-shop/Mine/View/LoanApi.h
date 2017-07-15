@@ -40,4 +40,7 @@ typedef void(^finishBlock)(BOOL success,NSDictionary * resultObj, NSError *error
 // 秘籍
 + (void)getRareListWithId:(NSString *)tabId finish:(finishBlock)finished;
 + (void)getRareDetailWithId:(NSString *)rareId finish:(finishBlock)finished;
+
+// 浏览记录
++ (void)getHistoryWithMobile:(NSString *)mobile type:(NSString *)type finish:(finishBlock)finished;
 @end

@@ -8,7 +8,8 @@
 
 #import "HistoryController.h"
 
-@interface HistoryController ()
+@interface HistoryController ()<UITableViewDelegate,UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -16,6 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _tableView.tableFooterView = [[UIView alloc] init];
     // Do any additional setup after loading the view.
 }
 
@@ -24,14 +26,38 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 10;
 }
-*/
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+    }
+    return cell;
+}
+- (IBAction)topClick:(UIButton *)sender{
+    for (UIView *view in self.view.subviews) {
+        if ([view isEqual:sender]) {
+            [sender setTitleColor:COLOR_MAIN forState:UIControlStateNormal];
+        }else if([view isKindOfClass:[UIButton class]]){
+            [(UIButton *)view setTitleColor:COLOR_GRAY forState:UIControlStateNormal];
+        }
+    }
+    NSString *type;
+    if (sender.tag == 0) {
+        type = @"贷款";
+    }else{
+        type = @"信用卡";
+    }
+    [LoanApi getHistoryWithMobile:@"18810821007" type:type finish:^(BOOL success, NSDictionary *resultObj, NSError *error) {
+        NSArray *result = resultObj[@"result"];
+        
+    }];
+}
+
+
+
 
 @end

@@ -618,7 +618,7 @@
 				TargetAttributes = {
 					701D00211F04E94300BAFA4D = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = Y364PD6P4Y;
+						DevelopmentTeam = 44V3AC79WA;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -888,13 +888,16 @@
 			baseConfigurationReference = 42F40DDA66CE922B52DD6478 /* Pods-loan-shop.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = Y364PD6P4Y;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 44V3AC79WA;
 				GCC_PREFIX_HEADER = "${SRCROOT}/loan-shop/PrefixHeader.pch";
 				INFOPLIST_FILE = "loan-shop/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.loanshop.loan-shop";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -903,13 +906,15 @@
 			baseConfigurationReference = 39B2011E3342C02327FCFFC8 /* Pods-loan-shop.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = Y364PD6P4Y;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 44V3AC79WA;
 				GCC_PREFIX_HEADER = "${SRCROOT}/loan-shop/PrefixHeader.pch";
 				INFOPLIST_FILE = "loan-shop/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.loanshop.loan-shop";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};
