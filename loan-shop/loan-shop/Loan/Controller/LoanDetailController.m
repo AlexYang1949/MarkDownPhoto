@@ -31,12 +31,18 @@
 - (void)setupData{
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [LoanApi getLoanDetailId:_loanId finish:^(BOOL success, NSDictionary *resultObj, NSError *error) {
+        [hud hideAnimated:YES];
+        if (!success) {
+            [self showHudTitle:@"网络错误！" delay:1];
+            return ;
+        }
         NSDictionary *result = resultObj[@"result"];
         if (!ISNULL(result)) {
             _model = [LoanDetailModel mj_objectWithKeyValues:result];
             [_tableView reloadData];
+        }else{
+            [self showHudTitle:resultObj[@"errorMessage"] delay:1];
         }
-        [hud hideAnimated:YES];
     }];
 }
 

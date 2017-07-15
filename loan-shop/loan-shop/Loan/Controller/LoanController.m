@@ -28,12 +28,18 @@ static NSString *cellId = @"loanCell";
 - (void)setupData{
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [LoanApi getLoanListPageNum:0 Size:10000 finish:^(BOOL success, NSDictionary *resultObj, NSError *error) {
+        [hud hideAnimated:YES];
+        if (!success) {
+            [self showHudTitle:@"网络错误！" delay:1];
+            return ;
+        }
         NSDictionary *result = resultObj[@"result"];
         if (!ISNULL(result)) {
             _dataArray = [LoanDetailModel mj_objectArrayWithKeyValuesArray:result[@"content"]];
             [_collectionView reloadData];
+        }else{
+            [self showHudTitle:resultObj[@"errorMessage"] delay:1];
         }
-        [hud hideAnimated:YES];
     }];
 }
 

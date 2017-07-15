@@ -31,7 +31,13 @@
     if (ISNULL(_mobileTF.text)) {
         return;
     }
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [LoanApi getCodeWithMobile:_mobileTF.text type:@"regCode" finish:^(BOOL success, NSDictionary *resultObj, NSError *error) {
+        [hud hideAnimated:YES];
+        if (!success) {
+            [self showHudTitle:@"网络错误！" delay:1];
+            return ;
+        }
         NSUInteger errorCode = [resultObj[@"errorCode"] integerValue];
         if(success&&errorCode==200){
             [self showHudTitle:@"获取验证码成功" delay:1];
@@ -43,7 +49,9 @@
 
 // 注册
 - (IBAction)regClick:(id)sender {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [LoanApi registerWithMobile:_mobileTF.text pwd:_pwdTF.text code:_codeTF.text finish:^(BOOL success, NSDictionary *resultObj, NSError *error) {
+        [hud hideAnimated:YES];
         NSUInteger errorCode = [resultObj[@"errorCode"] integerValue];
         if(success&&errorCode==200){
             [self showHudTitle:@"注册成功" delay:1];

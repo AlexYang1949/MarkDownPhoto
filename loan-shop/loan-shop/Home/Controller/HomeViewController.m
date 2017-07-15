@@ -41,25 +41,32 @@
 - (void)setupData{
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [LoanApi getAdImagePageNum:0 Size:1000 finish:^(BOOL success, NSDictionary * resultObj, NSError *error) {
+        [hud hideAnimated:YES];
+        if (!success) {
+            [self showHudTitle:@"网络错误！" delay:1];
+            return ;
+        }
         NSDictionary *result = resultObj[@"result"];
-        if (!ISNULL(result)) {
+        if (!ISNULL(result)&&success) {
             _adArray = [AdModel mj_objectArrayWithKeyValuesArray:result[@"content"]];
             [_adArray enumerateObjectsUsingBlock:^(AdModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
                 [self.urlArr addObject:obj.showAdUrl];
             }];
             [self setupBanner];
+        }else{
+            [self showHudTitle:resultObj[@"errorMessage"] delay:1];
         }
-        [hud hideAnimated:YES];
+        
     }];
     [LoanApi getHotPageNum:0 Size:1000 finish:^(BOOL success, NSDictionary *resultObj, NSError *error) {
         [hud hideAnimated:YES];
         NSDictionary *result = resultObj[@"result"];
-        if (!ISNULL(result)) {
+        if (!ISNULL(result)&&success==YES) {
             _bankArray = [HomeCardModel mj_objectArrayWithKeyValuesArray:(NSArray *)result[@"banks"]];
             _loanArray = [LoanDetailModel mj_objectArrayWithKeyValuesArray:(NSArray *)result[@"loans"]];
             [_collectionView reloadData];
         }else{
-            [self showHudTitle:@"网络错误！" delay:2];
+            [self showHudTitle:resultObj[@"errorMessage"] delay:1];
         }
     }];
 }

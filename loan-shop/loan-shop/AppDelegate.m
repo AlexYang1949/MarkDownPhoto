@@ -28,9 +28,13 @@
 //    self.window.rootViewController = fakeNav;
 
     self.window.rootViewController = [MainTabBarController sharedInstance];
-
+//    Networking
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networking:) name:@"Networking" object:nil];
     
     return YES;
+}
+
+- (void)networking:(NSNotification *)notify{
 }
 
 

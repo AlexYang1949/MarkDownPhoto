@@ -33,7 +33,6 @@
 
 - (void)loadUI{
     _titleLable = [[UILabel alloc] initWithFrame:CGRectMake(20, self.frame.size.height-HEIGHT_TITLE, self.width/2, HEIGHT_TITLE)];
-    _titleLable.textColor = [UIColor darkGrayColor];
     [self.contentView addSubview:_titleLable];
     
     _moreButton = [[UIButton alloc] initWithFrame:CGRectMake(self.width-100, self.height-HEIGHT_TITLE, 80, HEIGHT_TITLE)];

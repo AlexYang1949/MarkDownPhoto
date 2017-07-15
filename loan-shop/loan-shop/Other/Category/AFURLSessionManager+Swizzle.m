@@ -10,7 +10,8 @@
 #import <objc/runtime.h>
 #import <objc/message.h>
 #import <libkern/OSAtomic.h>
-
+typedef void (^successBlock)(NSURLSessionDataTask * _Nonnull, id _Nullable);
+typedef void (^failureBlock)(NSURLSessionDataTask * _Nullable, NSError * _Nonnull);
 @implementation AFURLSessionManager (Swizzle)
 +(void)load{
     [self methodSwizzlingWithOriginalSelector:@selector(POST:parameters:progress:success:failure:) bySwizzledSelector:@selector(sw_POST:parameters:progress:success:failure:)];
@@ -21,7 +22,16 @@
                          progress:(void (^)(NSProgress * _Nonnull))uploadProgress
                           success:(void (^)(NSURLSessionDataTask * _Nonnull, id _Nullable))success
                           failure:(void (^)(NSURLSessionDataTask * _Nullable, NSError * _Nonnull))failure{
-    return  [self sw_POST:URLString parameters:parameters progress:uploadProgress success:success failure:failure];
+    successBlock successBlock = ^(NSURLSessionDataTask * task, id response){
+        
+        success(task,response);
+    };
+    
+    failureBlock failureBlock = ^(NSURLSessionDataTask * task, NSError *error){
+        
+        failure(task,error);
+    };
+    return  [self sw_POST:URLString parameters:parameters progress:uploadProgress success:successBlock failure:failureBlock];
 }
 
 - (NSURLSessionDataTask *)sw_GET:(NSString *)URLString
@@ -29,7 +39,24 @@
                         progress:(void (^)(NSProgress * _Nonnull))downloadProgress
                          success:(void (^)(NSURLSessionDataTask * _Nonnull, id _Nullable))success
                          failure:(void (^)(NSURLSessionDataTask * _Nullable, NSError * _Nonnull))failure{
-        return [self sw_GET:URLString parameters:parameters progress:downloadProgress success:success failure:failure];
+    successBlock successBlock = ^(NSURLSessionDataTask * task, id response){
+        NSError *error = nil;
+        id obj = [NSJSONSerialization JSONObjectWithData:response options:0 error:&error];
+        if (!ISNULL(obj)&&[obj isKindOfClass:[NSDictionary class]]) {
+            NSUInteger errorCode = [obj[@"errorCode"] integerValue];
+            NSString *errorMessage = obj[@"errorMessage"];
+            if (errorCode!=200) {
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"Networking" object:errorMessage];
+            }
+        }
+        success(task,response);
+    };
+    
+    failureBlock failureBlock = ^(NSURLSessionDataTask * task, NSError *error){
+        
+        failure(task,error);
+    };
+    return [self sw_GET:URLString parameters:parameters progress:downloadProgress success:successBlock failure:failureBlock];
 }
 
 + (void)methodSwizzlingWithOriginalSelector:(SEL)originalSelector bySwizzledSelector:(SEL)swizzledSelector{

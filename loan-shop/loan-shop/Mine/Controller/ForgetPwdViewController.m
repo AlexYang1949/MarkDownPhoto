@@ -29,6 +29,10 @@
 
 - (IBAction)getCode:(id)sender {
     [LoanApi getCodeWithMobile:_mobileTF.text type:@"resetCode" finish:^(BOOL success, NSDictionary *resultObj, NSError *error) {
+        if (!success) {
+            [self showHudTitle:@"网络错误！" delay:1];
+            return ;
+        }
         NSUInteger errorCode = [resultObj[@"errorCode"] integerValue];
         if (success&&errorCode==200) {
              [self showHudTitle:@"获取验证码成功" delay:1];
@@ -40,6 +44,10 @@
 
 - (IBAction)resetPwd:(id)sender {
     [LoanApi resetPwdWithMobile:_mobileTF.text pwd:_pwdTF.text code:_codeTF.text finish:^(BOOL success, NSDictionary *resultObj, NSError *error) {
+        if (!success) {
+            [self showHudTitle:@"网络错误！" delay:1];
+            return ;
+        }
         NSUInteger errorCode = [resultObj[@"errorCode"] integerValue];
         if(success&&errorCode==200){
             [self showHudTitle:@"修改密码成功" delay:1];

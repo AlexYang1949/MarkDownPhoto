@@ -52,15 +52,15 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="term" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w3G-1E-wUH">
-                                                    <rect key="frame" x="80" y="33" width="32" height="18"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <nil key="textColor"/>
+                                                    <rect key="frame" x="80" y="33" width="26.5" height="14.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="limitation" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zA0-U8-Cus">
-                                                    <rect key="frame" x="80" y="51" width="62.5" height="18"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <nil key="textColor"/>
+                                                    <rect key="frame" x="80" y="47.5" width="55.5" height="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -78,6 +78,7 @@
                                         </constraints>
                                         <size key="customSize" width="227" height="80"/>
                                         <connections>
+                                            <outlet property="iconView" destination="jPK-oU-6a8" id="h1g-6m-3um"/>
                                             <outlet property="limitLabel" destination="zA0-U8-Cus" id="H4s-er-FcF"/>
                                             <outlet property="nameLabel" destination="bpX-KV-d4o" id="f6R-Wf-aJR"/>
                                             <outlet property="termLable" destination="w3G-1E-wUH" id="hO8-7x-YNr"/>
@@ -97,8 +98,8 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="办卡就送iPhone1000plus" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gIT-C2-638">
-                                                    <rect key="frame" x="80" y="42" width="192" height="18"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <rect key="frame" x="80" y="44" width="192" height="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -122,6 +123,11 @@
                                             <constraint firstItem="siF-4N-oaG" firstAttribute="top" secondItem="PGo-v4-chz" secondAttribute="top" constant="10" id="xJu-xq-c5Q"/>
                                         </constraints>
                                         <size key="customSize" width="282" height="80"/>
+                                        <connections>
+                                            <outlet property="iconView" destination="siF-4N-oaG" id="90W-br-etD"/>
+                                            <outlet property="nameLabel" destination="9ch-XU-hhB" id="ENv-9J-175"/>
+                                            <outlet property="subTitleLabel" destination="gIT-C2-638" id="PEP-Oq-rWR"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>

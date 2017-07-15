@@ -33,9 +33,9 @@
 - (void)setupData{
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [LoanApi getRareDetailWithId:_rareId finish:^(BOOL success, NSDictionary *resultObj, NSError *error) {
+        [hud hideAnimated:YES];
         RareModel *model = [RareModel mj_objectWithKeyValues:resultObj[@"result"]];
         [_webView loadHTMLString:model.content baseURL:nil];
-        [hud hideAnimated:YES];
     }];
 }
 

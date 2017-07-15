@@ -11,6 +11,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *termLable;
 @property (weak, nonatomic) IBOutlet UILabel *limitLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *iconView;
 
 @end
 
@@ -18,7 +19,8 @@
 -(void)setModel:(LoanDetailModel *)model{
     _model = model;
     _nameLabel.text = model.name;
-    _termLable.text = model.term;
-    _limitLabel.text = model.limitation;
+    _termLable.text = [NSString stringWithFormat:@"期限：%@",model.term];
+    _limitLabel.text = [NSString stringWithFormat:@"最高%@",model.limitation];
+    [_iconView sd_setImageWithURL:[NSURL URLWithString:model.iconShowUrl] placeholderImage:[UIImage imageNamed:@"icon"]];
 }
 @end

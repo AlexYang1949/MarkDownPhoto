@@ -7,7 +7,16 @@
 //
 
 #import "HotCreditCell.h"
+@interface HotCreditCell()
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *subTitleLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *iconView;
 
+@end
 @implementation HotCreditCell
-
+-(void)setModel:(HomeCardModel *)model{
+    [_iconView sd_setImageWithURL:[NSURL URLWithString:model.iconShowUrl] placeholderImage:[UIImage imageNamed:@"icon"]];
+    _nameLabel.text = model.name;
+    _subTitleLabel.text = model.remark;
+}
 @end
