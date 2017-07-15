@@ -30,4 +30,11 @@ typedef void(^finishBlock)(BOOL success,NSDictionary * resultObj, NSError *error
 + (void)getCreditWithBankId:(NSString *)bankId finish:(finishBlock)finished;
 + (void)getCreditDetailId:(NSString *)bankId finish:(finishBlock)finished;
 
+// 登录注册
++ (void)registerWithMobile:(NSString *)mobile pwd:(NSString *)pwd code:(NSString *)code finish:(finishBlock)finished;
++ (void)loginWithMobile:(NSString *)mobile pwd:(NSString *)pwd finish:(finishBlock)finished;
++ (void)resetPwdWithMobile:(NSString *)mobile pwd:(NSString *)pwd code:(NSString *)code finish:(finishBlock)finished;
++ (void)getCodeWithMobile:(NSString *)mobile type:(NSString *)type finish:(finishBlock)finished;
+
+
 @end

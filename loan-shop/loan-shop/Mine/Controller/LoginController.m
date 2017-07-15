@@ -11,6 +11,8 @@
 #import "RegistController.h"
 
 @interface LoginController ()
+@property (weak, nonatomic) IBOutlet UITextField *mobileTF;
+@property (weak, nonatomic) IBOutlet UITextField *pwdTF;
 
 @end
 
@@ -40,8 +42,15 @@
     [self.navigationController pushViewController:RegistVc animated:YES];
 }
 - (IBAction)lognClick:(id)sender {
-
-    [self dismissViewControllerAnimated:YES completion:nil];
+    if (ISNULL(_mobileTF.text)){
+        return;
+    }
+    [LoanApi loginWithMobile:_mobileTF.text pwd:_pwdTF.text finish:^(BOOL success, NSDictionary *resultObj, NSError *error) {
+        if(success){
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
+    }];
+    
 }
 
 @end

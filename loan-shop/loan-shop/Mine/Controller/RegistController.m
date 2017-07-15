@@ -9,6 +9,9 @@
 #import "RegistController.h"
 
 @interface RegistController ()
+@property (weak, nonatomic) IBOutlet UITextField *mobileTF;
+@property (weak, nonatomic) IBOutlet UITextField *pwdTF;
+@property (weak, nonatomic) IBOutlet UITextField *codeTF;
 
 @end
 
@@ -24,14 +27,24 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)getCode:(id)sender {
+    if (ISNULL(_mobileTF.text)) {
+        return;
+    }
+    [LoanApi getCodeWithMobile:_mobileTF.text type:@"regCode" finish:^(BOOL success, NSDictionary *resultObj, NSError *error) {
+        
+    }];
 }
-*/
+
+// 注册
+- (IBAction)regClick:(id)sender {
+    [LoanApi resetPwdWithMobile:_mobileTF.text pwd:_pwdTF.text code:_codeTF.text finish:^(BOOL success, NSDictionary *resultObj, NSError *error) {
+        if (success) {
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self dismissViewControllerAnimated:YES completion:nil];
+            });
+        }
+    }];
+}
 
 @end

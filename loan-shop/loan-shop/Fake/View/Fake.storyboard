@@ -114,7 +114,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nOr-rG-DOx">
-                                <rect key="frame" x="60" y="597" width="255" height="40"/>
+                                <rect key="frame" x="60" y="607" width="255" height="40"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="8xm-Au-Hzk"/>
@@ -156,7 +156,7 @@
                             <constraint firstItem="58V-wF-OAG" firstAttribute="leading" secondItem="Hmd-Md-S8o" secondAttribute="leading" id="nfQ-Bv-2PT"/>
                             <constraint firstItem="IQv-vP-3v3" firstAttribute="top" secondItem="8CZ-2U-ePz" secondAttribute="top" id="pw8-Pg-Uzi"/>
                             <constraint firstAttribute="trailing" secondItem="2Qm-uR-lwE" secondAttribute="trailing" id="t3D-1u-eUJ"/>
-                            <constraint firstItem="Lh9-Fo-F5w" firstAttribute="top" secondItem="nOr-rG-DOx" secondAttribute="bottom" constant="30" id="yR4-w1-DXC"/>
+                            <constraint firstItem="Lh9-Fo-F5w" firstAttribute="top" secondItem="nOr-rG-DOx" secondAttribute="bottom" constant="20" id="yR4-w1-DXC"/>
                             <constraint firstItem="2Qm-uR-lwE" firstAttribute="leading" secondItem="Hmd-Md-S8o" secondAttribute="leading" id="zMO-wf-dJk"/>
                         </constraints>
                     </view>
@@ -238,7 +238,7 @@
                                 <rect key="frame" x="0.0" y="587" width="375" height="80"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LxY-z6-Wtn">
-                                        <rect key="frame" x="60" y="30" width="255" height="40"/>
+                                        <rect key="frame" x="60" y="20" width="255" height="40"/>
                                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="ZiC-mN-tFE"/>
@@ -256,7 +256,7 @@
                                 <constraints>
                                     <constraint firstItem="LxY-z6-Wtn" firstAttribute="leading" secondItem="pFM-Bl-2fD" secondAttribute="leading" constant="60" id="GLn-ZF-5Bs"/>
                                     <constraint firstAttribute="trailing" secondItem="LxY-z6-Wtn" secondAttribute="trailing" constant="60" id="YCa-wy-CWA"/>
-                                    <constraint firstAttribute="bottom" secondItem="LxY-z6-Wtn" secondAttribute="bottom" constant="10" id="dSM-1G-9be"/>
+                                    <constraint firstAttribute="bottom" secondItem="LxY-z6-Wtn" secondAttribute="bottom" constant="20" id="dSM-1G-9be"/>
                                     <constraint firstAttribute="height" constant="80" id="xF5-UC-Q8I"/>
                                 </constraints>
                             </view>
@@ -281,7 +281,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e9E-Vg-8Lw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-47.200000000000003" y="-9.4452773613193415"/>
+            <point key="canvasLocation" x="-305" y="-60"/>
         </scene>
         <!--Fake Result Controller-->
         <scene sceneID="deS-tH-Im2">
@@ -296,25 +296,42 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon" translatesAutoresizingMaskIntoConstraints="NO" id="qti-o9-Dtu">
-                                <rect key="frame" x="67" y="68" width="240" height="60"/>
+                                <rect key="frame" x="67.5" y="68" width="240" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="IGu-ge-NCE"/>
                                     <constraint firstAttribute="height" constant="60" id="OUf-XZ-zGW"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="申请成功！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dsX-pi-7mp">
-                                <rect key="frame" x="132" y="158" width="111.5" height="26.5"/>
+                                <rect key="frame" x="132.5" y="158" width="111.5" height="26.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dIr-BX-cJg">
+                                <rect key="frame" x="60" y="244" width="255" height="40"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="leH-qv-gHi"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="确定">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="makeSure:" destination="AQE-3h-uPd" eventType="touchUpInside" id="cHK-f4-Kmv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="qti-o9-Dtu" firstAttribute="top" secondItem="1xa-9F-q8k" secondAttribute="bottom" constant="48" id="3St-da-BJr"/>
+                            <constraint firstAttribute="trailing" secondItem="dIr-BX-cJg" secondAttribute="trailing" constant="60" id="6KH-nF-rZn"/>
                             <constraint firstItem="qti-o9-Dtu" firstAttribute="centerX" secondItem="4AH-nj-NGw" secondAttribute="centerX" id="dxJ-gq-8cw"/>
                             <constraint firstItem="dsX-pi-7mp" firstAttribute="centerX" secondItem="qti-o9-Dtu" secondAttribute="centerX" id="eoK-eN-p8M"/>
+                            <constraint firstItem="dIr-BX-cJg" firstAttribute="top" secondItem="dsX-pi-7mp" secondAttribute="bottom" constant="60" id="fkF-sA-eJU"/>
                             <constraint firstItem="dsX-pi-7mp" firstAttribute="top" secondItem="qti-o9-Dtu" secondAttribute="bottom" constant="30" id="hjY-xe-4v5"/>
+                            <constraint firstItem="dIr-BX-cJg" firstAttribute="leading" secondItem="4AH-nj-NGw" secondAttribute="leading" constant="60" id="iZi-Zw-u8o"/>
                         </constraints>
                     </view>
                 </viewController>

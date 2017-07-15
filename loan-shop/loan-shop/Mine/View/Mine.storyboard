@@ -149,6 +149,10 @@
                         </constraints>
                     </view>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="mobileTF" destination="z7F-p7-3JK" id="2cf-Nm-mnf"/>
+                        <outlet property="pwdTF" destination="PqW-Rd-RHh" id="Lnv-Yu-SH7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Apq-NZ-aSC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -214,6 +218,9 @@
                                     <constraint firstAttribute="width" constant="95" id="Uud-Wm-Xir"/>
                                 </constraints>
                                 <state key="normal" title="获取验证码"/>
+                                <connections>
+                                    <action selector="getCode:" destination="UZN-u2-IeL" eventType="touchUpInside" id="yd3-a6-Xcs"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1zf-gU-fT3">
                                 <rect key="frame" x="87.5" y="238" width="200" height="40"/>
@@ -226,6 +233,9 @@
                                 <state key="normal" title="注册">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="regClick:" destination="UZN-u2-IeL" eventType="touchUpInside" id="Rtv-mc-b1d"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -254,6 +264,11 @@
                             <constraint firstItem="LqW-BH-uK6" firstAttribute="centerY" secondItem="Hi6-e9-Vwh" secondAttribute="centerY" id="zqD-1E-KbZ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="codeTF" destination="vBM-j0-Lts" id="Kr2-gC-XW3"/>
+                        <outlet property="mobileTF" destination="T3d-dn-SFS" id="Oba-j4-4hY"/>
+                        <outlet property="pwdTF" destination="LqW-BH-uK6" id="laE-sx-TF5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NRX-0g-2Lp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -315,6 +330,9 @@
                                 <state key="normal" title="修改密码">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="resetPwd:" destination="DkA-pt-Eqh" eventType="touchUpInside" id="A05-bS-oBW"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SKa-Sl-t22">
                                 <rect key="frame" x="270" y="147.5" width="85" height="30"/>
@@ -322,6 +340,9 @@
                                     <constraint firstAttribute="width" constant="85" id="wRP-Gf-dQa"/>
                                 </constraints>
                                 <state key="normal" title="获取验证码"/>
+                                <connections>
+                                    <action selector="getCode:" destination="DkA-pt-Eqh" eventType="touchUpInside" id="2Px-GA-vFV"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jSn-uc-rBg">
                                 <rect key="frame" x="120" y="147.5" width="144" height="30"/>
@@ -355,6 +376,11 @@
                             <constraint firstItem="7Q9-vh-MBa" firstAttribute="centerY" secondItem="0K6-Sd-Xa4" secondAttribute="centerY" id="ykA-Vg-Xfe"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="codeTF" destination="jSn-uc-rBg" id="6g0-h8-WJx"/>
+                        <outlet property="mobileTF" destination="7Q9-vh-MBa" id="6f2-bY-e9P"/>
+                        <outlet property="pwdTF" destination="RPr-AP-liG" id="lRR-2r-cxV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bB6-2M-Oef" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
