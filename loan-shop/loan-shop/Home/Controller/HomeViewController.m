@@ -13,11 +13,9 @@
 #import "HotCreditCell.h"
 #import "HotHeaderCell.h"
 
-
-
 // model
 #import "HomeCardModel.h"
-
+#import "AdModel.h"
 @interface HomeViewController ()<KNBannerViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 @property (nonatomic, strong) NSMutableArray *dataArr;
 @property (nonatomic, strong) NSMutableArray *urlArr;
@@ -27,6 +25,8 @@
 
 @property (nonatomic, strong) NSArray *bankArray;
 @property (nonatomic, strong) NSArray *loanArray;
+@property (nonatomic , strong) NSArray *adArray;
+
 @end
 
 @implementation HomeViewController
@@ -34,7 +34,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self setupBanner];
     [self loadCollectionView];
     [self setupData];
 }
@@ -43,6 +42,13 @@
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [LoanApi getAdImagePageNum:0 Size:1000 finish:^(BOOL success, NSDictionary * resultObj, NSError *error) {
         NSDictionary *result = resultObj[@"result"];
+        if (!ISNULL(result)) {
+            _adArray = [AdModel mj_objectArrayWithKeyValuesArray:result[@"content"]];
+            [_adArray enumerateObjectsUsingBlock:^(AdModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                [self.urlArr addObject:obj.showAdUrl];
+            }];
+            [self setupBanner];
+        }
         [hud hideAnimated:YES];
     }];
     [LoanApi getHotPageNum:0 Size:1000 finish:^(BOOL success, NSDictionary *resultObj, NSError *error) {
@@ -71,6 +77,10 @@
     [self.collectionView addSubview:bannerView];
     _bannerView = bannerView;
     return _bannerView;
+}
+- (void)bannerView:(KNBannerView *)bannerView collectionView:(UICollectionView *)collectionView collectionViewCell:(KNBannerCollectionViewCell *)collectionViewCell didSelectItemAtIndexPath:(NSInteger)index{
+    [self openHtml:((AdModel *)_adArray[index]).link];
+    NSLog(@"BannerView :%zd -- index :%zd",bannerView.tag,index);
 }
 
 - (void)loadCollectionView{
@@ -116,13 +126,15 @@
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
 
     HotHeaderCell *header = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HotHeaderCell" forIndexPath:indexPath];
+    header.hiddenMore =YES;
     if (indexPath.section==0) {
-        header.title = @"热门推荐";
+//        header.title = @"热门推荐";、
+        
         header.moreBlcok =^(){
             [self.tabBarController setSelectedIndex:1];
         };
     }else{
-        header.title = @"推荐办卡";
+//        header.title = @"推荐办卡";
         header.moreBlcok =^(){
             [self.tabBarController setSelectedIndex:2];
         };
@@ -135,6 +147,7 @@
         return CGSizeMake(MAIN_BOUNDS_WIDTH, HEIGHT_BANNER+HEIGHT_TITLE);
     }else{
         return CGSizeMake(MAIN_BOUNDS_WIDTH, HEIGHT_TITLE);
+
     }
 }
 
@@ -147,29 +160,18 @@
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    [self openHtml:@"https://www.baidu.com"];
-}
-
-
-- (void)bannerView:(KNBannerView *)bannerView collectionView:(UICollectionView *)collectionView collectionViewCell:(KNBannerCollectionViewCell *)collectionViewCell didSelectItemAtIndexPath:(NSInteger)index{
-    
-    NSLog(@"BannerView :%zd -- index :%zd",bannerView.tag,index);
+    NSString *urlStr = @"";
+    if (indexPath.section==0) {
+        urlStr = ((LoanDetailModel *)_loanArray[indexPath.row]).link;
+    }else{
+        urlStr = ((HomeCardModel *)_bankArray[indexPath.row]).link;
+    }
+    [self openHtml:urlStr];
 }
 
 - (NSMutableArray *)urlArr{
     if (!_urlArr) {
         _urlArr = [NSMutableArray array];
-        NSString *url1 = @"http://ww1.sinaimg.cn/mw690/9bbc284bgw1f9rk86nq06j20fa0a4whs.jpg";
-        NSString *url2 = @"http://ww3.sinaimg.cn/mw690/9bbc284bgw1f9qg0bazmnj21hc0u0dop.jpg";
-        NSString *url3 = @"http://ww2.sinaimg.cn/mw690/9bbc284bgw1f9qg0nw7zbj20rs0jntk7.jpg";
-        NSString *url4 = @"http://ww2.sinaimg.cn/mw690/9bbc284bgw1f9qg0utssrj20sg0hyx0o.jpg";
-        NSString *url5 = @"http://ww2.sinaimg.cn/mw690/9bbc284bgw1f9qg10w0w1j20s40jsah1.jpg";
-        
-        [_urlArr addObject:url1];
-        [_urlArr addObject:url2];
-        [_urlArr addObject:url3];
-        [_urlArr addObject:url4];
-        [_urlArr addObject:url5];
     }
     return _urlArr;
 }

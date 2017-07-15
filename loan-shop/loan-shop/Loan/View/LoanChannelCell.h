@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface LoanChannelCell : UICollectionViewCell
+@property (nonatomic , strong) LoanDetailModel *model;
 
 @end

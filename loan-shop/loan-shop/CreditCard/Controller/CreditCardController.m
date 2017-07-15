@@ -12,6 +12,7 @@
 
 @interface CreditCardController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic , strong) NSArray *dataArray;
 
 @end
 
@@ -20,6 +21,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.rightBarButtonItem =[[UIBarButtonItem alloc] initWithTitle:@"进度查询" style:UIBarButtonItemStylePlain target:self action:@selector(process)];
+    _tableView.tableFooterView = [[UIView alloc] init];
+    [self setupData];
+}
+- (void)setupData{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [LoanApi getBankListPageNum:0 Size:10000 finish:^(BOOL success, NSDictionary *resultObj, NSError *error) {
+        NSDictionary *result = resultObj[@"result"];
+        if (!ISNULL(result)) {
+            _dataArray = [HomeCardModel mj_objectArrayWithKeyValuesArray:result[@"content"]];
+            [_tableView reloadData];
+        }
+        [hud hideAnimated:YES];
+    }];
 }
 
 - (void)process{
@@ -28,11 +42,11 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 10;
+    return _dataArray.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    HomeCardModel *cardInfo = [[HomeCardModel alloc] init];
+    HomeCardModel *cardInfo = _dataArray[indexPath.row];
 
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     if (!cell) {
@@ -41,7 +55,7 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.textLabel.text = cardInfo.name;
     cell.detailTextLabel.text = cardInfo.remark;
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:cardInfo.iconShowUrl]];
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:cardInfo.iconShowUrl] placeholderImage:[UIImage imageNamed:@"icon"]];
     return cell;
 }
 
@@ -50,7 +64,8 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [self openHtml:@"https://www.baidu.com"];
+    
+    [self openHtml:((HomeCardModel *)_dataArray[indexPath.row]).link];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{

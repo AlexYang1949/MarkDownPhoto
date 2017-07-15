@@ -7,8 +7,8 @@
 //
 
 #import "LoanApi.h"
-
-#define BaseUrlStr @"http://app.zboat.cn"
+#import "NSString+Additional.h"
+#define BaseUrlStr @"http://app.zboat.cn/siteapi"
 @implementation LoanHTTPManager
 
 + (instancetype)sharedManager{
@@ -185,13 +185,14 @@
 // 登录注册
 + (void)registerWithMobile:(NSString *)mobile pwd:(NSString *)pwd code:(NSString *)code finish:(finishBlock)finished{
     NSTimeInterval cur_time = [[NSDate date] timeIntervalSince1970];
-    NSString *sign = [NSString stringWithFormat:@"%f%@%@",cur_time,mobile,@"market"];
+    NSString *sign = [[NSString stringWithFormat:@"%f%@%@",cur_time,mobile,@"market"] md5];
     NSDictionary *parameters = @{@"mobile":mobile,
                                  @"password":pwd,
                                  @"code":code,
-                                 @"sign":sign};
+                                 @"sign":sign,
+                                 @"tm":[NSString stringWithFormat:@"%f",cur_time]};
     LoanHTTPManager *manager = [LoanHTTPManager sharedManager];
-    [manager POST:@"siteapi/app/register" parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
+    [manager POST:@"app/register" parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
      {
          NSError *error = nil;
          id obj = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:&error];
@@ -210,12 +211,13 @@
 }
 + (void)loginWithMobile:(NSString *)mobile pwd:(NSString *)pwd finish:(finishBlock)finished{
     NSTimeInterval cur_time = [[NSDate date] timeIntervalSince1970];
-    NSString *sign = [NSString stringWithFormat:@"%f%@%@",cur_time,mobile,@"market"];
+    NSString *sign = [[NSString stringWithFormat:@"%f%@%@",cur_time,mobile,@"market"] md5];
     NSDictionary *parameters = @{@"mobile":mobile,
                                  @"password":pwd,
-                                 @"sign":sign};
+                                 @"sign":sign,
+                                 @"tm":[NSString stringWithFormat:@"%f",cur_time]};
     LoanHTTPManager *manager = [LoanHTTPManager sharedManager];
-    [manager POST:@"siteapi/app/login" parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
+    [manager POST:@"app/login" parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
      {
          NSError *error = nil;
          id obj = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:&error];
@@ -234,12 +236,14 @@
 }
 + (void)resetPwdWithMobile:(NSString *)mobile pwd:(NSString *)pwd code:(NSString *)code finish:(finishBlock)finished{
     NSTimeInterval cur_time = [[NSDate date] timeIntervalSince1970];
-    NSString *sign = [NSString stringWithFormat:@"%f%@%@",cur_time,mobile,@"market"];
+    NSString *sign = [[NSString stringWithFormat:@"%f%@%@",cur_time,mobile,@"market"] md5];
     NSDictionary *parameters = @{@"mobile":mobile,
                                  @"password":pwd,
-                                 @"sign":sign};
+                                 @"sign":sign,
+                                 @"tm":[NSString stringWithFormat:@"%f",cur_time],
+                                 @"code":code};
     LoanHTTPManager *manager = [LoanHTTPManager sharedManager];
-    [manager POST:@"siteapi/app/reset" parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
+    [manager POST:@"app/reset" parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
      {
          NSError *error = nil;
          id obj = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:&error];
@@ -258,11 +262,12 @@
 
 + (void)getCodeWithMobile:(NSString *)mobile type:(NSString *)type finish:(finishBlock)finished{
     NSTimeInterval cur_time = [[NSDate date] timeIntervalSince1970];
-    NSString *sign = [NSString stringWithFormat:@"%f%@%@",cur_time,mobile,@"market"];
+    NSString *sign = [[NSString stringWithFormat:@"%f%@%@",cur_time,mobile,@"market"] md5];
     NSDictionary *parameters = @{@"mobile":mobile,
-                                 @"sign":sign};
+                                 @"sign":sign,
+                                 @"tm":[NSString stringWithFormat:@"%f",cur_time]};
     LoanHTTPManager *manager = [LoanHTTPManager sharedManager];
-    NSString *urlStr = [NSString stringWithFormat:@"siteapi/app/%@",type];
+    NSString *urlStr = [NSString stringWithFormat:@"app/%@",type];
     [manager POST:urlStr parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
      {
          NSError *error = nil;
@@ -278,5 +283,46 @@
      } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
          finished(NO,nil,error);
      }];
+}
+
+// 秘籍
++ (void)getRareListWithId:(NSString *)tabId finish:(finishBlock)finished{
+    NSDictionary *parameters = @{@"tabId":tabId};
+    LoanHTTPManager *manager = [LoanHTTPManager sharedManager];
+    [manager POST:@"tab/news" parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
+     {
+         NSError *error = nil;
+         id obj = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:&error];
+         if (finished==nil) {
+             return;
+         }
+         if (ISNULL(obj)) {
+             finished(YES, nil, nil);
+         }else{
+             finished(YES, obj, nil);
+         }
+     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+         finished(NO,nil,error);
+     }];
+}
++ (void)getRareDetailWithId:(NSString *)rareId finish:(finishBlock)finished{
+    NSDictionary *parameters = @{@"id":rareId};
+    LoanHTTPManager *manager = [LoanHTTPManager sharedManager];
+    [manager POST:@"tab/news/detail" parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
+     {
+         NSError *error = nil;
+         id obj = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:&error];
+         if (finished==nil) {
+             return;
+         }
+         if (ISNULL(obj)) {
+             finished(YES, nil, nil);
+         }else{
+             finished(YES, obj, nil);
+         }
+     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+         finished(NO,nil,error);
+     }];
+
 }
 @end

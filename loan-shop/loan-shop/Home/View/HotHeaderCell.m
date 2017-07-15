@@ -32,7 +32,7 @@
 }
 
 - (void)loadUI{
-    _titleLable = [[UILabel alloc] initWithFrame:CGRectMake(20, self.height-HEIGHT_TITLE, self.width/2, HEIGHT_TITLE)];
+    _titleLable = [[UILabel alloc] initWithFrame:CGRectMake(20, self.frame.size.height-HEIGHT_TITLE, self.width/2, HEIGHT_TITLE)];
     _titleLable.textColor = [UIColor darkGrayColor];
     [self.contentView addSubview:_titleLable];
     
@@ -42,7 +42,6 @@
     [_moreButton setFont:[UIFont systemFontOfSize:15]];
     [_moreButton addTarget:self action:@selector(more) forControlEvents:UIControlEventTouchUpInside];
     [self.contentView addSubview:_moreButton];
-
     self.backgroundColor = COLORHEX(0xf6f6f6);
 }
 

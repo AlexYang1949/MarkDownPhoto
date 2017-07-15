@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface LoanDetailModel : NSObject
+@property (nonatomic , strong) NSString *id;
 @property(nonatomic ,strong) NSString *name;
 @property(nonatomic ,strong) NSString *link;
 @property(nonatomic ,strong) NSString *iconShowUrl;

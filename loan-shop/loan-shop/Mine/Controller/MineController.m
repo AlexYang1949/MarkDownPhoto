@@ -10,10 +10,11 @@
 #import "LoginController.h"
 #import "BaseNavController.h"
 #import "RareBookController.h"
+#import "ProcessViewController.h"
 
 @interface MineController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic)  NSArray *dataArray;
+@property (strong, nonatomic)  NSMutableArray *dataArray;
 @end
 
 @implementation MineController
@@ -21,7 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
      self.tableView.tableFooterView=[[UIView alloc]init];
-    _dataArray = @[@[@"注册/登录"],@[@"浏览记录",@"信用卡进度查询"],@[@"交流群",@"秘籍",@"关于我们"],@[@"设置"]];
+    _dataArray = @[@[@"注册／登录"],@[@"浏览记录",@"信用卡进度查询"],@[@"交流群",@"秘籍",@"关于我们"],@[@"设置"]].mutableCopy;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -64,14 +65,27 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section==1 &&indexPath.row==1) {
+    if (indexPath.section==2 &&indexPath.row==1) {
         RareBookController *rareVc = [self getViewController:@"RareBookController" onStoryBoard:@"Mine"];
         [self.navigationController pushViewController:rareVc animated:YES];
     }
-    if (indexPath.section==0 && indexPath.row==0) {
+    if (indexPath.section==1 && indexPath.row==1) {
+        ProcessViewController *processVc = [self getViewController:@"ProcessViewController" onStoryBoard:@"CreditCard"];
+        [self.navigationController pushViewController:processVc animated:YES];
+    }
+    if (indexPath.section==0 && indexPath.row==0 &&[_dataArray[0][0] isEqualToString:@"注册／登录"]) {
         LoginController *loginVc = [self getViewController:@"LoginController" onStoryBoard:@"Mine"];
         BaseNavController *loginNav = [[BaseNavController alloc] initWithRootViewController:loginVc];
+        loginVc.block = ^(NSString *mobile,NSString *token){
+            _dataArray[0] = @[[NSString stringWithFormat:@"%@ 已登陆",mobile]];
+            _dataArray[4] = @[@"退出登陆"];
+            [_tableView reloadData];
+        };
         [self presentViewController:loginNav animated:YES completion:nil];
+    }
+    if (indexPath.section==4) {
+        _dataArray[0] = @"注册／登录";
+        [_tableView reloadData];
     }
 }
 

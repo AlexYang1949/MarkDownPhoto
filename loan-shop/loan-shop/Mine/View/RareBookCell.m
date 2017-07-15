@@ -7,6 +7,11 @@
 //
 
 #import "RareBookCell.h"
+@interface RareBookCell()
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *iconView;
+
+@end
 
 @implementation RareBookCell
 
@@ -15,10 +20,8 @@
     // Initialization code
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+-(void)setModel:(RareModel *)model{
+    _titleLabel.text = model.title;
+    [_iconView sd_setImageWithURL:[NSURL URLWithString:model.iconShowUrl] placeholderImage:[UIImage imageNamed:@"icon"]];
 }
-
 @end

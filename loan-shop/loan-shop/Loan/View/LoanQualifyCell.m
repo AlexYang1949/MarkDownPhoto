@@ -18,19 +18,21 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    _condition.text = @"年龄满18岁，年龄满18岁，年龄满18岁，年龄满18岁，年龄满18岁，年龄满18岁";
-    // Initialization code
 }
 
 -(void)setTitle:(NSString *)title{
     self.titleName.text = title;
 }
 
-//+(CGFloat)countHeightWithTitle:(NSString *)title{
-//    NSDictionary *attributes = @{NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue" size:14]};
-//    CGSize size = CGSizeMake([UIScreen mainScreen].bounds.size.width-3*SidePadding-TitleImageH, MAXFLOAT);
-//    CGFloat textHeight =  [title boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil].size.height;
-//    return NormalHeight + textHeight;
-//}
+-(void)setContent:(NSString *)content{
+    _condition.text = content;
+}
+
++(CGFloat)countHeightWithTitle:(NSString *)title{
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue" size:15]};
+    CGSize size = CGSizeMake([UIScreen mainScreen].bounds.size.width-40, MAXFLOAT);
+    CGFloat textHeight =  [title boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil].size.height;
+    return 40 + textHeight;
+}
 
 @end

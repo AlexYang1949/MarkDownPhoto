@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27580D2F1F19A08C00A7F4C8 /* FakeInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27580D2E1F19A08C00A7F4C8 /* FakeInfoCell.m */; };
+		27580D311F19A09800A7F4C8 /* FackHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27580D301F19A09800A7F4C8 /* FackHeader.xib */; };
+		27580D331F19A1CE00A7F4C8 /* Base.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27580D321F19A1CE00A7F4C8 /* Base.storyboard */; };
+		27580D361F19A30D00A7F4C8 /* AdModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27580D351F19A30D00A7F4C8 /* AdModel.m */; };
+		27580D391F19B3D800A7F4C8 /* HistoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27580D381F19B3D800A7F4C8 /* HistoryController.m */; };
+		27580D3C1F19DDEC00A7F4C8 /* RareModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27580D3B1F19DDEC00A7F4C8 /* RareModel.m */; };
 		488FA5CAFB9C8279855CF3E5 /* Pods_loan_shop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 900E8CE1C98C5FAFDD2DD735 /* Pods_loan_shop.framework */; };
 		701CCDE71F0B89EF007788A2 /* RareBookController.m in Sources */ = {isa = PBXBuildFile; fileRef = 701CCDE61F0B89EF007788A2 /* RareBookController.m */; };
 		701D00271F04E94300BAFA4D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 701D00261F04E94300BAFA4D /* main.m */; };
@@ -55,7 +61,6 @@
 		704333D41F0C7A46001377F6 /* FakeHomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 704333D31F0C7A46001377F6 /* FakeHomeController.m */; };
 		704333D71F0C7A72001377F6 /* FakeInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 704333D61F0C7A72001377F6 /* FakeInfoViewController.m */; };
 		704333DA1F0C7BEF001377F6 /* ProcessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 704333D91F0C7BEF001377F6 /* ProcessView.m */; };
-		704333DC1F0C7C04001377F6 /* ProcessView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 704333DB1F0C7C04001377F6 /* ProcessView.xib */; };
 		70A2AC8B1F189DBA00B3A0A3 /* AFURLSessionManager+Swizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A2AC8A1F189DBA00B3A0A3 /* AFURLSessionManager+Swizzle.m */; };
 		70F10D3A1F05EA3E000565BA /* HotCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F10D391F05EA3E000565BA /* HotCollectionView.m */; };
 		70F10D401F05EAB5000565BA /* HotCreditCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F10D3F1F05EAB5000565BA /* HotCreditCell.m */; };
@@ -67,6 +72,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		27580D2D1F19A08C00A7F4C8 /* FakeInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeInfoCell.h; sourceTree = "<group>"; };
+		27580D2E1F19A08C00A7F4C8 /* FakeInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeInfoCell.m; sourceTree = "<group>"; };
+		27580D301F19A09800A7F4C8 /* FackHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FackHeader.xib; sourceTree = "<group>"; };
+		27580D321F19A1CE00A7F4C8 /* Base.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Base.storyboard; sourceTree = "<group>"; };
+		27580D341F19A30D00A7F4C8 /* AdModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdModel.h; path = "loan-shop/Base/AdModel.h"; sourceTree = SOURCE_ROOT; };
+		27580D351F19A30D00A7F4C8 /* AdModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AdModel.m; path = "loan-shop/Base/AdModel.m"; sourceTree = SOURCE_ROOT; };
+		27580D371F19B3D800A7F4C8 /* HistoryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryController.h; sourceTree = "<group>"; };
+		27580D381F19B3D800A7F4C8 /* HistoryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryController.m; sourceTree = "<group>"; };
+		27580D3A1F19DDEC00A7F4C8 /* RareModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RareModel.h; path = "loan-shop/Mine/Controller/RareModel.h"; sourceTree = SOURCE_ROOT; };
+		27580D3B1F19DDEC00A7F4C8 /* RareModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RareModel.m; path = "loan-shop/Mine/Controller/RareModel.m"; sourceTree = SOURCE_ROOT; };
 		39B2011E3342C02327FCFFC8 /* Pods-loan-shop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-loan-shop.release.xcconfig"; path = "Pods/Target Support Files/Pods-loan-shop/Pods-loan-shop.release.xcconfig"; sourceTree = "<group>"; };
 		42F40DDA66CE922B52DD6478 /* Pods-loan-shop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-loan-shop.debug.xcconfig"; path = "Pods/Target Support Files/Pods-loan-shop/Pods-loan-shop.debug.xcconfig"; sourceTree = "<group>"; };
 		701CCDE51F0B89EF007788A2 /* RareBookController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RareBookController.h; sourceTree = "<group>"; };
@@ -158,7 +173,6 @@
 		704333D61F0C7A72001377F6 /* FakeInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeInfoViewController.m; sourceTree = "<group>"; };
 		704333D81F0C7BEF001377F6 /* ProcessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessView.h; sourceTree = "<group>"; };
 		704333D91F0C7BEF001377F6 /* ProcessView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessView.m; sourceTree = "<group>"; };
-		704333DB1F0C7C04001377F6 /* ProcessView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProcessView.xib; sourceTree = "<group>"; };
 		70A2AC891F189DBA00B3A0A3 /* AFURLSessionManager+Swizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AFURLSessionManager+Swizzle.h"; sourceTree = "<group>"; };
 		70A2AC8A1F189DBA00B3A0A3 /* AFURLSessionManager+Swizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AFURLSessionManager+Swizzle.m"; sourceTree = "<group>"; };
 		70F10D381F05EA3E000565BA /* HotCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotCollectionView.h; sourceTree = "<group>"; };
@@ -250,6 +264,7 @@
 		701D003C1F04E9A900BAFA4D /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				27580D321F19A1CE00A7F4C8 /* Base.storyboard */,
 				701D003D1F04E9A900BAFA4D /* BaseViewController.h */,
 				701D003E1F04E9A900BAFA4D /* BaseViewController.m */,
 				701D005F1F04EE1000BAFA4D /* MainTabBarController.h */,
@@ -324,6 +339,8 @@
 		701D00471F04E9A900BAFA4D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				27580D341F19A30D00A7F4C8 /* AdModel.h */,
+				27580D351F19A30D00A7F4C8 /* AdModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -413,6 +430,8 @@
 				70F10D4E1F062CDB000565BA /* RegistController.m */,
 				701CCDE51F0B89EF007788A2 /* RareBookController.h */,
 				701CCDE61F0B89EF007788A2 /* RareBookController.m */,
+				27580D371F19B3D800A7F4C8 /* HistoryController.h */,
+				27580D381F19B3D800A7F4C8 /* HistoryController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -420,6 +439,8 @@
 		701D004F1F04E9A900BAFA4D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				27580D3A1F19DDEC00A7F4C8 /* RareModel.h */,
+				27580D3B1F19DDEC00A7F4C8 /* RareModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -525,10 +546,12 @@
 		704333CE1F0C769F001377F6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				27580D301F19A09800A7F4C8 /* FackHeader.xib */,
+				27580D2D1F19A08C00A7F4C8 /* FakeInfoCell.h */,
+				27580D2E1F19A08C00A7F4C8 /* FakeInfoCell.m */,
 				704333D01F0C76B2001377F6 /* Fake.storyboard */,
 				704333D81F0C7BEF001377F6 /* ProcessView.h */,
 				704333D91F0C7BEF001377F6 /* ProcessView.m */,
-				704333DB1F0C7C04001377F6 /* ProcessView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -626,12 +649,13 @@
 				701D00351F04E94300BAFA4D /* LaunchScreen.storyboard in Resources */,
 				701D00C01F0510FD00BAFA4D /* KNBannerViewSource.bundle in Resources */,
 				701D00571F04EC3A00BAFA4D /* CreditCard.storyboard in Resources */,
+				27580D311F19A09800A7F4C8 /* FackHeader.xib in Resources */,
 				701D00801F04F26500BAFA4D /* Mine.storyboard in Resources */,
 				701D00321F04E94300BAFA4D /* Assets.xcassets in Resources */,
 				704333D11F0C76B2001377F6 /* Fake.storyboard in Resources */,
+				27580D331F19A1CE00A7F4C8 /* Base.storyboard in Resources */,
 				701D00851F04F2DE00BAFA4D /* Loan.storyboard in Resources */,
 				701D00301F04E94300BAFA4D /* Main.storyboard in Resources */,
-				704333DC1F0C7C04001377F6 /* ProcessView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -702,6 +726,7 @@
 				701D00691F04F05D00BAFA4D /* BaseNavController.m in Sources */,
 				701D009A1F05066800BAFA4D /* LoanCollectionView.m in Sources */,
 				704333D71F0C7A72001377F6 /* FakeInfoViewController.m in Sources */,
+				27580D2F1F19A08C00A7F4C8 /* FakeInfoCell.m in Sources */,
 				701D00791F04F19500BAFA4D /* Reachability.m in Sources */,
 				701D005A1F04EC5200BAFA4D /* CreditCardController.m in Sources */,
 				701D00831F04F27E00BAFA4D /* MineController.m in Sources */,
@@ -718,6 +743,7 @@
 				701D00BF1F0510FD00BAFA4D /* KNBannerViewModel.m in Sources */,
 				701D007B1F04F19500BAFA4D /* UIImage+Additional.m in Sources */,
 				701D00511F04E9A900BAFA4D /* BaseViewController.m in Sources */,
+				27580D3C1F19DDEC00A7F4C8 /* RareModel.m in Sources */,
 				701D009D1F05077900BAFA4D /* WebController.m in Sources */,
 				701D00271F04E94300BAFA4D /* main.m in Sources */,
 				70F10D491F062CB4000565BA /* LoginController.m in Sources */,
@@ -729,9 +755,11 @@
 				701D00BE1F0510FD00BAFA4D /* KNBannerView.m in Sources */,
 				703C13C11F09FD790029A9B2 /* LoanQualifyCell.m in Sources */,
 				701D00911F04FBA600BAFA4D /* LoanChannelCell.m in Sources */,
+				27580D391F19B3D800A7F4C8 /* HistoryController.m in Sources */,
 				701D007E1F04F19500BAFA4D /* UIView+Category.m in Sources */,
 				701D00881F04F2EC00BAFA4D /* LoanController.m in Sources */,
 				703C13C41F0A501C0029A9B2 /* LoanDetailModel.m in Sources */,
+				27580D361F19A30D00A7F4C8 /* AdModel.m in Sources */,
 				701D008E1F04F9E000BAFA4D /* ProcessViewController.m in Sources */,
 				70F10D431F05EC63000565BA /* HotLoanCell.m in Sources */,
 				70F10D461F05F77E000565BA /* HotHeaderCell.m in Sources */,

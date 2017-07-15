@@ -7,7 +7,7 @@
 //
 
 #import "BaseViewController.h"
-
+#import "LoginController.h"
 @interface ForgetPwdViewController : BaseViewController
-
+@property (nonatomic , copy) loginBlock block;
 @end

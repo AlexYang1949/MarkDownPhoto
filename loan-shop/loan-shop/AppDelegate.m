@@ -22,14 +22,13 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-//    if (YES) {
-    FakeHomeController *fakeVc = [[UIStoryboard storyboardWithName:@"Fake" bundle:nil] instantiateViewControllerWithIdentifier:@"FakeHomeController"];
-    BaseNavController *fakeNav = [[BaseNavController alloc] initWithRootViewController:fakeVc];
-    self.window.rootViewController = fakeNav;
-//    }else{
-//    self.window.rootViewController = [MainTabBarController sharedInstance];
-    
-//    }
+
+//    FakeHomeController *fakeVc = [[UIStoryboard storyboardWithName:@"Fake" bundle:nil] instantiateViewControllerWithIdentifier:@"FakeHomeController"];
+//    BaseNavController *fakeNav = [[BaseNavController alloc] initWithRootViewController:fakeVc];
+//    self.window.rootViewController = fakeNav;
+
+    self.window.rootViewController = [MainTabBarController sharedInstance];
+
     
     return YES;
 }

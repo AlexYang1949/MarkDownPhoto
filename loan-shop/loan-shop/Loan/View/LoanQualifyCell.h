@@ -10,4 +10,6 @@
 
 @interface LoanQualifyCell : UITableViewCell
 @property(nonatomic ,strong)NSString *title;
+@property (nonatomic , strong) NSString *content;
++(CGFloat)countHeightWithTitle:(NSString *)title;
 @end

@@ -11,6 +11,7 @@
 #import "LoanCollectionView.h"
 #import "LoanDetailController.h"
 #import "HotHeaderCell.h"
+#import "LoanDetailModel.h"
 static NSString *cellId = @"loanCell";
 @interface LoanController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet LoanCollectionView *collectionView;
@@ -25,8 +26,14 @@ static NSString *cellId = @"loanCell";
 }
 
 - (void)setupData{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [LoanApi getLoanListPageNum:0 Size:10000 finish:^(BOOL success, NSDictionary *resultObj, NSError *error) {
-        
+        NSDictionary *result = resultObj[@"result"];
+        if (!ISNULL(result)) {
+            _dataArray = [LoanDetailModel mj_objectArrayWithKeyValuesArray:result[@"content"]];
+            [_collectionView reloadData];
+        }
+        [hud hideAnimated:YES];
     }];
 }
 
@@ -43,28 +50,31 @@ static NSString *cellId = @"loanCell";
 
 #pragma mark - collectionView datasource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 10;
+    return _dataArray.count;
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
-    return 3;
+    return 1;
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     LoanChannelCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
+    cell.model = _dataArray[indexPath.row];
     return cell;
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     LoanDetailController *detailVc = [self getViewController:@"LoanDetailController" onStoryBoard:@"Loan"];
+    detailVc.loanId = ((LoanDetailModel *)_dataArray[indexPath.row]).id;
+    detailVc.link = ((LoanDetailModel *)_dataArray[indexPath.row]).link;
     [self.navigationController pushViewController:detailVc animated:YES];
 }
 
 // header footer
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     HotHeaderCell *header = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HotHeaderCell" forIndexPath:indexPath];
-    header.hiddenMore = NO;
-    header.title = @"更多推荐";
+    header.hiddenMore = YES;
+    header.title = @"贷款推荐";
     return  header;
 }
 

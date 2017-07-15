@@ -12,7 +12,10 @@
 
 @interface LoanDetailController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) NSArray *titleArray;
+
+@property (nonatomic , strong) LoanDetailModel *model;
+@property (nonatomic , strong) NSArray *titleArray;
+
 @end
 
 @implementation LoanDetailController
@@ -26,9 +29,14 @@
 }
 
 - (void)setupData{
-    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [LoanApi getLoanDetailId:_loanId finish:^(BOOL success, NSDictionary *resultObj, NSError *error) {
-        
+        NSDictionary *result = resultObj[@"result"];
+        if (!ISNULL(result)) {
+            _model = [LoanDetailModel mj_objectWithKeyValues:result];
+            [_tableView reloadData];
+        }
+        [hud hideAnimated:YES];
     }];
 }
 
@@ -39,22 +47,39 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row==0) {
         return 180;
+    }else if (indexPath.row==1) {
+        return [LoanQualifyCell countHeightWithTitle:_model.requirement];
+    }else if (indexPath.row==2){
+        return [LoanQualifyCell countHeightWithTitle:_model.material];
+    }else if (indexPath.row==3){
+        return [LoanQualifyCell countHeightWithTitle:_model.instructions];
     }else{
-        return 80;
+        return 0;
     }
-    
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row==0) {
         LoanDetailHeaderCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LoanDetailHeaderCell"];
+        cell.model = _model;
         return cell;
     }else{
         LoanQualifyCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LoanQualifyCell"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.title = _titleArray[indexPath.row-1];
+        if (indexPath.row==1) {
+            cell.content = _model.requirement;
+        }else if (indexPath.row==2){
+            cell.content = _model.material;
+        }else if (indexPath.row==3){
+            cell.content = _model.instructions;
+        }
         return cell;
     }
+}
+
+- (IBAction)applyNow:(id)sender {
+    [self openHtml:_link];
 }
 
 

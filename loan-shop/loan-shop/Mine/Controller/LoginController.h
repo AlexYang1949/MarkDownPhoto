@@ -7,7 +7,7 @@
 //
 
 #import "BaseViewController.h"
-
+typedef void(^loginBlock)(NSString *mobile,NSString *token);
 @interface LoginController : BaseViewController
-
+@property (nonatomic , copy) loginBlock block;
 @end

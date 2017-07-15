@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface LoanDetailHeaderCell : UITableViewCell
+@property (nonatomic , strong) LoanDetailModel *model;
 
 @end

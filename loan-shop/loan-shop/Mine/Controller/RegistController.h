@@ -7,7 +7,8 @@
 //
 
 #import "BaseViewController.h"
+#import "LoginController.h"
 
 @interface RegistController : BaseViewController
-
+@property (nonatomic , copy) loginBlock block;
 @end

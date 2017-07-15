@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RareModel.h"
 
 @interface RareBookCell : UITableViewCell
+@property (nonatomic , strong) RareModel *model;
 
 @end

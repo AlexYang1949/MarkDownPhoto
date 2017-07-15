@@ -63,10 +63,16 @@
 }
 
 -(void)openHtml:(NSString *)url{
-    
     WebController *webVc = [self getViewController:@"WebController" onStoryBoard:@"Base"];
     webVc.urlStr = url;
     [self.navigationController pushViewController:webVc animated:YES];
+}
+
+-(void)openHtmlWithId:(NSString *)rareId{
+    WebController *webVc = [self getViewController:@"WebController" onStoryBoard:@"Base"];
+    webVc.rareId = rareId;
+    [self.navigationController pushViewController:webVc animated:YES];
+
 }
 
 - (void)showHudTitle:(NSString *)title delay:(CGFloat)delay{

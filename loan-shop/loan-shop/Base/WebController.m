@@ -7,9 +7,10 @@
 //
 
 #import "WebController.h"
-
+#import "RareModel.h"
 @interface WebController ()
-@property(nonatomic, strong)UIWebView *webView;
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
+
 @end
 
 @implementation WebController
@@ -17,22 +18,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"跳转网页";
-    _webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
-    [self.view addSubview:_webView];
-    [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_urlStr]]];
-}
-- (void)viewWillAppear:(BOOL)animated{
-    
-    self.tabBarController.tabBar.hidden = YES;
-    
+    if (!ISNULL(_urlStr)) {
+        [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_urlStr]]];
+    }else if(!ISNULL(_rareId)){
+        [self setupData];
+    }
 }
 
--(void)viewWillDisappear:(BOOL)animated{
-    self.tabBarController.tabBar.hidden = NO;
-}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)setupData{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [LoanApi getRareDetailWithId:_rareId finish:^(BOOL success, NSDictionary *resultObj, NSError *error) {
+        RareModel *model = [RareModel mj_objectWithKeyValues:resultObj[@"result"]];
+        [_webView loadHTMLString:model.content baseURL:nil];
+        [hud hideAnimated:YES];
+    }];
 }
 
 

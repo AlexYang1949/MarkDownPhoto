@@ -45,10 +45,16 @@
                                                         <constraint firstAttribute="height" constant="60" id="K87-KG-Uj3"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最高贷款100万    今天你贷款了么" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HzC-4i-dbd">
-                                                    <rect key="frame" x="78" y="30.5" width="169" height="19.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u8o-Zw-SFc">
+                                                    <rect key="frame" x="80" y="20" width="42.5" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="remark" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vcv-IW-5Kd">
+                                                    <rect key="frame" x="80" y="43" width="48" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -56,14 +62,16 @@
                                         <constraints>
                                             <constraint firstItem="SmJ-HF-dcN" firstAttribute="top" secondItem="zqM-Xa-dqW" secondAttribute="top" constant="10" id="B68-Qf-iL2"/>
                                             <constraint firstItem="SmJ-HF-dcN" firstAttribute="leading" secondItem="zqM-Xa-dqW" secondAttribute="leading" constant="10" id="BHH-D8-dly"/>
-                                            <constraint firstAttribute="trailing" secondItem="HzC-4i-dbd" secondAttribute="trailing" constant="10" id="Gx0-a0-Cco"/>
-                                            <constraint firstItem="HzC-4i-dbd" firstAttribute="leading" secondItem="SmJ-HF-dcN" secondAttribute="trailing" constant="8" id="JW3-j5-y3C"/>
-                                            <constraint firstItem="HzC-4i-dbd" firstAttribute="centerY" secondItem="SmJ-HF-dcN" secondAttribute="centerY" id="bJ3-Fk-IeR"/>
+                                            <constraint firstItem="u8o-Zw-SFc" firstAttribute="leading" secondItem="SmJ-HF-dcN" secondAttribute="trailing" constant="10" id="RUx-B1-1A7"/>
+                                            <constraint firstItem="u8o-Zw-SFc" firstAttribute="top" secondItem="SmJ-HF-dcN" secondAttribute="top" constant="10" id="ahA-jO-8zQ"/>
+                                            <constraint firstItem="Vcv-IW-5Kd" firstAttribute="leading" secondItem="u8o-Zw-SFc" secondAttribute="leading" id="ax7-Gd-dqJ"/>
+                                            <constraint firstItem="Vcv-IW-5Kd" firstAttribute="top" secondItem="u8o-Zw-SFc" secondAttribute="bottom" constant="2" id="uUn-Tr-GBM"/>
                                         </constraints>
                                         <size key="customSize" width="257" height="90"/>
                                         <connections>
                                             <outlet property="icon" destination="SmJ-HF-dcN" id="2K3-5l-acq"/>
-                                            <outlet property="title" destination="HzC-4i-dbd" id="OtL-c5-q67"/>
+                                            <outlet property="nameLabel" destination="u8o-Zw-SFc" id="AT0-XK-DW7"/>
+                                            <outlet property="remark" destination="Vcv-IW-5Kd" id="pzs-Ca-Bho"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -87,7 +95,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LI5-tz-zjc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-396" y="-291"/>
+            <point key="canvasLocation" x="-396" y="-291.00449775112446"/>
         </scene>
         <!--贷款详情-->
         <scene sceneID="fMr-jz-Hgk">
@@ -233,6 +241,13 @@
                                                 <constraint firstAttribute="trailing" secondItem="ZWa-GK-0br" secondAttribute="trailing" constant="20" id="zbg-o8-87U"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="limitLabel" destination="ceh-2G-4A7" id="fUI-gt-Djd"/>
+                                            <outlet property="nameLabel" destination="1hQ-BP-puY" id="1zf-9c-ZDV"/>
+                                            <outlet property="remark" destination="GMC-ko-xtp" id="Dmo-Hu-1dK"/>
+                                            <outlet property="reteLabel" destination="Ma6-Ys-Y6A" id="T6N-gD-JSF"/>
+                                            <outlet property="termLabel" destination="rZP-YU-58X" id="W07-2n-Yav"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="LoanQualifyCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="LoanQualifyCell" rowHeight="80" id="z8O-Zz-X1j" customClass="LoanQualifyCell">
                                         <rect key="frame" x="0.0" y="208" width="375" height="80"/>
@@ -253,7 +268,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123123" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VvU-fe-WNO">
                                                     <rect key="frame" x="20" y="38" width="335" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -290,6 +305,9 @@
                                         <state key="normal" title="马上申请">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="applyNow:" destination="WnS-W3-ZrR" eventType="touchUpInside" id="uw3-NM-FPJ"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -318,7 +336,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rE7-Ss-S19" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="485.60000000000002" y="-326.08695652173918"/>
+            <point key="canvasLocation" x="242" y="-412"/>
         </scene>
     </scenes>
     <resources>

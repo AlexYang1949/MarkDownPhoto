@@ -11,6 +11,7 @@
 @interface BaseViewController : UIViewController
 -(id)getViewController:(NSString*)controllName onStoryBoard:(NSString*)boardName;
 -(void)openHtml:(NSString *)url;
+-(void)openHtmlWithId:(NSString *)rareId;
 - (void)setNavRightButtonwithImg:(NSString *)normalImg selImg:(NSString *)selImg title:(NSString *)title action:(SEL)action;
 - (void)setNavLeftButtonwithImg:(NSString *)normalImg selImg:(NSString *)selImg title:(NSString *)title action:(SEL)action;
 - (void)showHudTitle:(NSString *)title delay:(CGFloat)delay;

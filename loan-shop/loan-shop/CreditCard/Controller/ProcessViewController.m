@@ -12,33 +12,36 @@
 
 @interface ProcessViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (nonatomic, strong) NSArray *bankList;
+@property (nonatomic, strong) NSArray *dataArray;
 @end
 
 @implementation ProcessViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _tableView.tableFooterView = [[UIView alloc] init];
     [self setupData];
-    // Do any additional setup after loading the view.
+
 }
 
 - (void)setupData{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [LoanApi getBankListPageNum:0 Size:100 finish:^(BOOL success, NSDictionary *resultObj, NSError *error) {
         NSDictionary *result = resultObj[@"result"];
         if (!ISNULL(result)) {
-            _bankList = [HomeCardModel mj_objectArrayWithKeyValuesArray:(NSArray *)result[@"content"]];
+            _dataArray = [HomeCardModel mj_objectArrayWithKeyValuesArray:(NSArray *)result[@"content"]];
             [_tableView reloadData];
         }
+        [hud hideAnimated:YES];
     }];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return _bankList.count;
+    return _dataArray.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    HomeCardModel *cardInfo = _bankList[indexPath.row];
+    HomeCardModel *cardInfo = _dataArray[indexPath.row];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
@@ -54,8 +57,8 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    HomeCardModel *cardInfo = _bankList[indexPath.row];
-    [self openHtml:cardInfo.link];
+    HomeCardModel *cardInfo = _dataArray[indexPath.row];
+    [self openHtml:cardInfo.progress];
 }
 
 
