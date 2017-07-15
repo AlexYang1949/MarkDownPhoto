@@ -20,12 +20,14 @@
 #define COLORHEX(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 #define COLOR_MAIN COLORHEX(0x267cef)
 #define COLOR_BACK COLORHEX(0xf6f6f6)
-#define COLOR_GRAY COLORHEX(0xB8B8B8)
 
 // 常用define
 #define ISNULL(val) (val==nil || (NSNull*)val== [NSNull null])
 
 #import "LoanApi.h"
 #import "MJExtension.h"
+#import "LoanDetailModel.h"
+#import "HomeCardModel.h"
+#import "MBProgressHUD.h"
 
 #endif /* Config_h */

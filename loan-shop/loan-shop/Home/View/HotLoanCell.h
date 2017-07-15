@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface HotLoanCell : UICollectionViewCell
-
+@property(nonatomic ,strong) LoanDetailModel *model;
 @end

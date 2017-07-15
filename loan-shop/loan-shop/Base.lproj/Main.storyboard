@@ -45,8 +45,20 @@
                                                         <constraint firstAttribute="height" constant="60" id="wBw-vY-tlg"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最高额度100万" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bpX-KV-d4o">
-                                                    <rect key="frame" x="80" y="10" width="137" height="60"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bpX-KV-d4o">
+                                                    <rect key="frame" x="80" y="15" width="137" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="term" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w3G-1E-wUH">
+                                                    <rect key="frame" x="80" y="33" width="32" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="limitation" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zA0-U8-Cus">
+                                                    <rect key="frame" x="80" y="51" width="62.5" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -54,14 +66,22 @@
                                             </subviews>
                                         </view>
                                         <constraints>
+                                            <constraint firstItem="w3G-1E-wUH" firstAttribute="top" secondItem="bpX-KV-d4o" secondAttribute="bottom" id="0Ng-Hl-nyp"/>
                                             <constraint firstAttribute="trailing" secondItem="bpX-KV-d4o" secondAttribute="trailing" constant="10" id="6ok-sY-KJu"/>
                                             <constraint firstItem="bpX-KV-d4o" firstAttribute="leading" secondItem="jPK-oU-6a8" secondAttribute="trailing" constant="10" id="BPb-yf-FIE"/>
+                                            <constraint firstItem="zA0-U8-Cus" firstAttribute="leading" secondItem="w3G-1E-wUH" secondAttribute="leading" id="D80-ha-VDC"/>
+                                            <constraint firstItem="zA0-U8-Cus" firstAttribute="top" secondItem="w3G-1E-wUH" secondAttribute="bottom" id="DFB-Td-U9t"/>
                                             <constraint firstItem="jPK-oU-6a8" firstAttribute="leading" secondItem="hPP-L4-ObM" secondAttribute="leading" constant="10" id="IMg-dw-nzX"/>
-                                            <constraint firstItem="bpX-KV-d4o" firstAttribute="centerY" secondItem="jPK-oU-6a8" secondAttribute="centerY" id="SeN-zV-e5j"/>
-                                            <constraint firstItem="bpX-KV-d4o" firstAttribute="height" secondItem="jPK-oU-6a8" secondAttribute="height" id="mkm-o0-1GU"/>
+                                            <constraint firstItem="w3G-1E-wUH" firstAttribute="leading" secondItem="bpX-KV-d4o" secondAttribute="leading" id="Xwn-xX-I4W"/>
+                                            <constraint firstItem="bpX-KV-d4o" firstAttribute="top" secondItem="jPK-oU-6a8" secondAttribute="top" constant="5" id="ZDA-k9-1yf"/>
                                             <constraint firstItem="jPK-oU-6a8" firstAttribute="top" secondItem="hPP-L4-ObM" secondAttribute="top" constant="10" id="n4i-yI-jUK"/>
                                         </constraints>
                                         <size key="customSize" width="227" height="80"/>
+                                        <connections>
+                                            <outlet property="limitLabel" destination="zA0-U8-Cus" id="H4s-er-FcF"/>
+                                            <outlet property="nameLabel" destination="bpX-KV-d4o" id="f6R-Wf-aJR"/>
+                                            <outlet property="termLable" destination="w3G-1E-wUH" id="hO8-7x-YNr"/>
+                                        </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HotCreditCell" id="PGo-v4-chz" customClass="HotCreditCell">
                                         <rect key="frame" x="46.5" y="90" width="282" height="80"/>
@@ -118,13 +138,15 @@
                             <constraint firstItem="v7e-Hl-Va4" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="ud4-r0-s58"/>
                         </constraints>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
                     <connections>
                         <outlet property="collectionView" destination="v7e-Hl-Va4" id="JHh-xN-Hfg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-388" y="-103"/>
+            <point key="canvasLocation" x="-386.39999999999998" y="-402.54872563718146"/>
         </scene>
     </scenes>
     <resources>

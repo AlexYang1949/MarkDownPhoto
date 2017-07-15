@@ -23,7 +23,7 @@
 
 -(void)setHiddenMore:(BOOL)hiddenMore{
     _hiddenMore = hiddenMore;
-    _moreButton.hidden = YES;
+    _moreButton.hidden = hiddenMore;
 }
 
 -(void)setTitle:(NSString *)title{
@@ -32,17 +32,16 @@
 }
 
 - (void)loadUI{
-    _titleLable = [[UILabel alloc] initWithFrame:CGRectMake(20, self.height - HEIGHT_TITLE, self.width/2, HEIGHT_TITLE)];
-    _titleLable.text = @"标题";
+    _titleLable = [[UILabel alloc] initWithFrame:CGRectMake(20, self.height-HEIGHT_TITLE, self.width/2, HEIGHT_TITLE)];
     _titleLable.textColor = [UIColor darkGrayColor];
-    [self addSubview:_titleLable];
+    [self.contentView addSubview:_titleLable];
     
     _moreButton = [[UIButton alloc] initWithFrame:CGRectMake(self.width-100, self.height-HEIGHT_TITLE, 80, HEIGHT_TITLE)];
     [_moreButton setTitle:@"更多.." forState:UIControlStateNormal];
     [_moreButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
     [_moreButton setFont:[UIFont systemFontOfSize:15]];
     [_moreButton addTarget:self action:@selector(more) forControlEvents:UIControlEventTouchUpInside];
-    [self addSubview:_moreButton];
+    [self.contentView addSubview:_moreButton];
 
     self.backgroundColor = COLORHEX(0xf6f6f6);
 }

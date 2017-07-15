@@ -7,11 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		27128FB71F0FF7AA007EBF2F /* FakeContainerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27128FB61F0FF7AA007EBF2F /* FakeContainerController.m */; };
-		27177E7B1F10C47800649235 /* FackHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27177E7A1F10C47800649235 /* FackHeader.xib */; };
-		27177E7E1F10D0D900649235 /* FakeInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27177E7D1F10D0D900649235 /* FakeInfoCell.m */; };
-		27177E811F10E20600649235 /* FakeResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27177E801F10E20600649235 /* FakeResultController.m */; };
-		27177E831F10E4C900649235 /* Base.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27177E821F10E4C900649235 /* Base.storyboard */; };
 		488FA5CAFB9C8279855CF3E5 /* Pods_loan_shop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 900E8CE1C98C5FAFDD2DD735 /* Pods_loan_shop.framework */; };
 		701CCDE71F0B89EF007788A2 /* RareBookController.m in Sources */ = {isa = PBXBuildFile; fileRef = 701CCDE61F0B89EF007788A2 /* RareBookController.m */; };
 		701D00271F04E94300BAFA4D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 701D00261F04E94300BAFA4D /* main.m */; };
@@ -60,6 +55,8 @@
 		704333D41F0C7A46001377F6 /* FakeHomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 704333D31F0C7A46001377F6 /* FakeHomeController.m */; };
 		704333D71F0C7A72001377F6 /* FakeInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 704333D61F0C7A72001377F6 /* FakeInfoViewController.m */; };
 		704333DA1F0C7BEF001377F6 /* ProcessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 704333D91F0C7BEF001377F6 /* ProcessView.m */; };
+		704333DC1F0C7C04001377F6 /* ProcessView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 704333DB1F0C7C04001377F6 /* ProcessView.xib */; };
+		70A2AC8B1F189DBA00B3A0A3 /* AFURLSessionManager+Swizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A2AC8A1F189DBA00B3A0A3 /* AFURLSessionManager+Swizzle.m */; };
 		70F10D3A1F05EA3E000565BA /* HotCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F10D391F05EA3E000565BA /* HotCollectionView.m */; };
 		70F10D401F05EAB5000565BA /* HotCreditCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F10D3F1F05EAB5000565BA /* HotCreditCell.m */; };
 		70F10D431F05EC63000565BA /* HotLoanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F10D421F05EC63000565BA /* HotLoanCell.m */; };
@@ -70,14 +67,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		27128FB51F0FF7AA007EBF2F /* FakeContainerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeContainerController.h; sourceTree = "<group>"; };
-		27128FB61F0FF7AA007EBF2F /* FakeContainerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeContainerController.m; sourceTree = "<group>"; };
-		27177E7A1F10C47800649235 /* FackHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FackHeader.xib; sourceTree = "<group>"; };
-		27177E7C1F10D0D900649235 /* FakeInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeInfoCell.h; sourceTree = "<group>"; };
-		27177E7D1F10D0D900649235 /* FakeInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeInfoCell.m; sourceTree = "<group>"; };
-		27177E7F1F10E20600649235 /* FakeResultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeResultController.h; sourceTree = "<group>"; };
-		27177E801F10E20600649235 /* FakeResultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeResultController.m; sourceTree = "<group>"; };
-		27177E821F10E4C900649235 /* Base.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Base.storyboard; sourceTree = "<group>"; };
 		39B2011E3342C02327FCFFC8 /* Pods-loan-shop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-loan-shop.release.xcconfig"; path = "Pods/Target Support Files/Pods-loan-shop/Pods-loan-shop.release.xcconfig"; sourceTree = "<group>"; };
 		42F40DDA66CE922B52DD6478 /* Pods-loan-shop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-loan-shop.debug.xcconfig"; path = "Pods/Target Support Files/Pods-loan-shop/Pods-loan-shop.debug.xcconfig"; sourceTree = "<group>"; };
 		701CCDE51F0B89EF007788A2 /* RareBookController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RareBookController.h; sourceTree = "<group>"; };
@@ -169,6 +158,9 @@
 		704333D61F0C7A72001377F6 /* FakeInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeInfoViewController.m; sourceTree = "<group>"; };
 		704333D81F0C7BEF001377F6 /* ProcessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessView.h; sourceTree = "<group>"; };
 		704333D91F0C7BEF001377F6 /* ProcessView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessView.m; sourceTree = "<group>"; };
+		704333DB1F0C7C04001377F6 /* ProcessView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProcessView.xib; sourceTree = "<group>"; };
+		70A2AC891F189DBA00B3A0A3 /* AFURLSessionManager+Swizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AFURLSessionManager+Swizzle.h"; sourceTree = "<group>"; };
+		70A2AC8A1F189DBA00B3A0A3 /* AFURLSessionManager+Swizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AFURLSessionManager+Swizzle.m"; sourceTree = "<group>"; };
 		70F10D381F05EA3E000565BA /* HotCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotCollectionView.h; sourceTree = "<group>"; };
 		70F10D391F05EA3E000565BA /* HotCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotCollectionView.m; sourceTree = "<group>"; };
 		70F10D3E1F05EAB5000565BA /* HotCreditCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotCreditCell.h; sourceTree = "<group>"; };
@@ -268,7 +260,6 @@
 				701D00681F04F05D00BAFA4D /* BaseNavController.m */,
 				701D009B1F05077900BAFA4D /* WebController.h */,
 				701D009C1F05077900BAFA4D /* WebController.m */,
-				27177E821F10E4C900649235 /* Base.storyboard */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -470,6 +461,8 @@
 				701D00751F04F19500BAFA4D /* UITextField+Check.m */,
 				701D00761F04F19500BAFA4D /* UIView+Category.h */,
 				701D00771F04F19500BAFA4D /* UIView+Category.m */,
+				70A2AC891F189DBA00B3A0A3 /* AFURLSessionManager+Swizzle.h */,
+				70A2AC8A1F189DBA00B3A0A3 /* AFURLSessionManager+Swizzle.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -535,9 +528,7 @@
 				704333D01F0C76B2001377F6 /* Fake.storyboard */,
 				704333D81F0C7BEF001377F6 /* ProcessView.h */,
 				704333D91F0C7BEF001377F6 /* ProcessView.m */,
-				27177E7A1F10C47800649235 /* FackHeader.xib */,
-				27177E7C1F10D0D900649235 /* FakeInfoCell.h */,
-				27177E7D1F10D0D900649235 /* FakeInfoCell.m */,
+				704333DB1F0C7C04001377F6 /* ProcessView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -545,14 +536,10 @@
 		704333CF1F0C769F001377F6 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				27128FB51F0FF7AA007EBF2F /* FakeContainerController.h */,
-				27128FB61F0FF7AA007EBF2F /* FakeContainerController.m */,
 				704333D21F0C7A46001377F6 /* FakeHomeController.h */,
 				704333D31F0C7A46001377F6 /* FakeHomeController.m */,
 				704333D51F0C7A72001377F6 /* FakeInfoViewController.h */,
 				704333D61F0C7A72001377F6 /* FakeInfoViewController.m */,
-				27177E7F1F10E20600649235 /* FakeResultController.h */,
-				27177E801F10E20600649235 /* FakeResultController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -643,9 +630,8 @@
 				701D00321F04E94300BAFA4D /* Assets.xcassets in Resources */,
 				704333D11F0C76B2001377F6 /* Fake.storyboard in Resources */,
 				701D00851F04F2DE00BAFA4D /* Loan.storyboard in Resources */,
-				27177E831F10E4C900649235 /* Base.storyboard in Resources */,
 				701D00301F04E94300BAFA4D /* Main.storyboard in Resources */,
-				27177E7B1F10C47800649235 /* FackHeader.xib in Resources */,
+				704333DC1F0C7C04001377F6 /* ProcessView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -710,12 +696,10 @@
 				704333D41F0C7A46001377F6 /* FakeHomeController.m in Sources */,
 				701D00C21F0510FD00BAFA4D /* UIView+KNExtension.m in Sources */,
 				701D007A1F04F19500BAFA4D /* UIColor+HEX.m in Sources */,
-				27128FB71F0FF7AA007EBF2F /* FakeContainerController.m in Sources */,
 				701D00641F04EEFD00BAFA4D /* MainTabBar.m in Sources */,
 				701D00BC1F0510FD00BAFA4D /* KNBannerPageControl.m in Sources */,
 				702E42361F0F84FB002B3706 /* RareBookCell.m in Sources */,
 				701D00691F04F05D00BAFA4D /* BaseNavController.m in Sources */,
-				27177E7E1F10D0D900649235 /* FakeInfoCell.m in Sources */,
 				701D009A1F05066800BAFA4D /* LoanCollectionView.m in Sources */,
 				704333D71F0C7A72001377F6 /* FakeInfoViewController.m in Sources */,
 				701D00791F04F19500BAFA4D /* Reachability.m in Sources */,
@@ -729,9 +713,9 @@
 				70F10D3A1F05EA3E000565BA /* HotCollectionView.m in Sources */,
 				70F10D4F1F062CDB000565BA /* RegistController.m in Sources */,
 				701D00941F04FBCF00BAFA4D /* HomeCardModel.m in Sources */,
+				70A2AC8B1F189DBA00B3A0A3 /* AFURLSessionManager+Swizzle.m in Sources */,
 				70F10D4C1F062CC3000565BA /* ForgetPwdViewController.m in Sources */,
 				701D00BF1F0510FD00BAFA4D /* KNBannerViewModel.m in Sources */,
-				27177E811F10E20600649235 /* FakeResultController.m in Sources */,
 				701D007B1F04F19500BAFA4D /* UIImage+Additional.m in Sources */,
 				701D00511F04E9A900BAFA4D /* BaseViewController.m in Sources */,
 				701D009D1F05077900BAFA4D /* WebController.m in Sources */,

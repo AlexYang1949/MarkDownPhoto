@@ -13,4 +13,5 @@
 -(void)openHtml:(NSString *)url;
 - (void)setNavRightButtonwithImg:(NSString *)normalImg selImg:(NSString *)selImg title:(NSString *)title action:(SEL)action;
 - (void)setNavLeftButtonwithImg:(NSString *)normalImg selImg:(NSString *)selImg title:(NSString *)title action:(SEL)action;
+- (void)showHudTitle:(NSString *)title delay:(CGFloat)delay;
 @end
