@@ -37,7 +37,8 @@
             return ;
         }
         NSDictionary *result = resultObj[@"result"];
-        if (!ISNULL(result)) {
+        NSUInteger errorCode = [resultObj[@"errorCode"] integerValue];
+        if (!ISNULL(result)&&errorCode==200) {
             _model = [LoanDetailModel mj_objectWithKeyValues:result];
             [_tableView reloadData];
         }else{

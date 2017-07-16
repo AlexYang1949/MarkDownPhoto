@@ -31,5 +31,6 @@
 #import "HomeCardModel.h"
 #import "MBProgressHUD.h"
 #import "UserManager.h"
+#import "NSString+Additional.h"
 
 #endif /* Config_h */

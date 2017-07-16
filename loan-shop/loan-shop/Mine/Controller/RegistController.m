@@ -50,7 +50,7 @@
 // 注册
 - (IBAction)regClick:(id)sender {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [LoanApi registerWithMobile:_mobileTF.text pwd:_pwdTF.text code:_codeTF.text finish:^(BOOL success, NSDictionary *resultObj, NSError *error) {
+    [LoanApi registerWithMobile:_mobileTF.text pwd:[_pwdTF.text md5] code:_codeTF.text finish:^(BOOL success, NSDictionary *resultObj, NSError *error) {
         [hud hideAnimated:YES];
         NSUInteger errorCode = [resultObj[@"errorCode"] integerValue];
         if(success&&errorCode==200){

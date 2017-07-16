@@ -47,7 +47,7 @@
     if (ISNULL(_mobileTF.text)){
         return;
     }
-    [LoanApi loginWithMobile:_mobileTF.text pwd:_pwdTF.text finish:^(BOOL success, NSDictionary *resultObj, NSError *error) {
+    [LoanApi loginWithMobile:_mobileTF.text pwd:[_pwdTF.text md5] finish:^(BOOL success, NSDictionary *resultObj, NSError *error) {
         NSUInteger errorCode = [resultObj[@"errorCode"] integerValue];
         if(success&&errorCode==200){
             [self showHudTitle:@"登录成功" delay:1];

@@ -33,8 +33,9 @@ static NSString *cellId = @"loanCell";
             [self showHudTitle:@"网络错误！" delay:1];
             return ;
         }
+        NSUInteger errorCode = [resultObj[@"errorCode"] integerValue];
         NSDictionary *result = resultObj[@"result"];
-        if (!ISNULL(result)) {
+        if (!ISNULL(result)&&errorCode==200) {
             _dataArray = [LoanDetailModel mj_objectArrayWithKeyValuesArray:result[@"content"]];
             [_collectionView reloadData];
         }else{

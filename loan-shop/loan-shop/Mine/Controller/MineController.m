@@ -87,7 +87,7 @@
         [self presentViewController:loginNav animated:YES completion:nil];
     }
     if (indexPath.section==4) {
-        _dataArray[0] = @"注册／登录";
+        _dataArray[0] = @[@"注册／登录"];
         [_tableView reloadData];
     }
     

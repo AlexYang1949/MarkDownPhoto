@@ -43,7 +43,7 @@
 }
 
 - (IBAction)resetPwd:(id)sender {
-    [LoanApi resetPwdWithMobile:_mobileTF.text pwd:_pwdTF.text code:_codeTF.text finish:^(BOOL success, NSDictionary *resultObj, NSError *error) {
+    [LoanApi resetPwdWithMobile:_mobileTF.text pwd:[_pwdTF.text md5] code:_codeTF.text finish:^(BOOL success, NSDictionary *resultObj, NSError *error) {
         if (!success) {
             [self showHudTitle:@"网络错误！" delay:1];
             return ;

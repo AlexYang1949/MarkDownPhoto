@@ -47,7 +47,8 @@
             return ;
         }
         NSDictionary *result = resultObj[@"result"];
-        if (!ISNULL(result)&&success) {
+        NSUInteger errorCode = [resultObj[@"errorCode"] integerValue];
+        if (!ISNULL(result)&&success&&errorCode==200) {
             _adArray = [AdModel mj_objectArrayWithKeyValuesArray:result[@"content"]];
             [_adArray enumerateObjectsUsingBlock:^(AdModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
                 [self.urlArr addObject:obj.showAdUrl];
@@ -61,7 +62,8 @@
     [LoanApi getHotPageNum:0 Size:1000 finish:^(BOOL success, NSDictionary *resultObj, NSError *error) {
         [hud hideAnimated:YES];
         NSDictionary *result = resultObj[@"result"];
-        if (!ISNULL(result)&&success==YES) {
+        NSUInteger errorCode = [resultObj[@"errorCode"] integerValue];
+        if (!ISNULL(result)&&errorCode==200) {
             _bankArray = [HomeCardModel mj_objectArrayWithKeyValuesArray:(NSArray *)result[@"banks"]];
             _loanArray = [LoanDetailModel mj_objectArrayWithKeyValuesArray:(NSArray *)result[@"loans"]];
             [_collectionView reloadData];
