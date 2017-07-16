@@ -28,6 +28,10 @@
 }
 
 - (IBAction)getCode:(id)sender {
+    if (ISNULL(_mobileTF.text)){
+        [self showHudTitle:@"请填写手机号" delay:1.0];
+        return;
+    }
     [LoanApi getCodeWithMobile:_mobileTF.text type:@"resetCode" finish:^(BOOL success, NSDictionary *resultObj, NSError *error) {
         if (!success) {
             [self showHudTitle:@"网络错误！" delay:1];
@@ -43,6 +47,19 @@
 }
 
 - (IBAction)resetPwd:(id)sender {
+    if (ISNULL(_mobileTF.text)){
+        [self showHudTitle:@"请填写手机号" delay:1.0];
+        return;
+    }
+    if (ISNULL(_pwdTF.text)){
+        [self showHudTitle:@"请填写密码" delay:1.0];
+        return;
+    }
+    if (ISNULL(_codeTF.text)){
+        [self showHudTitle:@"请填写验证码" delay:1.0];
+        return;
+    }
+
     [LoanApi resetPwdWithMobile:_mobileTF.text pwd:[_pwdTF.text md5] code:_codeTF.text finish:^(BOOL success, NSDictionary *resultObj, NSError *error) {
         if (!success) {
             [self showHudTitle:@"网络错误！" delay:1];

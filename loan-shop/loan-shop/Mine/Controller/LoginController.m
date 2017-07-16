@@ -45,6 +45,11 @@
 }
 - (IBAction)lognClick:(id)sender {
     if (ISNULL(_mobileTF.text)){
+        [self showHudTitle:@"请填写手机号" delay:1.0];
+        return;
+    }
+    if (ISNULL(_pwdTF.text)){
+        [self showHudTitle:@"请填写密码" delay:1.0];
         return;
     }
     [LoanApi loginWithMobile:_mobileTF.text pwd:[_pwdTF.text md5] finish:^(BOOL success, NSDictionary *resultObj, NSError *error) {

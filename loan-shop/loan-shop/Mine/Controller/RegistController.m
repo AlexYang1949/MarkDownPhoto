@@ -28,7 +28,8 @@
 }
 
 - (IBAction)getCode:(id)sender {
-    if (ISNULL(_mobileTF.text)) {
+    if (ISNULL(_mobileTF.text)){
+        [self showHudTitle:@"请填写手机号" delay:1.0];
         return;
     }
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -49,6 +50,19 @@
 
 // 注册
 - (IBAction)regClick:(id)sender {
+    if (ISNULL(_mobileTF.text)){
+        [self showHudTitle:@"请填写手机号" delay:1.0];
+        return;
+    }
+    if (ISNULL(_pwdTF.text)){
+        [self showHudTitle:@"请填写密码" delay:1.0];
+        return;
+    }
+    if (ISNULL(_codeTF.text)){
+        [self showHudTitle:@"请填写验证码" delay:1.0];
+        return;
+    }
+
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [LoanApi registerWithMobile:_mobileTF.text pwd:[_pwdTF.text md5] code:_codeTF.text finish:^(BOOL success, NSDictionary *resultObj, NSError *error) {
         [hud hideAnimated:YES];
