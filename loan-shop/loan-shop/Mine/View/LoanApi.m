@@ -36,6 +36,25 @@
     return sharedInstance;
 }
 
++(void)handleFakefinish:(finishBlock)finished{
+    LoanHTTPManager *manager = [LoanHTTPManager sharedManager];
+    [manager POST:@"screen/mock" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
+     {
+         NSError *error = nil;
+         id obj = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:&error];
+         if (finished==nil) {
+             return;
+         }
+         if (ISNULL(obj)) {
+             finished(YES, nil, nil);
+         }else{
+             finished(YES, obj, nil);
+         }
+     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+         finished(NO,nil,error);
+     }];
+
+}
 
 + (void)getAdImagePageNum:(NSUInteger)pageNum Size:(NSUInteger)size finish:(finishBlock)finished
 {

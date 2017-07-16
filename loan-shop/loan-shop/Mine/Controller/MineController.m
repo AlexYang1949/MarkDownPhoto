@@ -12,6 +12,7 @@
 #import "RareBookController.h"
 #import "ProcessViewController.h"
 #import "HistoryController.h"
+#import "UserManager.h"
 
 @interface MineController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -78,6 +79,7 @@
         LoginController *loginVc = [self getViewController:@"LoginController" onStoryBoard:@"Mine"];
         BaseNavController *loginNav = [[BaseNavController alloc] initWithRootViewController:loginVc];
         loginVc.block = ^(NSString *mobile,NSString *token){
+            [UserManager saveUser:mobile];
             _dataArray[0] = @[[NSString stringWithFormat:@"%@ 已登陆",mobile]];
             _dataArray[4] = @[@"退出登陆"];
             [_tableView reloadData];

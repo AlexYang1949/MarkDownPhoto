@@ -30,5 +30,6 @@
 #import "LoanDetailModel.h"
 #import "HomeCardModel.h"
 #import "MBProgressHUD.h"
+#import "UserManager.h"
 
 #endif /* Config_h */

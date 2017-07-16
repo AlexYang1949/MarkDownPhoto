@@ -40,8 +40,7 @@
     return 50;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView
-                              :(NSIndexPath *)indexPath{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     FakeInfoCell *fakeCell = [tableView dequeueReusableCellWithIdentifier:@"FakeInfoCell"];
     fakeCell.name = _titleArray[indexPath.row];
     return fakeCell;

@@ -22,19 +22,32 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-
-//    FakeHomeController *fakeVc = [[UIStoryboard storyboardWithName:@"Fake" bundle:nil] instantiateViewControllerWithIdentifier:@"FakeHomeController"];
-//    BaseNavController *fakeNav = [[BaseNavController alloc] initWithRootViewController:fakeVc];
-//    self.window.rootViewController = fakeNav;
-
-    self.window.rootViewController = [MainTabBarController sharedInstance];
-//    Networking
+    
+    [self handleFake];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networking:) name:@"Networking" object:nil];
     
     return YES;
 }
 
 - (void)networking:(NSNotification *)notify{
+}
+
+- (void)handleFake{
+    [LoanApi handleFakefinish:^(BOOL success, NSDictionary *resultObj, NSError *error) {
+        if (success) {
+            // 伪页面
+            if([resultObj[@"result"] integerValue]==1){
+                FakeHomeController *fakeVc = [[UIStoryboard storyboardWithName:@"Fake" bundle:nil] instantiateViewControllerWithIdentifier:@"FakeHomeController"];
+                BaseNavController *fakeNav = [[BaseNavController alloc] initWithRootViewController:fakeVc];
+                self.window.rootViewController = fakeNav;
+                [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"fake"];
+            }else{
+                self.window.rootViewController = [MainTabBarController sharedInstance];
+                [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"fake"];
+            }
+        }
+    }];
 }
 
 
@@ -51,12 +64,15 @@
 
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
+    [self handleFake];
     // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
 }
 
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    if (self.window.rootViewController==nil) {
+        self.window.rootViewController = [[UIViewController alloc] init];
+    }
 }
 
 

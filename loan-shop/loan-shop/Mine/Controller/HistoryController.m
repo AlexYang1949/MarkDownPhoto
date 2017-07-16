@@ -7,9 +7,11 @@
 //
 
 #import "HistoryController.h"
+#import "HistoryModel.h"
 
 @interface HistoryController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic , strong) NSArray *dataArray;
 
 @end
 
@@ -18,6 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _tableView.tableFooterView = [[UIView alloc] init];
+    [self setupDataType:@"贷款"];
     // Do any additional setup after loading the view.
 }
 
@@ -26,15 +29,37 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)setupDataType:(NSString *)type{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [LoanApi getHistoryWithMobile:[UserManager currentUser] type:type finish:^(BOOL success, NSDictionary *resultObj, NSError *error) {
+        [hud hideAnimated:YES];
+        if (!success) {
+            [self showHudTitle:@"网络错误！" delay:1];
+            return ;
+        }
+        NSDictionary *result = resultObj[@"result"];
+        if (!ISNULL(result)) {
+            _dataArray = [HistoryModel mj_objectArrayWithKeyValuesArray:result[@"content"]];
+            [_tableView reloadData];
+        }else{
+            [self showHudTitle:resultObj[@"errorMessage"] delay:1];
+        }
+
+    }];
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 10;
+    return _dataArray.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    HistoryModel *model = _dataArray[indexPath.row];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:model.iconShowUrl] placeholderImage:[UIImage imageNamed:@"icon"]];
+    cell.textLabel.text = model.name;
     return cell;
 }
 - (IBAction)topClick:(UIButton *)sender{
@@ -51,13 +76,13 @@
     }else{
         type = @"信用卡";
     }
-    [LoanApi getHistoryWithMobile:@"18810821007" type:type finish:^(BOOL success, NSDictionary *resultObj, NSError *error) {
-        NSArray *result = resultObj[@"result"];
-        
-    }];
+    [self setupDataType:type];
 }
 
-
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    HistoryModel *model = _dataArray[indexPath.row];
+    [self openHtml:model.refLink];
+}
 
 
 @end
