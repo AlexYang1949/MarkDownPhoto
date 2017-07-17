@@ -81,8 +81,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="利息5元" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8CZ-2U-ePz">
-                                <rect key="frame" x="300" y="340" width="55" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="利息：5元" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8CZ-2U-ePz">
+                                <rect key="frame" x="284.5" y="340" width="70.5" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -161,7 +161,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="getLabel" destination="ghl-ot-0a4" id="zLc-1Y-cHw"/>
                         <outlet property="pickerView" destination="mRJ-AL-OTF" id="sUH-YY-hdX"/>
+                        <outlet property="rateLabel" destination="8CZ-2U-ePz" id="NGv-Bz-vF7"/>
                         <outlet property="topView" destination="fKW-Dq-8y8" id="0Kv-2O-yPU"/>
                     </connections>
                 </viewController>
