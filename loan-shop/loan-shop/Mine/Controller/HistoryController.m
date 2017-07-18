@@ -30,6 +30,10 @@
 }
 
 - (void)setupDataType:(NSString *)type{
+    if (ISNULL([UserManager currentUser])) {
+        [self showHudTitle:@"您还未登录！" delay:1];
+        return;
+    }
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [LoanApi getHistoryWithMobile:[UserManager currentUser] type:type finish:^(BOOL success, NSDictionary *resultObj, NSError *error) {
         [hud hideAnimated:YES];
