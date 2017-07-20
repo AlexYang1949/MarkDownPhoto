@@ -61,6 +61,7 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.textLabel.text = cardInfo.name;
     cell.detailTextLabel.text = cardInfo.remark;
+    
     [cell.imageView sd_setImageWithURL:[NSURL URLWithString:cardInfo.iconShowUrl] placeholderImage:[UIImage imageNamed:@"icon"]];
     return cell;
 }
