@@ -10,8 +10,14 @@
 #import "FakeInfoCell.h"
 #import "ProcessView.h"
 #import "FakeResultController.h"
+/// iOS 9前的框架
+#import <AddressBook/AddressBook.h>
+#import <AddressBookUI/AddressBookUI.h>
+/// iOS 9的新框架
+#import <ContactsUI/ContactsUI.h>
 
-@interface FakeInfoViewController ()<UITableViewDelegate,UITableViewDataSource,UIPickerViewDelegate,UIPickerViewDataSource,MyTextDelegate>
+#define Is_up_Ios_9 ([[UIDevice currentDevice].systemVersion floatValue] >= 9.0)
+@interface FakeInfoViewController ()<UITableViewDelegate,UITableViewDataSource,UIPickerViewDelegate,UIPickerViewDataSource,MyTextDelegate,ABPeoplePickerNavigationControllerDelegate,CNContactPickerDelegate>
 @property (weak, nonatomic) IBOutlet UIView *topView;
 @property (nonatomic , strong) UIPickerView *picker;;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -28,6 +34,9 @@
     pv.frame = _topView.frame;
     pv.index = _index;
     [_topView addSubview:pv];
+    if (_index==2) {
+        [self loadAddressBook];
+    }
     
 }
 
@@ -45,6 +54,10 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (_index==2) {
+        UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cell"];
+        return cell;
+    }
     FakeInfoCell *fakeCell = [tableView dequeueReusableCellWithIdentifier:@"FakeInfoCell"];
     fakeCell.name = _titleArray[indexPath.row];
     fakeCell.delegate = self;
@@ -68,6 +81,122 @@
     return YES;
 }
 
+#pragma mark -- 通讯录
+- (void)loadAddressBook{
+    
+    ///获取通讯录权限，调用系统通讯录
+    [self CheckAddressBookAuthorization:^(bool isAuthorized , bool isUp_ios_9) {
+        if (isAuthorized) {
+            [self callAddressBook:isUp_ios_9];
+        }else {
+            NSLog(@"请到设置>隐私>通讯录打开本应用的权限设置");
+        }
+    }];
+}
+
+- (void)CheckAddressBookAuthorization:(void (^)(bool isAuthorized , bool isUp_ios_9))block {
+    if (Is_up_Ios_9) {
+        CNContactStore * contactStore = [[CNContactStore alloc]init];
+        if ([CNContactStore authorizationStatusForEntityType:CNEntityTypeContacts] == CNAuthorizationStatusNotDetermined) {
+            [contactStore requestAccessForEntityType:CNEntityTypeContacts completionHandler:^(BOOL granted, NSError * __nullable error) {
+                if (error)
+                {
+                    NSLog(@"Error: %@", error);
+                }
+                else if (!granted)
+                {
+                    
+                    block(NO,YES);
+                }
+                else
+                {
+                    block(YES,YES);
+                }
+            }];
+        }
+        else if ([CNContactStore authorizationStatusForEntityType:CNEntityTypeContacts] == CNAuthorizationStatusAuthorized){
+            block(YES,YES);
+        }
+        else {
+            NSLog(@"请到设置>隐私>通讯录打开本应用的权限设置");
+        }
+    }else {
+        ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(NULL, NULL);
+        ABAuthorizationStatus authStatus = ABAddressBookGetAuthorizationStatus();
+        
+        if (authStatus == kABAuthorizationStatusNotDetermined)
+        {
+            ABAddressBookRequestAccessWithCompletion(addressBook, ^(bool granted, CFErrorRef error) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    if (error)
+                    {
+                        NSLog(@"Error: %@", (__bridge NSError *)error);
+                    }
+                    else if (!granted)
+                    {
+                        
+                        block(NO,NO);
+                    }
+                    else
+                    {
+                        block(YES,NO);
+                    }
+                });
+            });
+        }else if (authStatus == kABAuthorizationStatusAuthorized)
+        {
+            block(YES,NO);
+        }else {
+            NSLog(@"请到设置>隐私>通讯录打开本应用的权限设置");
+        }
+    }
+}
+
+- (void)callAddressBook:(BOOL)isUp_ios_9 {
+    if (isUp_ios_9) {
+        CNContactPickerViewController *contactPicker = [[CNContactPickerViewController alloc] init];
+        contactPicker.delegate = self;
+        contactPicker.displayedPropertyKeys = @[CNContactPhoneNumbersKey];
+        [self presentViewController:contactPicker animated:YES completion:nil];
+    }else {
+        ABPeoplePickerNavigationController *peoplePicker = [[ABPeoplePickerNavigationController alloc] init];
+        peoplePicker.peoplePickerDelegate = self;
+        [self presentViewController:peoplePicker animated:YES completion:nil];
+        
+    }
+}
+
+#pragma mark -- CNContactPickerDelegate
+- (void)contactPicker:(CNContactPickerViewController *)picker didSelectContactProperty:(CNContactProperty *)contactProperty {
+    CNPhoneNumber *phoneNumber = (CNPhoneNumber *)contactProperty.value;
+    [self dismissViewControllerAnimated:YES completion:^{
+        /// 联系人
+        NSString *text1 = [NSString stringWithFormat:@"%@%@",contactProperty.contact.familyName,contactProperty.contact.givenName];
+        /// 电话
+        NSString *text2 = phoneNumber.stringValue;
+        //        text2 = [text2 stringByReplacingOccurrencesOfString:@"-" withString:@""];
+        NSLog(@"联系人：%@, 电话：%@",text1,text2);
+    }];
+}
+
+#pragma mark -- ABPeoplePickerNavigationControllerDelegate
+- (void)peoplePickerNavigationController:(ABPeoplePickerNavigationController*)peoplePicker didSelectPerson:(ABRecordRef)person property:(ABPropertyID)property identifier:(ABMultiValueIdentifier)identifier {
+    
+    ABMultiValueRef valuesRef = ABRecordCopyValue(person, kABPersonPhoneProperty);
+    CFIndex index = ABMultiValueGetIndexForIdentifier(valuesRef,identifier);
+    CFStringRef value = ABMultiValueCopyValueAtIndex(valuesRef,index);
+    CFStringRef anFullName = ABRecordCopyCompositeName(person);
+    
+    [self dismissViewControllerAnimated:YES completion:^{
+        /// 联系人
+        NSString *text1 = [NSString stringWithFormat:@"%@",anFullName];
+        /// 电话
+        NSString *text2 = (__bridge NSString*)value;
+        //        text2 = [text2 stringByReplacingOccurrencesOfString:@"-" withString:@""];
+        NSLog(@"联系人：%@, 电话：%@",text1,text2);
+    }];
+}
+
 - (IBAction)nextPage:(UIButton *)sender {
     if (_index==3) {
         FakeResultController *resultVc = [self getViewController:@"FakeResultController" onStoryBoard:@"Fake"];
@@ -83,6 +212,8 @@
         [self.navigationController pushViewController:fakeVc animated:YES];
     }
 }
+
+#pragma mark --- pickerView
 
 - (void)loadPickerViewAndToolbar {
     if ([self.view.subviews containsObject:_picker]) {
@@ -299,21 +430,21 @@
         myView = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, 78, 30)];
         myView.textAlignment = UITextAlignmentCenter;
         myView.text = [province objectAtIndex:row];
-        myView.font = [UIFont systemFontOfSize:14];
+        myView.font = [UIFont systemFontOfSize:16];
         myView.backgroundColor = [UIColor clearColor];
     }
     else if (component == CITY_COMPONENT) {
         myView = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, 95, 30)];
         myView.textAlignment = UITextAlignmentCenter;
         myView.text = [city objectAtIndex:row];
-        myView.font = [UIFont systemFontOfSize:14];
+        myView.font = [UIFont systemFontOfSize:16];
         myView.backgroundColor = [UIColor clearColor];
     }
     else {
         myView = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, 110, 30)];
         myView.textAlignment = UITextAlignmentCenter;
         myView.text = [district objectAtIndex:row];
-        myView.font = [UIFont systemFontOfSize:14];
+        myView.font = [UIFont systemFontOfSize:16];
         myView.backgroundColor = [UIColor clearColor];
     }
     

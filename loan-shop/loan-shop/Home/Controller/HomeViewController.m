@@ -137,13 +137,16 @@
     HotHeaderCell *header = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HotHeaderCell" forIndexPath:indexPath];
     header.hiddenMore =YES;
     if (indexPath.section==0) {
-//        header.title = @"热门推荐";、
-        
+        header.title = @"热门推荐";
+        header.position = HEIGHT_BANNER;
+        header.hiddenMore = NO;
         header.moreBlcok =^(){
             [self.tabBarController setSelectedIndex:1];
         };
     }else{
-//        header.title = @"推荐办卡";
+        header.title = @"推荐办卡";
+        header.position = 0;
+        header.hiddenMore = NO;
         header.moreBlcok =^(){
             [self.tabBarController setSelectedIndex:2];
         };
@@ -152,6 +155,9 @@
 }
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
+    if (_bankArray.count==0&&_loanArray.count==0) {
+        return CGSizeZero;
+    }
     if (section==0) {
         return CGSizeMake(MAIN_BOUNDS_WIDTH, HEIGHT_BANNER+HEIGHT_TITLE);
     }else{

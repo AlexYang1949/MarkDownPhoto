@@ -9,6 +9,8 @@
 #import "LoanDetailController.h"
 #import "LoanDetailHeaderCell.h"
 #import "LoanQualifyCell.h"
+#import "LoginController.h"
+#import "BaseNavController.h"
 
 @interface LoanDetailController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -86,6 +88,16 @@
 }
 
 - (IBAction)applyNow:(id)sender {
+    if (![UserManager currentUser]) {
+        LoginController *loginVc = [self getViewController:@"LoginController" onStoryBoard:@"Mine"];
+        BaseNavController *loginNav = [[BaseNavController alloc] initWithRootViewController:loginVc];
+        loginVc.block = ^(NSString *mobile,NSString *token){
+            [UserManager saveUser:mobile];
+        };
+        [self presentViewController:loginNav animated:YES completion:nil];
+        return;
+    }
+    
     [self openHtml:_link];
 }
 

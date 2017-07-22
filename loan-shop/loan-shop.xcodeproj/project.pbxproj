@@ -18,6 +18,8 @@
 		27580D391F19B3D800A7F4C8 /* HistoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27580D381F19B3D800A7F4C8 /* HistoryController.m */; };
 		27580D3C1F19DDEC00A7F4C8 /* RareModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27580D3B1F19DDEC00A7F4C8 /* RareModel.m */; };
 		276D39591F233D840071E6E1 /* area.plist in Resources */ = {isa = PBXBuildFile; fileRef = 276D39581F233D840071E6E1 /* area.plist */; };
+		276D395B1F234C5A0071E6E1 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 276D395A1F234C5A0071E6E1 /* AddressBook.framework */; };
+		276D395E1F235FE40071E6E1 /* CreditCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 276D395D1F235FE40071E6E1 /* CreditCardCell.m */; };
 		488FA5CAFB9C8279855CF3E5 /* Pods_loan_shop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 900E8CE1C98C5FAFDD2DD735 /* Pods_loan_shop.framework */; };
 		701CCDE71F0B89EF007788A2 /* RareBookController.m in Sources */ = {isa = PBXBuildFile; fileRef = 701CCDE61F0B89EF007788A2 /* RareBookController.m */; };
 		701D00271F04E94300BAFA4D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 701D00261F04E94300BAFA4D /* main.m */; };
@@ -98,6 +100,9 @@
 		27580D3A1F19DDEC00A7F4C8 /* RareModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RareModel.h; path = "loan-shop/Mine/Controller/RareModel.h"; sourceTree = SOURCE_ROOT; };
 		27580D3B1F19DDEC00A7F4C8 /* RareModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RareModel.m; path = "loan-shop/Mine/Controller/RareModel.m"; sourceTree = SOURCE_ROOT; };
 		276D39581F233D840071E6E1 /* area.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = area.plist; sourceTree = "<group>"; };
+		276D395A1F234C5A0071E6E1 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		276D395C1F235FE40071E6E1 /* CreditCardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditCardCell.h; sourceTree = "<group>"; };
+		276D395D1F235FE40071E6E1 /* CreditCardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditCardCell.m; sourceTree = "<group>"; };
 		39B2011E3342C02327FCFFC8 /* Pods-loan-shop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-loan-shop.release.xcconfig"; path = "Pods/Target Support Files/Pods-loan-shop/Pods-loan-shop.release.xcconfig"; sourceTree = "<group>"; };
 		42F40DDA66CE922B52DD6478 /* Pods-loan-shop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-loan-shop.debug.xcconfig"; path = "Pods/Target Support Files/Pods-loan-shop/Pods-loan-shop.debug.xcconfig"; sourceTree = "<group>"; };
 		701CCDE51F0B89EF007788A2 /* RareBookController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RareBookController.h; sourceTree = "<group>"; };
@@ -217,6 +222,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				276D395B1F234C5A0071E6E1 /* AddressBook.framework in Frameworks */,
 				70B40C5D1F2082C800939FF0 /* UserNotifications.framework in Frameworks */,
 				488FA5CAFB9C8279855CF3E5 /* Pods_loan_shop.framework in Frameworks */,
 				70B40C5B1F207C8800939FF0 /* libUMessage_Sdk_1.5.0a.a in Frameworks */,
@@ -337,6 +343,8 @@
 			isa = PBXGroup;
 			children = (
 				701D00561F04EC3A00BAFA4D /* CreditCard.storyboard */,
+				276D395C1F235FE40071E6E1 /* CreditCardCell.h */,
+				276D395D1F235FE40071E6E1 /* CreditCardCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -612,6 +620,7 @@
 		E55E613C81C93CDA50F89E37 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				276D395A1F234C5A0071E6E1 /* AddressBook.framework */,
 				70B40C5C1F2082C800939FF0 /* UserNotifications.framework */,
 				900E8CE1C98C5FAFDD2DD735 /* Pods_loan_shop.framework */,
 			);
@@ -771,6 +780,7 @@
 				701D007A1F04F19500BAFA4D /* UIColor+HEX.m in Sources */,
 				701D00641F04EEFD00BAFA4D /* MainTabBar.m in Sources */,
 				701D00BC1F0510FD00BAFA4D /* KNBannerPageControl.m in Sources */,
+				276D395E1F235FE40071E6E1 /* CreditCardCell.m in Sources */,
 				702E42361F0F84FB002B3706 /* RareBookCell.m in Sources */,
 				701D00691F04F05D00BAFA4D /* BaseNavController.m in Sources */,
 				2749F2361F1B36F000EBD2B5 /* UserManager.m in Sources */,

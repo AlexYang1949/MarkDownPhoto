@@ -21,9 +21,62 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ept-BU-Ene">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="102" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ept-BU-Ene">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CreditCardCell" rowHeight="102" id="dhZ-bw-mE9" customClass="CreditCardCell">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="102"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dhZ-bw-mE9" id="MZO-VN-GZa">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="101.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon" translatesAutoresizingMaskIntoConstraints="NO" id="gLI-TP-A3L">
+                                                    <rect key="frame" x="10" y="20.5" width="60" height="60"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="60" id="K8P-rO-Y5N"/>
+                                                        <constraint firstAttribute="width" constant="60" id="rwP-qu-Upj"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lKf-Dc-Gay">
+                                                    <rect key="frame" x="80" y="30.5" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="信用卡提示" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZJK-aR-XVu">
+                                                    <rect key="frame" x="80" y="55.5" width="71.5" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5000人正在申请" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sj2-9T-Ug2">
+                                                    <rect key="frame" x="280.5" y="44.5" width="84.5" height="13.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ZJK-aR-XVu" firstAttribute="top" secondItem="lKf-Dc-Gay" secondAttribute="bottom" constant="4" id="0ty-6u-7Wi"/>
+                                                <constraint firstAttribute="trailing" secondItem="Sj2-9T-Ug2" secondAttribute="trailing" constant="10" id="135-Gd-Dcn"/>
+                                                <constraint firstItem="ZJK-aR-XVu" firstAttribute="leading" secondItem="lKf-Dc-Gay" secondAttribute="leading" id="a0y-0m-Oku"/>
+                                                <constraint firstItem="lKf-Dc-Gay" firstAttribute="top" secondItem="gLI-TP-A3L" secondAttribute="top" constant="10" id="bNv-bD-fak"/>
+                                                <constraint firstItem="lKf-Dc-Gay" firstAttribute="leading" secondItem="gLI-TP-A3L" secondAttribute="trailing" constant="10" id="doM-Yl-xuZ"/>
+                                                <constraint firstItem="gLI-TP-A3L" firstAttribute="centerY" secondItem="MZO-VN-GZa" secondAttribute="centerY" id="hMh-q6-4QQ"/>
+                                                <constraint firstItem="gLI-TP-A3L" firstAttribute="leading" secondItem="MZO-VN-GZa" secondAttribute="leading" constant="10" id="lQ3-Hy-has"/>
+                                                <constraint firstItem="Sj2-9T-Ug2" firstAttribute="centerY" secondItem="MZO-VN-GZa" secondAttribute="centerY" id="wub-4f-ghw"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="applyNumLabel" destination="Sj2-9T-Ug2" id="hO9-D2-Y7P"/>
+                                            <outlet property="iconView" destination="gLI-TP-A3L" id="S2k-5e-ffY"/>
+                                            <outlet property="nameLabel" destination="lKf-Dc-Gay" id="Ocg-3U-UD0"/>
+                                            <outlet property="subTitleLabel" destination="ZJK-aR-XVu" id="1PF-HH-Fq3"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="ZUJ-LE-ozo" id="qSn-Q6-FdF"/>
                                     <outlet property="delegate" destination="ZUJ-LE-ozo" id="WPB-n1-zHT"/>
@@ -44,7 +97,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D03-XP-xRg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-356" y="39"/>
+            <point key="canvasLocation" x="-193" y="-145"/>
         </scene>
         <!--进度查询-->
         <scene sceneID="wCR-32-x19">
@@ -82,7 +135,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hU5-Ge-Vgj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="559" y="20"/>
+            <point key="canvasLocation" x="1150" y="14"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icon" width="62" height="62"/>
+    </resources>
 </document>

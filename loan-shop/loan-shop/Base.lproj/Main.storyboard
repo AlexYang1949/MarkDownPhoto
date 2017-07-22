@@ -85,20 +85,20 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HotCreditCell" id="PGo-v4-chz" customClass="HotCreditCell">
-                                        <rect key="frame" x="46.5" y="90" width="282" height="80"/>
+                                        <rect key="frame" x="27.5" y="90" width="320" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="282" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="柠檬银行" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ch-XU-hhB">
-                                                    <rect key="frame" x="80" y="20" width="192" height="21"/>
+                                                    <rect key="frame" x="80" y="20" width="230" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="办卡就送iPhone1000plus" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gIT-C2-638">
-                                                    <rect key="frame" x="80" y="44" width="192" height="16"/>
+                                                    <rect key="frame" x="80" y="44" width="230" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -110,6 +110,12 @@
                                                         <constraint firstAttribute="height" constant="60" id="vVP-uV-b6N"/>
                                                     </constraints>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5000人正在申请" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdf-xu-BAK">
+                                                    <rect key="frame" x="227.5" y="34" width="84.5" height="13.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </view>
                                         <constraints>
@@ -118,11 +124,13 @@
                                             <constraint firstAttribute="trailing" secondItem="gIT-C2-638" secondAttribute="trailing" constant="10" id="Kd1-mA-2Ah"/>
                                             <constraint firstItem="siF-4N-oaG" firstAttribute="leading" secondItem="PGo-v4-chz" secondAttribute="leading" constant="10" id="Qt7-sU-X9q"/>
                                             <constraint firstAttribute="trailing" secondItem="9ch-XU-hhB" secondAttribute="trailing" constant="10" id="Soe-M4-8yZ"/>
+                                            <constraint firstAttribute="trailing" secondItem="hdf-xu-BAK" secondAttribute="trailing" constant="8" id="gHk-04-JTY"/>
+                                            <constraint firstItem="hdf-xu-BAK" firstAttribute="centerY" secondItem="PGo-v4-chz" secondAttribute="centerY" id="kSo-U0-YC8"/>
                                             <constraint firstItem="gIT-C2-638" firstAttribute="leading" secondItem="siF-4N-oaG" secondAttribute="trailing" constant="10" id="q7J-TO-JLf"/>
                                             <constraint firstAttribute="bottom" secondItem="gIT-C2-638" secondAttribute="bottom" constant="20" id="rhy-iE-F8x"/>
                                             <constraint firstItem="siF-4N-oaG" firstAttribute="top" secondItem="PGo-v4-chz" secondAttribute="top" constant="10" id="xJu-xq-c5Q"/>
                                         </constraints>
-                                        <size key="customSize" width="282" height="80"/>
+                                        <size key="customSize" width="320" height="80"/>
                                         <connections>
                                             <outlet property="iconView" destination="siF-4N-oaG" id="90W-br-etD"/>
                                             <outlet property="nameLabel" destination="9ch-XU-hhB" id="ENv-9J-175"/>

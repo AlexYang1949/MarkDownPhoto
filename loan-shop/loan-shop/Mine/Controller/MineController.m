@@ -25,6 +25,10 @@
     [super viewDidLoad];
      self.tableView.tableFooterView=[[UIView alloc]init];
     _dataArray = @[@[@"注册／登录"],@[@"浏览记录",@"信用卡进度查询"],@[@"交流群",@"秘籍",@"关于我们"],@[@"设置"]].mutableCopy;
+    if ([UserManager currentUser]) {
+        _dataArray[0] = @[[NSString stringWithFormat:@"%@ 已登陆",[UserManager currentUser]]];
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -47,7 +51,7 @@
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.textLabel.text = _dataArray[indexPath.section][indexPath.row];
-    cell.imageView.image = [UIImage imageNamed:@"icon"];
+//    cell.imageView.image = [UIImage imageNamed:@"icon"];
     return cell;
 }
 

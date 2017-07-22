@@ -12,5 +12,6 @@
 @property(nonatomic ,strong) NSString *title;
 @property(nonatomic, copy) void(^moreBlcok)();
 @property(nonatomic) BOOL hiddenMore;
+@property (nonatomic , assign) CGFloat position;
 
 @end

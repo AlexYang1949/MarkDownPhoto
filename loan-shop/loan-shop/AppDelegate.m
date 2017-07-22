@@ -66,7 +66,7 @@
     [LoanApi handleFakefinish:^(BOOL success, NSDictionary *resultObj, NSError *error) {
         if (success) {
             // 伪页面
-            if([resultObj[@"result"] integerValue]==1){
+            if([resultObj[@"result"] integerValue]!=1){
                 FakeHomeController *fakeVc = [[UIStoryboard storyboardWithName:@"Fake" bundle:nil] instantiateViewControllerWithIdentifier:@"FakeHomeController"];
                 BaseNavController *fakeNav = [[BaseNavController alloc] initWithRootViewController:fakeVc];
                 self.window.rootViewController = fakeNav;

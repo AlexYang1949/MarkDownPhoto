@@ -9,6 +9,7 @@
 #import "CreditCardController.h"
 #import "ProcessViewController.h"
 #import "HomeCardModel.h"
+#import "CreditCardCell.h"
 
 @interface CreditCardController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -54,15 +55,8 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     HomeCardModel *cardInfo = _dataArray[indexPath.row];
 
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
-    }
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.textLabel.text = cardInfo.name;
-    cell.detailTextLabel.text = cardInfo.remark;
-    
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:cardInfo.iconShowUrl] placeholderImage:[UIImage imageNamed:@"icon"]];
+    CreditCardCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CreditCardCell"];
+    cell.model = cardInfo;
     return cell;
 }
 
