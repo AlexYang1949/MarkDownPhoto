@@ -12,6 +12,7 @@
 #import "FakeHomeController.h"
 #import "BaseNavController.h"
 #import "UMessage.h"
+#import "UMMobClick/MobClick.h"
 
 @interface AppDelegate ()<UNUserNotificationCenterDelegate>
 
@@ -27,6 +28,12 @@
     [UMessage registerForRemoteNotifications];
     [UMessage setLogEnabled:YES];
     [UMessage openDebugMode:YES];
+    
+    // 配置统计
+    UMConfigInstance.appKey = @"597043fa734be44a90001641";
+    UMConfigInstance.channelId = @"App Store";
+    [MobClick startWithConfigure:UMConfigInstance];//配置以上参数后调用此方法初始化SDK！
+    
     //iOS10必须加下面这段代码。
     UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
     center.delegate=self;
