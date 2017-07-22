@@ -278,6 +278,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="tableView" destination="xbb-Gk-exv" id="gIk-HO-s87"/>
                         <outlet property="topView" destination="ly0-DI-HXw" id="Kwy-RG-Xzl"/>
                     </connections>
                 </viewController>

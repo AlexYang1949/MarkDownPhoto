@@ -7,7 +7,7 @@
 //
 
 #import "FakeInfoCell.h"
-@interface FakeInfoCell()
+@interface FakeInfoCell()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UITextField *inputView;
 @end
@@ -16,6 +16,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    _inputView.delegate = self;
     // Initialization code
 }
 
@@ -28,5 +29,21 @@
 -(void)setName:(NSString *)name{
     _nameLabel.text = name;
 }
+
+-(void)setContent:(NSString *)content{
+    _inputView.text = content;
+}
+
+-(NSString *)content{
+    return _inputView.text;
+}
+
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    if ([self.delegate respondsToSelector:@selector(myTextViewDidBeginEditing:)]) {
+        return [self.delegate myTextViewDidBeginEditing:textField];
+    }
+    return YES;
+}
+
 
 @end

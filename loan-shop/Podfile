@@ -8,6 +8,7 @@ pod 'MBProgressHUD'
 pod 'AFNetworking'
 pod 'SDWebImage'
 pod 'MJExtension'
+pod 'UMengAnalytics'
   # Pods for loan-shop
 
 end

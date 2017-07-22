@@ -8,7 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol MyTextDelegate <NSObject>
+
+- (BOOL)myTextViewDidBeginEditing:(UITextField *)textView;
+
+@end
+
 @interface FakeInfoCell : UITableViewCell
 @property (nonatomic , strong) NSString *name;
-
+@property (nonatomic , strong) NSString *content;
+@property (nonatomic , assign) id<MyTextDelegate> delegate;
 @end
