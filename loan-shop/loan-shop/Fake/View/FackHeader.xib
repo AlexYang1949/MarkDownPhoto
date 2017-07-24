@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -81,11 +81,15 @@
             </constraints>
             <connections>
                 <outlet property="idLabel" destination="84t-KR-6Vp" id="YQF-pv-K1l"/>
+                <outlet property="idView" destination="daW-R1-4Ls" id="PzC-2F-e6V"/>
                 <outlet property="loanLabel" destination="X9W-El-1BQ" id="vus-W5-H9y"/>
                 <outlet property="moneyLabel" destination="mDy-cf-okP" id="ga3-O6-Kw2"/>
+                <outlet property="moneyView" destination="SN7-cq-LNN" id="3Qe-Eo-GRU"/>
+                <outlet property="parentView" destination="jYa-dU-uke" id="DLu-57-m8U"/>
                 <outlet property="phoneLabel" destination="2il-7D-dpx" id="BD0-F0-cEk"/>
+                <outlet property="phoneView" destination="9el-9a-pJl" id="ARU-T0-ro1"/>
             </connections>
-            <point key="canvasLocation" x="-37" y="-202"/>
+            <point key="canvasLocation" x="-216" y="-240"/>
         </view>
     </objects>
     <resources>
