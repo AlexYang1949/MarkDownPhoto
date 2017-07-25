@@ -13,6 +13,7 @@
 #import "BaseNavController.h"
 #import "UMessage.h"
 #import "UMMobClick/MobClick.h"
+#import "WebController.h"
 
 @interface AppDelegate ()<UNUserNotificationCenterDelegate>
 
@@ -66,7 +67,7 @@
     [LoanApi handleFakefinish:^(BOOL success, NSDictionary *resultObj, NSError *error) {
         if (success) {
             // 伪页面
-            if([resultObj[@"result"] integerValue]!=1){
+            if([resultObj[@"result"] integerValue]==1){
                 FakeHomeController *fakeVc = [[UIStoryboard storyboardWithName:@"Fake" bundle:nil] instantiateViewControllerWithIdentifier:@"FakeHomeController"];
                 BaseNavController *fakeNav = [[BaseNavController alloc] initWithRootViewController:fakeVc];
                 self.window.rootViewController = fakeNav;
@@ -109,7 +110,19 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
-
+//iOS10以下使用这个方法接收通知
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+    
+    [UMessage didReceiveRemoteNotification:userInfo];
+    //iOS10以下使用这个方法接收通知
+    if (!ISNULL(userInfo)) {
+        NSString *openUrl=userInfo[@"openUrl"];
+        if (openUrl) {
+            [self openHTML:openUrl];
+        }
+    }
+}
 //iOS10新增：处理前台收到通知的代理方法
 -(void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler{
     NSDictionary * userInfo = notification.request.content.userInfo;
@@ -120,6 +133,12 @@
         //必须加这句代码
         [UMessage didReceiveRemoteNotification:userInfo];
         
+        if (!ISNULL(userInfo)) {
+            NSString *openUrl=userInfo[@"openUrl"];
+            if (openUrl) {
+                [self openHTML:openUrl];
+            }
+        }
     }else{
         //应用处于前台时的本地推送接受
     }
@@ -134,10 +153,48 @@
         //应用处于后台时的远程推送接受
         //必须加这句代码
         [UMessage didReceiveRemoteNotification:userInfo];
+        if (!ISNULL(userInfo)) {
+            NSString *openUrl=userInfo[@"openUrl"];
+            if (openUrl) {
+                [self openHTML:openUrl];
+            }
+        }
         
     }else{
         //应用处于后台时的本地推送接受
     }
 }
+
+- (void)openHTML:(NSString *)url{
+    WebController *webVc = [[UIStoryboard storyboardWithName:@"Base" bundle:nil] instantiateViewControllerWithIdentifier:@"WebController"];
+    webVc.urlStr = url;
+    [[self currentViewController].navigationController pushViewController:webVc animated:YES];
+
+}
+
+//获取Window当前显示的ViewController
+- (UIViewController*)currentViewController{
+    UIViewController* vc = self.window.rootViewController;
+    
+    while (1) {
+        if ([vc isKindOfClass:[UITabBarController class]]) {
+            vc = ((UITabBarController*)vc).selectedViewController;
+        }
+        
+        if ([vc isKindOfClass:[UINavigationController class]]) {
+            vc = ((UINavigationController*)vc).visibleViewController;
+        }
+        
+        if (vc.presentedViewController) {
+            vc = vc.presentedViewController;
+        }else{
+            break;
+        }
+        
+    }
+    
+    return vc;
+}
+
 
 @end

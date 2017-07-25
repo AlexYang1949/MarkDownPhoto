@@ -17,7 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"跳转网页";
+//    self.title = @"跳转网页";
     if (!ISNULL(_urlStr)) {
         [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_urlStr]]];
     }else if(!ISNULL(_rareId)){

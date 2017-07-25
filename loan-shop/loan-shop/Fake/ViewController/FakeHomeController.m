@@ -18,6 +18,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *getLabel;
 @property (nonatomic , strong) NSString *day;
 @property (nonatomic , strong) NSString *money;
+@property (weak, nonatomic) IBOutlet UIButton *selectButton;
+
 @end
 
 @implementation FakeHomeController
@@ -70,5 +72,8 @@
     [self.navigationController pushViewController:fakeVc animated:YES];
 }
 
+- (IBAction)agreeClick:(UIButton *)sender {
+    sender.selected = !sender.selected;
+}
 
 @end

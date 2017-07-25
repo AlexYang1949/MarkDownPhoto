@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -105,7 +105,11 @@
                                     <constraint firstAttribute="width" constant="20" id="gM6-vR-Mdf"/>
                                     <constraint firstAttribute="height" constant="20" id="vj8-BS-6sz"/>
                                 </constraints>
-                                <state key="normal" image="icon"/>
+                                <state key="normal" image="select_no"/>
+                                <state key="selected" image="select"/>
+                                <connections>
+                                    <action selector="agreeClick:" destination="elf-6Q-CzM" eventType="touchUpInside" id="lsL-TX-lXm"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="实际到账：1000元" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ghl-ot-0a4">
                                 <rect key="frame" x="228.5" y="412.5" width="126.5" height="18"/>
@@ -164,6 +168,7 @@
                         <outlet property="getLabel" destination="ghl-ot-0a4" id="zLc-1Y-cHw"/>
                         <outlet property="pickerView" destination="mRJ-AL-OTF" id="sUH-YY-hdX"/>
                         <outlet property="rateLabel" destination="8CZ-2U-ePz" id="NGv-Bz-vF7"/>
+                        <outlet property="selectButton" destination="3Yi-ps-qR2" id="fE2-UB-sAP"/>
                         <outlet property="topView" destination="fKW-Dq-8y8" id="0Kv-2O-yPU"/>
                     </connections>
                 </viewController>
@@ -298,21 +303,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon" translatesAutoresizingMaskIntoConstraints="NO" id="qti-o9-Dtu">
-                                <rect key="frame" x="67.5" y="68" width="240" height="60"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="apply_success" translatesAutoresizingMaskIntoConstraints="NO" id="qti-o9-Dtu">
+                                <rect key="frame" x="147.5" y="68" width="80" height="80"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="IGu-ge-NCE"/>
-                                    <constraint firstAttribute="height" constant="60" id="OUf-XZ-zGW"/>
+                                    <constraint firstAttribute="width" constant="80" id="IGu-ge-NCE"/>
+                                    <constraint firstAttribute="height" constant="80" id="OUf-XZ-zGW"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="申请成功！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dsX-pi-7mp">
-                                <rect key="frame" x="132.5" y="158" width="111.5" height="26.5"/>
+                                <rect key="frame" x="132.5" y="178" width="111.5" height="26.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dIr-BX-cJg">
-                                <rect key="frame" x="60" y="244" width="255" height="40"/>
+                                <rect key="frame" x="60" y="264" width="255" height="40"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="leH-qv-gHi"/>
@@ -344,6 +349,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icon" width="62" height="62"/>
+        <image name="apply_success" width="100" height="100"/>
+        <image name="select" width="100" height="100"/>
+        <image name="select_no" width="100" height="100"/>
     </resources>
 </document>
