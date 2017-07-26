@@ -67,6 +67,7 @@ static NSString *cellId = @"loanCell";
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     LoanChannelCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
     cell.model = _dataArray[indexPath.row];
+    
     return cell;
 }
 

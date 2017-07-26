@@ -12,4 +12,5 @@
 @property(nonatomic ,strong) NSString *loanId;
 @property (nonatomic , strong) NSString *link;
 
+
 @end

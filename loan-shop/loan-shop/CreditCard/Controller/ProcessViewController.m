@@ -8,6 +8,7 @@
 
 #import "ProcessViewController.h"
 #import "HomeCardModel.h"
+#import "ProcessCell.h"
 
 
 @interface ProcessViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -48,13 +49,8 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     HomeCardModel *cardInfo = _dataArray[indexPath.row];
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
-    }
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.textLabel.text = cardInfo.name;
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:cardInfo.iconShowUrl] placeholderImage:[UIImage imageNamed:@"icon"]];
+    ProcessCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProcessCell"];
+    cell.model = cardInfo;
     return cell;
 }
 

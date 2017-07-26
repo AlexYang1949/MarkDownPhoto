@@ -45,4 +45,10 @@ typedef void(^finishBlock)(BOOL success,NSDictionary * resultObj, NSError *error
 
 // 浏览记录
 + (void)getHistoryWithMobile:(NSString *)mobile type:(NSString *)type finish:(finishBlock)finished;
+
+// 群组
++ (void)getGroupDetailFinish:(finishBlock)finished;
+
+// 关于我们
++ (void)getAbortUsDetailFinish:(finishBlock)finished;
 @end

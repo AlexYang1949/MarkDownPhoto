@@ -68,6 +68,9 @@
 		704333D41F0C7A46001377F6 /* FakeHomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 704333D31F0C7A46001377F6 /* FakeHomeController.m */; };
 		704333D71F0C7A72001377F6 /* FakeInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 704333D61F0C7A72001377F6 /* FakeInfoViewController.m */; };
 		704333DA1F0C7BEF001377F6 /* ProcessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 704333D91F0C7BEF001377F6 /* ProcessView.m */; };
+		70556AF61F28361500EF78B5 /* AbortUsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70556AF51F28361500EF78B5 /* AbortUsController.m */; };
+		70556AF91F28362700EF78B5 /* GroupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70556AF81F28362700EF78B5 /* GroupController.m */; };
+		70556AFC1F283AB000EF78B5 /* ProcessCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70556AFB1F283AB000EF78B5 /* ProcessCell.m */; };
 		70A2AC8B1F189DBA00B3A0A3 /* AFURLSessionManager+Swizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A2AC8A1F189DBA00B3A0A3 /* AFURLSessionManager+Swizzle.m */; };
 		70B40C5B1F207C8800939FF0 /* libUMessage_Sdk_1.5.0a.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70B40C591F207C8800939FF0 /* libUMessage_Sdk_1.5.0a.a */; };
 		70B40C5D1F2082C800939FF0 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70B40C5C1F2082C800939FF0 /* UserNotifications.framework */; settings = {ATTRIBUTES = (Required, ); }; };
@@ -194,6 +197,12 @@
 		704333D61F0C7A72001377F6 /* FakeInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeInfoViewController.m; sourceTree = "<group>"; };
 		704333D81F0C7BEF001377F6 /* ProcessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessView.h; sourceTree = "<group>"; };
 		704333D91F0C7BEF001377F6 /* ProcessView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessView.m; sourceTree = "<group>"; };
+		70556AF41F28361500EF78B5 /* AbortUsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbortUsController.h; sourceTree = "<group>"; };
+		70556AF51F28361500EF78B5 /* AbortUsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbortUsController.m; sourceTree = "<group>"; };
+		70556AF71F28362700EF78B5 /* GroupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupController.h; sourceTree = "<group>"; };
+		70556AF81F28362700EF78B5 /* GroupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupController.m; sourceTree = "<group>"; };
+		70556AFA1F283AB000EF78B5 /* ProcessCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessCell.h; sourceTree = "<group>"; };
+		70556AFB1F283AB000EF78B5 /* ProcessCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessCell.m; sourceTree = "<group>"; };
 		70A2AC891F189DBA00B3A0A3 /* AFURLSessionManager+Swizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AFURLSessionManager+Swizzle.h"; sourceTree = "<group>"; };
 		70A2AC8A1F189DBA00B3A0A3 /* AFURLSessionManager+Swizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AFURLSessionManager+Swizzle.m"; sourceTree = "<group>"; };
 		70B40C591F207C8800939FF0 /* libUMessage_Sdk_1.5.0a.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMessage_Sdk_1.5.0a.a; sourceTree = "<group>"; };
@@ -345,6 +354,8 @@
 				701D00561F04EC3A00BAFA4D /* CreditCard.storyboard */,
 				276D395C1F235FE40071E6E1 /* CreditCardCell.h */,
 				276D395D1F235FE40071E6E1 /* CreditCardCell.m */,
+				70556AFA1F283AB000EF78B5 /* ProcessCell.h */,
+				70556AFB1F283AB000EF78B5 /* ProcessCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -464,6 +475,10 @@
 				701CCDE61F0B89EF007788A2 /* RareBookController.m */,
 				27580D371F19B3D800A7F4C8 /* HistoryController.h */,
 				27580D381F19B3D800A7F4C8 /* HistoryController.m */,
+				70556AF41F28361500EF78B5 /* AbortUsController.h */,
+				70556AF51F28361500EF78B5 /* AbortUsController.m */,
+				70556AF71F28362700EF78B5 /* GroupController.h */,
+				70556AF81F28362700EF78B5 /* GroupController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -773,6 +788,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				701D002A1F04E94300BAFA4D /* AppDelegate.m in Sources */,
+				70556AF91F28362700EF78B5 /* GroupController.m in Sources */,
 				701D00781F04F19500BAFA4D /* NSString+Additional.m in Sources */,
 				701D007D1F04F19500BAFA4D /* UITextField+Check.m in Sources */,
 				704333D41F0C7A46001377F6 /* FakeHomeController.m in Sources */,
@@ -808,12 +824,14 @@
 				701D00271F04E94300BAFA4D /* main.m in Sources */,
 				2749F2331F1B013800EBD2B5 /* FakeResultController.m in Sources */,
 				70F10D491F062CB4000565BA /* LoginController.m in Sources */,
+				70556AFC1F283AB000EF78B5 /* ProcessCell.m in Sources */,
 				701D007C1F04F19500BAFA4D /* UILabel+FlickerNumber.m in Sources */,
 				701D00C11F0510FD00BAFA4D /* KNBannerViewText.m in Sources */,
 				701CCDE71F0B89EF007788A2 /* RareBookController.m in Sources */,
 				70F10D401F05EAB5000565BA /* HotCreditCell.m in Sources */,
 				703332A71F1485E5007BFB9F /* LoanApi.m in Sources */,
 				701D00BE1F0510FD00BAFA4D /* KNBannerView.m in Sources */,
+				70556AF61F28361500EF78B5 /* AbortUsController.m in Sources */,
 				703C13C11F09FD790029A9B2 /* LoanQualifyCell.m in Sources */,
 				701D00911F04FBA600BAFA4D /* LoanChannelCell.m in Sources */,
 				27580D391F19B3D800A7F4C8 /* HistoryController.m in Sources */,

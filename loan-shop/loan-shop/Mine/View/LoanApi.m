@@ -364,4 +364,45 @@
          finished(NO,nil,error);
      }];
 }
+
+// 群组
++ (void)getGroupDetailFinish:(finishBlock)finished{
+    LoanHTTPManager *manager = [LoanHTTPManager sharedManager];
+    [manager POST:@"business/detail" parameters:@{@"business":@"GROUP"} progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
+     {
+         NSError *error = nil;
+         id obj = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:&error];
+         if (finished==nil) {
+             return;
+         }
+         if (ISNULL(obj)) {
+             finished(YES, nil, nil);
+         }else{
+             finished(YES, obj, nil);
+         }
+     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+         finished(NO,nil,error);
+     }];
+}
+
+// 关于我们
++ (void)getAbortUsDetailFinish:(finishBlock)finished{
+    LoanHTTPManager *manager = [LoanHTTPManager sharedManager];
+    [manager POST:@"business/detail" parameters:@{@"business":@"US"} progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
+     {
+         NSError *error = nil;
+         id obj = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:&error];
+         if (finished==nil) {
+             return;
+         }
+         if (ISNULL(obj)) {
+             finished(YES, nil, nil);
+         }else{
+             finished(YES, obj, nil);
+         }
+     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+         finished(NO,nil,error);
+     }];
+
+}
 @end

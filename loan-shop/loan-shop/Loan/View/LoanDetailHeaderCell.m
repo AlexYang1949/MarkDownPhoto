@@ -14,6 +14,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *limitLabel;
 @property (weak, nonatomic) IBOutlet UILabel *reteLabel;
 @property (weak, nonatomic) IBOutlet UILabel *termLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *iconView;
+
 @end
 
 @implementation LoanDetailHeaderCell
@@ -35,6 +37,7 @@
     _limitLabel.text = model.limitation;
     _reteLabel.text = model.rate;
     _termLabel.text = model.term;
+    [_iconView sd_setImageWithURL:[NSURL URLWithString:model.iconShowUrl] placeholderImage:[UIImage imageNamed:@"icon"]];
 }
 
 @end

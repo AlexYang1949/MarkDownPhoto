@@ -18,6 +18,8 @@
 @property (nonatomic , strong) LoanDetailModel *model;
 @property (nonatomic , strong) NSArray *titleArray;
 
+
+
 @end
 
 @implementation LoanDetailController
