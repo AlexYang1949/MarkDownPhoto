@@ -78,7 +78,7 @@
                                                                       frame:CGRectMake(0, 0, self.view.frame.size.width, HEIGHT_BANNER)];
     [bannerView setDelegate:self]; // 设置代理, 为了实现代理方法
     KNBannerViewModel *viewM = [[KNBannerViewModel alloc] init]; // 统一通过 设置 模型来设置 里面的参数
-    [viewM setIsNeedPageControl:YES]; // 默认系统PageControl
+    [viewM setIsNeedPageControl:NO]; // 默认系统PageControl
     [viewM setPageControlStyle:KNBannerPageControlStyleMiddel]; // 设置pageControl 在居中
     [viewM setIsNeedTimerRun:YES]; // 是否需要定时
     [viewM setBannerTimeInterval:3]; // 改变 定时器时间
