@@ -403,6 +403,26 @@
      } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
          finished(NO,nil,error);
      }];
+}
 
++ (void)checkIdNum:(NSString *)idNum name:(NSString *)name finish:(finishBlock)finished{
+    NSDictionary *parameters = @{@"name":name,
+                                 @"cardNo":idNum};
+    LoanHTTPManager *manager = [LoanHTTPManager sharedManager];
+    [manager POST:@"screen/check-card" parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
+     {
+         NSError *error = nil;
+         id obj = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:&error];
+         if (finished==nil) {
+             return;
+         }
+         if (ISNULL(obj)) {
+             finished(YES, nil, nil);
+         }else{
+             finished(YES, obj, nil);
+         }
+     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+         finished(NO,nil,error);
+     }];
 }
 @end

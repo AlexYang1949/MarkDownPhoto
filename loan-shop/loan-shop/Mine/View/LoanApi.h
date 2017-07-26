@@ -51,4 +51,7 @@ typedef void(^finishBlock)(BOOL success,NSDictionary * resultObj, NSError *error
 
 // 关于我们
 + (void)getAbortUsDetailFinish:(finishBlock)finished;
+
+// 身份认证
++ (void)checkIdNum:(NSString *)idNum name:(NSString *)name finish:(finishBlock)finished;
 @end
