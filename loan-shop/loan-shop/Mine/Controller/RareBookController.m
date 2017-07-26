@@ -23,6 +23,7 @@
     self.title = @"秘籍";
     _tableView.tableFooterView = [UIView new];
     [self loadDataWithId:@"1"];
+    
 }
 
 - (void)loadDataWithId:(NSString *)tabId{
