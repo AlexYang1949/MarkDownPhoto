@@ -184,16 +184,8 @@
         detailVc.link = ((LoanDetailModel *)_loanArray[indexPath.row]).link;
         [self.navigationController pushViewController:detailVc animated:YES];
     }else{
-        if (![UserManager currentUser]) {
-            LoginController *loginVc = [self getViewController:@"LoginController" onStoryBoard:@"Mine"];
-            BaseNavController *loginNav = [[BaseNavController alloc] initWithRootViewController:loginVc];
-            loginVc.block = ^(NSString *mobile,NSString *token){
-                [UserManager saveUser:mobile];
-            };
-            [self presentViewController:loginNav animated:YES completion:nil];
-            return;
-        }
-
+        if(![self isLogin]) return;
+        
         urlStr = ((HomeCardModel *)_bankArray[indexPath.row]).link;
         [self openHtml:urlStr];
     }

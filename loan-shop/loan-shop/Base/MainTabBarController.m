@@ -43,19 +43,19 @@
     
     HomeViewController *liveVC = [self getViewController:@"HomeViewController" onStoryBoard:@"Main"];
     
-    [self addOneChlildVc:liveVC title:@"首页" imageName:@"tab_home_nor" selectedImageName:@"tab_home_sel"];
+    [self addOneChlildVc:liveVC title:@"首页" imageName:@"tab_home_no" selectedImageName:@"tab_home"];
     
     LoanController *loanVc = [self getViewController:@"LoanController" onStoryBoard:@"Loan"];
     
-    [self addOneChlildVc:loanVc title:@"贷款" imageName:@"tab_home_nor" selectedImageName:@"tab_home_sel"];
+    [self addOneChlildVc:loanVc title:@"贷款" imageName:@"tab_loan_no" selectedImageName:@"tab_loan"];
     
     CreditCardController *creditCardVc = [self getViewController:@"CreditCardController" onStoryBoard:@"CreditCard"];
     
-    [self addOneChlildVc:creditCardVc title:@"信用卡" imageName:@"tab_home_nor" selectedImageName:@"tab_home_nor"];
+    [self addOneChlildVc:creditCardVc title:@"信用卡" imageName:@"tab_credit_no" selectedImageName:@"tab_credit"];
     
     MineController *mineVC = [self getViewController:@"MineController" onStoryBoard:@"Mine"];
     
-    [self addOneChlildVc:mineVC title:@"我的" imageName:@"tab_home_nor" selectedImageName:@"tab_home_nor"];
+    [self addOneChlildVc:mineVC title:@"我的" imageName:@"tab_my_no" selectedImageName:@"tab_my"];
     
 }
 

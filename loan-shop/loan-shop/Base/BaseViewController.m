@@ -8,6 +8,8 @@
 
 #import "BaseViewController.h"
 #import "WebController.h"
+#import "LoginController.h"
+#import "BaseNavController.h"
 
 @interface BaseViewController ()
 
@@ -89,4 +91,16 @@
     [hud hideAnimated:YES afterDelay:delay];
 }
 
+-(BOOL)isLogin{
+    if (![UserManager currentUser]) {
+        LoginController *loginVc = [self getViewController:@"LoginController" onStoryBoard:@"Mine"];
+        BaseNavController *loginNav = [[BaseNavController alloc] initWithRootViewController:loginVc];
+        loginVc.block = ^(NSString *mobile,NSString *token){
+            [UserManager saveUser:mobile];
+        };
+        [self presentViewController:loginNav animated:YES completion:nil];
+        return NO;
+    }
+    return YES;
+}
 @end

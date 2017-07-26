@@ -50,6 +50,7 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     HomeCardModel *cardInfo = _dataArray[indexPath.row];
     ProcessCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProcessCell"];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.model = cardInfo;
     return cell;
 }

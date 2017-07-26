@@ -10,7 +10,8 @@
 #import "ProcessViewController.h"
 #import "HomeCardModel.h"
 #import "CreditCardCell.h"
-
+#import "LoginController.h"
+#import "BaseNavController.h"
 @interface CreditCardController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic , strong) NSArray *dataArray;
@@ -44,6 +45,7 @@
 }
 
 - (void)process{
+    if(![self isLogin]) return;
     ProcessViewController *processVc = [self getViewController:@"ProcessViewController" onStoryBoard:@"CreditCard"];
     [self.navigationController pushViewController:processVc animated:YES];
 }
@@ -54,8 +56,8 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     HomeCardModel *cardInfo = _dataArray[indexPath.row];
-
     CreditCardCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CreditCardCell"];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.model = cardInfo;
     return cell;
 }
@@ -65,7 +67,7 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    if(![self isLogin]) return;
     [self openHtml:((HomeCardModel *)_dataArray[indexPath.row]).link];
 }
 
