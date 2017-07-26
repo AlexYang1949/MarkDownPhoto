@@ -24,7 +24,8 @@
 -(void)setModel:(HomeCardModel *)model{
     self.nameLabel.text = model.name;
     self.subTitleLabel.text = model.remark;
-    self.applyNumLabel.text = @"5000人正在申请";
+    self.applyNumLabel.text = [NSString stringWithFormat:@"%@人正在申请",model.applyCount];
+
     [self.iconView sd_setImageWithURL:[NSURL URLWithString:model.iconShowUrl] placeholderImage:[UIImage imageNamed:@"icon"]];
 }
 

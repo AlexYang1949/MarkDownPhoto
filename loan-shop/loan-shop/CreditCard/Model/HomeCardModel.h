@@ -14,4 +14,5 @@
 @property(nonatomic ,strong) NSString *iconShowUrl;
 @property(nonatomic ,strong) NSString *link;
 @property(nonatomic ,strong) NSString *progress;
+@property(nonatomic ,strong) NSString *applyCount;
 @end
