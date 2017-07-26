@@ -12,7 +12,9 @@
 #import "HotLoanCell.h"
 #import "HotCreditCell.h"
 #import "HotHeaderCell.h"
-
+#import "LoanDetailController.h"
+#import "BaseNavController.h"
+#import "LoginController.h"
 // model
 #import "HomeCardModel.h"
 #import "AdModel.h"
@@ -177,11 +179,25 @@
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     NSString *urlStr = @"";
     if (indexPath.section==0) {
-        urlStr = ((LoanDetailModel *)_loanArray[indexPath.row]).link;
+        LoanDetailController *detailVc = [self getViewController:@"LoanDetailController" onStoryBoard:@"Loan"];
+        detailVc.loanId = ((LoanDetailModel *)_loanArray[indexPath.row]).id;
+        detailVc.link = ((LoanDetailModel *)_loanArray[indexPath.row]).link;
+        [self.navigationController pushViewController:detailVc animated:YES];
     }else{
+        if (![UserManager currentUser]) {
+            LoginController *loginVc = [self getViewController:@"LoginController" onStoryBoard:@"Mine"];
+            BaseNavController *loginNav = [[BaseNavController alloc] initWithRootViewController:loginVc];
+            loginVc.block = ^(NSString *mobile,NSString *token){
+                [UserManager saveUser:mobile];
+            };
+            [self presentViewController:loginNav animated:YES completion:nil];
+            return;
+        }
+
         urlStr = ((HomeCardModel *)_bankArray[indexPath.row]).link;
+        [self openHtml:urlStr];
     }
-    [self openHtml:urlStr];
+    
 }
 
 - (NSMutableArray *)urlArr{

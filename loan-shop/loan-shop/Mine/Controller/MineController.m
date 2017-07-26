@@ -24,7 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
      self.tableView.tableFooterView=[[UIView alloc]init];
-    _dataArray = @[@[@"注册／登录"],@[@"浏览记录",@"信用卡进度查询"],@[@"交流群",@"秘籍",@"关于我们"],@[@"设置"]].mutableCopy;
+    _dataArray = @[@[@"注册／登录"],@[@"浏览记录",@"信用卡进度查询"],@[@"交流群",@"秘籍",@"关于我们"]].mutableCopy;
     if ([UserManager currentUser]) {
         _dataArray[0] = @[[NSString stringWithFormat:@"%@ 已登陆",[UserManager currentUser]]];
     }
