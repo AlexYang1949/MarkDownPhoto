@@ -81,7 +81,7 @@
     [viewM setIsNeedPageControl:YES]; // 默认系统PageControl
     [viewM setPageControlStyle:KNBannerPageControlStyleMiddel]; // 设置pageControl 在居中
     [viewM setIsNeedTimerRun:YES]; // 是否需要定时
-    [viewM setBannerTimeInterval:1]; // 改变 定时器时间
+    [viewM setBannerTimeInterval:3]; // 改变 定时器时间
     [bannerView setBannerViewModel:viewM]; // 通过模型设置属性 -->赋值
     [self.collectionView addSubview:bannerView];
     _bannerView = bannerView;

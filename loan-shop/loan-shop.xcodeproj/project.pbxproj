@@ -68,8 +68,6 @@
 		704333D41F0C7A46001377F6 /* FakeHomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 704333D31F0C7A46001377F6 /* FakeHomeController.m */; };
 		704333D71F0C7A72001377F6 /* FakeInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 704333D61F0C7A72001377F6 /* FakeInfoViewController.m */; };
 		704333DA1F0C7BEF001377F6 /* ProcessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 704333D91F0C7BEF001377F6 /* ProcessView.m */; };
-		70556AF61F28361500EF78B5 /* AbortUsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70556AF51F28361500EF78B5 /* AbortUsController.m */; };
-		70556AF91F28362700EF78B5 /* GroupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70556AF81F28362700EF78B5 /* GroupController.m */; };
 		70556AFC1F283AB000EF78B5 /* ProcessCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70556AFB1F283AB000EF78B5 /* ProcessCell.m */; };
 		70A2AC8B1F189DBA00B3A0A3 /* AFURLSessionManager+Swizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A2AC8A1F189DBA00B3A0A3 /* AFURLSessionManager+Swizzle.m */; };
 		70B40C5B1F207C8800939FF0 /* libUMessage_Sdk_1.5.0a.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70B40C591F207C8800939FF0 /* libUMessage_Sdk_1.5.0a.a */; };
@@ -197,10 +195,6 @@
 		704333D61F0C7A72001377F6 /* FakeInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeInfoViewController.m; sourceTree = "<group>"; };
 		704333D81F0C7BEF001377F6 /* ProcessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessView.h; sourceTree = "<group>"; };
 		704333D91F0C7BEF001377F6 /* ProcessView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessView.m; sourceTree = "<group>"; };
-		70556AF41F28361500EF78B5 /* AbortUsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbortUsController.h; sourceTree = "<group>"; };
-		70556AF51F28361500EF78B5 /* AbortUsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbortUsController.m; sourceTree = "<group>"; };
-		70556AF71F28362700EF78B5 /* GroupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupController.h; sourceTree = "<group>"; };
-		70556AF81F28362700EF78B5 /* GroupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupController.m; sourceTree = "<group>"; };
 		70556AFA1F283AB000EF78B5 /* ProcessCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessCell.h; sourceTree = "<group>"; };
 		70556AFB1F283AB000EF78B5 /* ProcessCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessCell.m; sourceTree = "<group>"; };
 		70A2AC891F189DBA00B3A0A3 /* AFURLSessionManager+Swizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AFURLSessionManager+Swizzle.h"; sourceTree = "<group>"; };
@@ -475,10 +469,6 @@
 				701CCDE61F0B89EF007788A2 /* RareBookController.m */,
 				27580D371F19B3D800A7F4C8 /* HistoryController.h */,
 				27580D381F19B3D800A7F4C8 /* HistoryController.m */,
-				70556AF41F28361500EF78B5 /* AbortUsController.h */,
-				70556AF51F28361500EF78B5 /* AbortUsController.m */,
-				70556AF71F28362700EF78B5 /* GroupController.h */,
-				70556AF81F28362700EF78B5 /* GroupController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -686,7 +676,7 @@
 					701D00211F04E94300BAFA4D = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = 44V3AC79WA;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 1;
@@ -788,7 +778,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				701D002A1F04E94300BAFA4D /* AppDelegate.m in Sources */,
-				70556AF91F28362700EF78B5 /* GroupController.m in Sources */,
 				701D00781F04F19500BAFA4D /* NSString+Additional.m in Sources */,
 				701D007D1F04F19500BAFA4D /* UITextField+Check.m in Sources */,
 				704333D41F0C7A46001377F6 /* FakeHomeController.m in Sources */,
@@ -831,7 +820,6 @@
 				70F10D401F05EAB5000565BA /* HotCreditCell.m in Sources */,
 				703332A71F1485E5007BFB9F /* LoanApi.m in Sources */,
 				701D00BE1F0510FD00BAFA4D /* KNBannerView.m in Sources */,
-				70556AF61F28361500EF78B5 /* AbortUsController.m in Sources */,
 				703C13C11F09FD790029A9B2 /* LoanQualifyCell.m in Sources */,
 				701D00911F04FBA600BAFA4D /* LoanChannelCell.m in Sources */,
 				27580D391F19B3D800A7F4C8 /* HistoryController.m in Sources */,
@@ -971,8 +959,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "loan-shop/loan-shop.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Wan Juntao (44V3AC79WA)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Wan Juntao (44V3AC79WA)";
-				DEVELOPMENT_TEAM = 44V3AC79WA;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				GCC_PREFIX_HEADER = "${SRCROOT}/loan-shop/PrefixHeader.pch";
 				INFOPLIST_FILE = "loan-shop/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -983,8 +971,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.loan-shop.push";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5d5675e1-31bc-4b23-b088-2bad64e3a590";
-				PROVISIONING_PROFILE_SPECIFIER = "ad hoc";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -995,8 +983,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "loan-shop/loan-shop.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Wan Juntao (44V3AC79WA)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Wan Juntao (44V3AC79WA)";
-				DEVELOPMENT_TEAM = 44V3AC79WA;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				GCC_PREFIX_HEADER = "${SRCROOT}/loan-shop/PrefixHeader.pch";
 				INFOPLIST_FILE = "loan-shop/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1007,8 +995,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.loan-shop.push";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5d5675e1-31bc-4b23-b088-2bad64e3a590";
-				PROVISIONING_PROFILE_SPECIFIER = "ad hoc";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};

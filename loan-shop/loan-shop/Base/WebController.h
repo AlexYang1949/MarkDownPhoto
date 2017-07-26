@@ -11,5 +11,5 @@
 @interface WebController : BaseViewController
 @property(nonatomic ,strong)NSString *urlStr;
 @property (nonatomic , strong) NSString *rareId;
-
+@property(nonatomic ,strong) NSString *content;
 @end

@@ -72,7 +72,12 @@
     WebController *webVc = [self getViewController:@"WebController" onStoryBoard:@"Base"];
     webVc.rareId = rareId;
     [self.navigationController pushViewController:webVc animated:YES];
+}
 
+-(void)openHtmlWithContent:(NSString *)content{
+    WebController *webVc = [self getViewController:@"WebController" onStoryBoard:@"Base"];
+    webVc.content = content;
+    [self.navigationController pushViewController:webVc animated:YES];
 }
 
 - (void)showHudTitle:(NSString *)title delay:(CGFloat)delay{

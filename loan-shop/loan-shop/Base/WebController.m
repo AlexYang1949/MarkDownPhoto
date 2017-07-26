@@ -22,6 +22,8 @@
         [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_urlStr]]];
     }else if(!ISNULL(_rareId)){
         [self setupData];
+    }else if(!ISNULL(_content)) {
+        [_webView loadHTMLString:_content baseURL:nil];
     }
 }
 

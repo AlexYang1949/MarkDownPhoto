@@ -51,7 +51,6 @@
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.textLabel.text = _dataArray[indexPath.section][indexPath.row];
-//    cell.imageView.image = [UIImage imageNamed:@"icon"];
     return cell;
 }
 
@@ -94,11 +93,52 @@
         _dataArray[0] = @[@"注册／登录"];
         [_tableView reloadData];
     }
-    
+    // 浏览历史
     if (indexPath.section==1&&indexPath.row==0) {
         HistoryController *loginVc = [self getViewController:@"HistoryController" onStoryBoard:@"Mine"];
         [self.navigationController pushViewController:loginVc animated:YES];
+    }
+    
+    // 交流群
+    if (indexPath.section==2&&indexPath.row==0) {
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        [LoanApi getGroupDetailFinish:^(BOOL success, NSDictionary *resultObj, NSError *error) {
+            [hud hideAnimated:YES];
+            if (!success) {
+                [self showHudTitle:@"网络错误！" delay:1];
+                return ;
+            }
+            NSDictionary *result = resultObj[@"result"];
+            NSUInteger errorCode = [resultObj[@"errorCode"] integerValue];
+            if (!ISNULL(result)&&errorCode==200) {
+                NSString *content = result[@"content"];
+                [self openHtmlWithContent:content];
+            }else{
+                [self showHudTitle:resultObj[@"errorMessage"] delay:1];
+            }
 
+        }];
+    }
+    
+    // 关于我们
+    if (indexPath.section==2&&indexPath.row==2) {
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        [LoanApi getAbortUsDetailFinish:^(BOOL success, NSDictionary *resultObj, NSError *error) {
+            [hud hideAnimated:YES];
+            if (!success) {
+                [self showHudTitle:@"网络错误！" delay:1];
+                return ;
+            }
+            NSDictionary *result = resultObj[@"result"];
+            NSUInteger errorCode = [resultObj[@"errorCode"] integerValue];
+            if (!ISNULL(result)&&errorCode==200) {
+                NSString *content = result[@"content"];
+                [self openHtmlWithContent:content];
+            }else{
+                [self showHudTitle:resultObj[@"errorMessage"] delay:1];
+            }
+            
+        }];
     }
 }
 
