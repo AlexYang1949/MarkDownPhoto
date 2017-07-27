@@ -93,8 +93,11 @@
         };
         [self presentViewController:loginNav animated:YES completion:nil];
     }
+    // 退出登录
     if (indexPath.section==3) {
         _dataArray[0] = @[@"注册／登录"];
+        [UserManager saveUser:nil];
+        [self showHudTitle:@"您已退出登录" delay:0.5];
         [_tableView reloadData];
     }
     // 浏览历史
