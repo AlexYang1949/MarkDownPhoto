@@ -69,6 +69,7 @@
 		704333D71F0C7A72001377F6 /* FakeInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 704333D61F0C7A72001377F6 /* FakeInfoViewController.m */; };
 		704333DA1F0C7BEF001377F6 /* ProcessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 704333D91F0C7BEF001377F6 /* ProcessView.m */; };
 		70556AFC1F283AB000EF78B5 /* ProcessCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70556AFB1F283AB000EF78B5 /* ProcessCell.m */; };
+		709BE55D1F29C81B00097F93 /* BaseErrorController.m in Sources */ = {isa = PBXBuildFile; fileRef = 709BE55C1F29C81B00097F93 /* BaseErrorController.m */; };
 		70A2AC8B1F189DBA00B3A0A3 /* AFURLSessionManager+Swizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A2AC8A1F189DBA00B3A0A3 /* AFURLSessionManager+Swizzle.m */; };
 		70B40C5B1F207C8800939FF0 /* libUMessage_Sdk_1.5.0a.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70B40C591F207C8800939FF0 /* libUMessage_Sdk_1.5.0a.a */; };
 		70B40C5D1F2082C800939FF0 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70B40C5C1F2082C800939FF0 /* UserNotifications.framework */; settings = {ATTRIBUTES = (Required, ); }; };
@@ -197,6 +198,8 @@
 		704333D91F0C7BEF001377F6 /* ProcessView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessView.m; sourceTree = "<group>"; };
 		70556AFA1F283AB000EF78B5 /* ProcessCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessCell.h; sourceTree = "<group>"; };
 		70556AFB1F283AB000EF78B5 /* ProcessCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessCell.m; sourceTree = "<group>"; };
+		709BE55B1F29C81B00097F93 /* BaseErrorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseErrorController.h; sourceTree = "<group>"; };
+		709BE55C1F29C81B00097F93 /* BaseErrorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseErrorController.m; sourceTree = "<group>"; };
 		70A2AC891F189DBA00B3A0A3 /* AFURLSessionManager+Swizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AFURLSessionManager+Swizzle.h"; sourceTree = "<group>"; };
 		70A2AC8A1F189DBA00B3A0A3 /* AFURLSessionManager+Swizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AFURLSessionManager+Swizzle.m"; sourceTree = "<group>"; };
 		70B40C591F207C8800939FF0 /* libUMessage_Sdk_1.5.0a.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMessage_Sdk_1.5.0a.a; sourceTree = "<group>"; };
@@ -308,6 +311,8 @@
 				701D00681F04F05D00BAFA4D /* BaseNavController.m */,
 				701D009B1F05077900BAFA4D /* WebController.h */,
 				701D009C1F05077900BAFA4D /* WebController.m */,
+				709BE55B1F29C81B00097F93 /* BaseErrorController.h */,
+				709BE55C1F29C81B00097F93 /* BaseErrorController.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -822,6 +827,7 @@
 				701D00BE1F0510FD00BAFA4D /* KNBannerView.m in Sources */,
 				703C13C11F09FD790029A9B2 /* LoanQualifyCell.m in Sources */,
 				701D00911F04FBA600BAFA4D /* LoanChannelCell.m in Sources */,
+				709BE55D1F29C81B00097F93 /* BaseErrorController.m in Sources */,
 				27580D391F19B3D800A7F4C8 /* HistoryController.m in Sources */,
 				701D007E1F04F19500BAFA4D /* UIView+Category.m in Sources */,
 				701D00881F04F2EC00BAFA4D /* LoanController.m in Sources */,

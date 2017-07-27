@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -41,6 +41,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rez-Zu-Jky" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="89" y="17"/>
+        </scene>
+        <!--Base Error Controller-->
+        <scene sceneID="ARH-TE-6S5">
+            <objects>
+                <viewController storyboardIdentifier="BaseErrorController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="PpA-Ym-Org" customClass="BaseErrorController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xs2-Kk-YNH"/>
+                        <viewControllerLayoutGuide type="bottom" id="ThT-m2-QuN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Fz0-xx-CU7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="网络出错" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dWB-y1-NUK">
+                                <rect key="frame" x="87.5" y="140" width="200" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="58J-ta-5DZ"/>
+                                    <constraint firstAttribute="height" constant="40" id="Ilz-Hy-fYQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dWB-y1-NUK" firstAttribute="centerX" secondItem="Fz0-xx-CU7" secondAttribute="centerX" id="XGi-bA-fyK"/>
+                            <constraint firstItem="dWB-y1-NUK" firstAttribute="top" secondItem="xs2-Kk-YNH" secondAttribute="bottom" constant="120" id="YME-Cy-cfc"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OFK-yk-71e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="850.39999999999998" y="16.641679160419791"/>
         </scene>
     </scenes>
 </document>

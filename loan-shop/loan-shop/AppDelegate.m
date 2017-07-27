@@ -14,6 +14,7 @@
 #import "UMessage.h"
 #import "UMMobClick/MobClick.h"
 #import "WebController.h"
+#import "BaseErrorController.h"
 
 @interface AppDelegate ()<UNUserNotificationCenterDelegate>
 
@@ -101,7 +102,7 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     if (self.window.rootViewController==nil) {
-        self.window.rootViewController = [[UIViewController alloc] init];
+        self.window.rootViewController = [[UIStoryboard storyboardWithName:@"Base" bundle:nil] instantiateViewControllerWithIdentifier:@"BaseErrorController"];
     }
 }
 

@@ -204,12 +204,12 @@
 // 登录注册
 + (void)registerWithMobile:(NSString *)mobile pwd:(NSString *)pwd code:(NSString *)code finish:(finishBlock)finished{
     NSTimeInterval cur_time = [[NSDate date] timeIntervalSince1970];
-    NSString *sign = [[NSString stringWithFormat:@"%f%@%@",cur_time,mobile,@"market"] md5];
+    NSString *sign = [[NSString stringWithFormat:@"%/f%@%@",cur_time,mobile,@"market"] md5];
     NSDictionary *parameters = @{@"mobile":mobile,
                                  @"password":pwd,
                                  @"code":code,
                                  @"sign":sign,
-                                 @"tm":[NSString stringWithFormat:@"%f",cur_time]};
+                                 @"ts":[NSString stringWithFormat:@"%/f",cur_time]};
     LoanHTTPManager *manager = [LoanHTTPManager sharedManager];
     [manager POST:@"app/register" parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
      {
@@ -229,12 +229,12 @@
 
 }
 + (void)loginWithMobile:(NSString *)mobile pwd:(NSString *)pwd finish:(finishBlock)finished{
-    NSTimeInterval cur_time = [[NSDate date] timeIntervalSince1970];
-    NSString *sign = [[NSString stringWithFormat:@"%f%@%@",cur_time,mobile,@"market"] md5];
+    NSTimeInterval cur_time = [[NSDate date] timeIntervalSince1970]*1000;
+    NSString *sign = [[NSString stringWithFormat:@"%.f%@%@",cur_time,mobile,@"market"] md5];
     NSDictionary *parameters = @{@"mobile":mobile,
                                  @"password":pwd,
                                  @"sign":sign,
-                                 @"tm":[NSString stringWithFormat:@"%f",cur_time]};
+                                 @"ts":[NSString stringWithFormat:@"%.f",cur_time]};
     LoanHTTPManager *manager = [LoanHTTPManager sharedManager];
     [manager POST:@"app/login" parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
      {
@@ -255,11 +255,11 @@
 }
 + (void)resetPwdWithMobile:(NSString *)mobile pwd:(NSString *)pwd code:(NSString *)code finish:(finishBlock)finished{
     NSTimeInterval cur_time = [[NSDate date] timeIntervalSince1970];
-    NSString *sign = [[NSString stringWithFormat:@"%f%@%@",cur_time,mobile,@"market"] md5];
+    NSString *sign = [[NSString stringWithFormat:@"%.f%@%@",cur_time,mobile,@"market"] md5];
     NSDictionary *parameters = @{@"mobile":mobile,
                                  @"password":pwd,
                                  @"sign":sign,
-                                 @"tm":[NSString stringWithFormat:@"%f",cur_time],
+                                 @"ts":[NSString stringWithFormat:@"%.f",cur_time],
                                  @"code":code};
     LoanHTTPManager *manager = [LoanHTTPManager sharedManager];
     [manager POST:@"app/reset" parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
@@ -281,10 +281,10 @@
 
 + (void)getCodeWithMobile:(NSString *)mobile type:(NSString *)type finish:(finishBlock)finished{
     NSTimeInterval cur_time = [[NSDate date] timeIntervalSince1970];
-    NSString *sign = [[NSString stringWithFormat:@"%f%@%@",cur_time,mobile,@"market"] md5];
+    NSString *sign = [[NSString stringWithFormat:@"%.f%@%@",cur_time,mobile,@"market"] md5];
     NSDictionary *parameters = @{@"mobile":mobile,
                                  @"sign":sign,
-                                 @"tm":[NSString stringWithFormat:@"%f",cur_time]};
+                                 @"ts":[NSString stringWithFormat:@"%.f",cur_time]};
     LoanHTTPManager *manager = [LoanHTTPManager sharedManager];
     NSString *urlStr = [NSString stringWithFormat:@"app/%@",type];
     [manager POST:urlStr parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
