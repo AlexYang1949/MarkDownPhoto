@@ -25,11 +25,17 @@
     [super viewDidLoad];
      self.tableView.tableFooterView=[[UIView alloc]init];
     _dataArray = @[@[@"注册／登录"],@[@"浏览记录",@"信用卡进度查询"],@[@"交流群",@"秘籍",@"关于我们"]].mutableCopy;
+    
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     if ([UserManager currentUser]) {
         _dataArray[0] = @[[NSString stringWithFormat:@"%@ 已登陆",[UserManager currentUser]]];
         _dataArray[3] = @[@"退出登录"];
+        [_tableView reloadData];
     }
-    
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -98,6 +104,7 @@
         _dataArray[0] = @[@"注册／登录"];
         [UserManager saveUser:nil];
         [self showHudTitle:@"您已退出登录" delay:0.5];
+        [_dataArray removeObjectAtIndex:3];
         [_tableView reloadData];
     }
     // 浏览历史
