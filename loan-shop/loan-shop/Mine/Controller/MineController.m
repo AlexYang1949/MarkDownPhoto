@@ -27,6 +27,7 @@
     _dataArray = @[@[@"注册／登录"],@[@"浏览记录",@"信用卡进度查询"],@[@"交流群",@"秘籍",@"关于我们"]].mutableCopy;
     if ([UserManager currentUser]) {
         _dataArray[0] = @[[NSString stringWithFormat:@"%@ 已登陆",[UserManager currentUser]]];
+        _dataArray[3] = @[@"退出登录"];
     }
     
 }
@@ -87,12 +88,12 @@
         loginVc.block = ^(NSString *mobile,NSString *token){
             [UserManager saveUser:mobile];
             _dataArray[0] = @[[NSString stringWithFormat:@"%@ 已登陆",mobile]];
-            _dataArray[4] = @[@"退出登陆"];
+            _dataArray[3] = @[@"退出登录"];
             [_tableView reloadData];
         };
         [self presentViewController:loginNav animated:YES completion:nil];
     }
-    if (indexPath.section==4) {
+    if (indexPath.section==3) {
         _dataArray[0] = @[@"注册／登录"];
         [_tableView reloadData];
     }

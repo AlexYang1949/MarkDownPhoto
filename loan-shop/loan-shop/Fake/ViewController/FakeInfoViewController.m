@@ -81,6 +81,39 @@
     return YES;
 }
 
+- (IBAction)nextPage:(UIButton *)sender {
+    if (_index==3) {
+        FakeResultController *resultVc = [self getViewController:@"FakeResultController" onStoryBoard:@"Fake"];
+        [self.navigationController pushViewController:resultVc animated:YES];
+    }else{
+        FakeInfoViewController *fakeVc = [self getViewController:@"FakeInfoViewController" onStoryBoard:@"Fake"];
+        fakeVc.index = _index+1;
+        if (_index==1) {
+            [self checkIdentify];
+            fakeVc.titleArray = @[@"运营商信息"];
+        }else if (_index==2){
+            fakeVc.titleArray = @[@"父亲姓名",@"父亲手机号",@"母亲姓名",@"母亲手机号"];
+        }
+        [self.navigationController pushViewController:fakeVc animated:YES];
+    }
+}
+
+- (void)checkIdentify{
+    NSString *name = ((FakeInfoCell *)[_tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]]).content;
+    NSString *idCard = ((FakeInfoCell *)[_tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]]).content;
+    if (ISNULL(name)) {
+        [self showHudTitle:@"请填写姓名" delay:0.5];
+        return;
+    }
+    if (ISNULL(idCard)) {
+        [self showHudTitle:@"请填写身份证号" delay:0.5];
+        return;
+    }
+    [LoanApi checkIdNum:idCard name:name finish:^(BOOL success, NSDictionary *resultObj, NSError *error) {
+        
+    }];
+}
+
 #pragma mark -- 通讯录
 - (void)loadAddressBook{
     
@@ -195,22 +228,6 @@
         //        text2 = [text2 stringByReplacingOccurrencesOfString:@"-" withString:@""];
         NSLog(@"联系人：%@, 电话：%@",text1,text2);
     }];
-}
-
-- (IBAction)nextPage:(UIButton *)sender {
-    if (_index==3) {
-        FakeResultController *resultVc = [self getViewController:@"FakeResultController" onStoryBoard:@"Fake"];
-        [self.navigationController pushViewController:resultVc animated:YES];
-    }else{
-        FakeInfoViewController *fakeVc = [self getViewController:@"FakeInfoViewController" onStoryBoard:@"Fake"];
-        fakeVc.index = _index+1;
-        if (_index==1) {
-            fakeVc.titleArray = @[@"运营商信息"];
-        }else if (_index==2){
-            fakeVc.titleArray = @[@"父亲姓名",@"父亲手机号",@"母亲姓名",@"母亲手机号"];
-        }
-        [self.navigationController pushViewController:fakeVc animated:YES];
-    }
 }
 
 #pragma mark --- pickerView

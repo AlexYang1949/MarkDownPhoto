@@ -13,7 +13,11 @@
 @interface RareBookController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic , strong) NSArray *dataArray;
-
+@property (weak, nonatomic) IBOutlet UIButton *button1;
+@property (weak, nonatomic) IBOutlet UIButton *button2;
+@property (weak, nonatomic) IBOutlet UIButton *button3;
+@property (weak, nonatomic) IBOutlet UIButton *button4;
+@property (nonatomic , strong) NSArray *buttonArray;
 @end
 
 @implementation RareBookController
@@ -22,8 +26,36 @@
     [super viewDidLoad];
     self.title = @"秘籍";
     _tableView.tableFooterView = [UIView new];
-    [self loadDataWithId:@"1"];
+    _buttonArray = @[_button1,_button2,_button3,_button4];
+    [self loadId];
     
+}
+
+- (void)loadId{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [LoanApi getRareIdFinish:^(BOOL success, NSDictionary *resultObj, NSError *error) {
+        [hud hideAnimated:YES];
+        if (!success) {
+            [self showHudTitle:@"网络错误！" delay:1];
+            return ;
+        }
+        NSDictionary *result = resultObj[@"result"];
+        NSUInteger errorCode = [resultObj[@"errorCode"] integerValue];
+        if (!ISNULL(result)&&errorCode==200) {
+            NSArray *buttonTitleArray = result[@"content"];
+            [buttonTitleArray enumerateObjectsUsingBlock:^(NSDictionary *titleDict, NSUInteger idx, BOOL * _Nonnull stop) {
+                if (_buttonArray.count<=idx) return;
+                NSString *title = titleDict[@"title"];
+                NSUInteger tag = [titleDict[@"id"] integerValue];
+                ((UIButton *)_buttonArray[idx]).tag = tag;
+                ((UIButton *)_buttonArray[idx]).titleLabel.text = title;
+                ((UIButton *)_buttonArray[idx]).hidden = NO;
+            }];
+            [self loadDataWithId:@"1"];
+        }else{
+            [self showHudTitle:resultObj[@"errorMessage"] delay:1];
+        }
+    }];
 }
 
 - (void)loadDataWithId:(NSString *)tabId{
@@ -64,6 +96,7 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     RareBookCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RareBookCell"];
     cell.model = _dataArray[indexPath.row];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 

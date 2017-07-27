@@ -40,6 +40,7 @@ typedef void(^finishBlock)(BOOL success,NSDictionary * resultObj, NSError *error
 
 
 // 秘籍
++ (void)getRareIdFinish:(finishBlock)finished;
 + (void)getRareListWithId:(NSString *)tabId finish:(finishBlock)finished;
 + (void)getRareDetailWithId:(NSString *)rareId finish:(finishBlock)finished;
 

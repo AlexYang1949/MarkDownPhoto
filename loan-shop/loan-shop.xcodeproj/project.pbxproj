@@ -971,8 +971,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.loan-shop.push";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "bf8865ce-7f73-4f34-b2ee-7b8524684d84";
-				PROVISIONING_PROFILE_SPECIFIER = "apple store";
+				PROVISIONING_PROFILE = "5d5675e1-31bc-4b23-b088-2bad64e3a590";
+				PROVISIONING_PROFILE_SPECIFIER = "ad hoc";
 			};
 			name = Debug;
 		};
@@ -995,8 +995,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.loan-shop.push";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "bf8865ce-7f73-4f34-b2ee-7b8524684d84";
-				PROVISIONING_PROFILE_SPECIFIER = "apple store";
+				PROVISIONING_PROFILE = "5d5675e1-31bc-4b23-b088-2bad64e3a590";
+				PROVISIONING_PROFILE_SPECIFIER = "ad hoc";
 			};
 			name = Release;
 		};

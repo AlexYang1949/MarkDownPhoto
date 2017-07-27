@@ -8,7 +8,7 @@
 
 #import "LoanApi.h"
 #import "NSString+Additional.h"
-#define BaseUrlStr @"http://app.zboat.cn/siteapi"
+#define BaseUrlStr @"https://www.zboat.cn/siteapi"
 @implementation LoanHTTPManager
 
 + (instancetype)sharedManager{
@@ -305,6 +305,24 @@
 }
 
 // 秘籍
++ (void)getRareIdFinish:(finishBlock)finished{
+    LoanHTTPManager *manager = [LoanHTTPManager sharedManager];
+    [manager POST:@"tab/find" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
+     {
+         NSError *error = nil;
+         id obj = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:&error];
+         if (finished==nil) {
+             return;
+         }
+         if (ISNULL(obj)) {
+             finished(YES, nil, nil);
+         }else{
+             finished(YES, obj, nil);
+         }
+     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+         finished(NO,nil,error);
+     }];
+}
 + (void)getRareListWithId:(NSString *)tabId finish:(finishBlock)finished{
     NSDictionary *parameters = @{@"tabId":tabId};
     LoanHTTPManager *manager = [LoanHTTPManager sharedManager];

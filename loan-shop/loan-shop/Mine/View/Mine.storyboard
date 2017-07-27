@@ -398,8 +398,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nXM-0W-dsU">
-                                <rect key="frame" x="0.0" y="0.0" width="93.5" height="45"/>
+                            <button hidden="YES" opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nXM-0W-dsU">
+                                <rect key="frame" x="0.0" y="0.0" width="93" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="Ezx-AT-BN2"/>
                                 </constraints>
@@ -410,8 +410,8 @@
                                     <action selector="selectTop:" destination="Ou0-82-OJs" eventType="touchUpInside" id="cfQ-Tr-tNe"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qVp-a6-NVX">
-                                <rect key="frame" x="94.5" y="0.0" width="92.5" height="45"/>
+                            <button hidden="YES" opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qVp-a6-NVX">
+                                <rect key="frame" x="94" y="0.0" width="93" height="45"/>
                                 <state key="normal" title="信用生活">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -420,7 +420,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zh3-1A-6H8">
-                                <rect key="frame" x="93.5" y="0.0" width="1" height="45"/>
+                                <rect key="frame" x="93" y="0.0" width="1" height="45"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="1" id="Mtd-rT-KhX"/>
@@ -431,11 +431,11 @@
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HyA-qr-NIY">
-                                <rect key="frame" x="281.5" y="0.0" width="1" height="45"/>
+                                <rect key="frame" x="281" y="0.0" width="1" height="45"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </view>
-                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2s9-Os-MyY">
-                                <rect key="frame" x="282.5" y="0.0" width="92.5" height="45"/>
+                            <button hidden="YES" opaque="NO" tag="104" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2s9-Os-MyY">
+                                <rect key="frame" x="282" y="0.0" width="93" height="45"/>
                                 <state key="normal" title="羊毛活动">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -494,8 +494,8 @@
                                     <constraint firstAttribute="height" constant="1" id="5PB-cm-pLg"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rQK-pO-N7n">
-                                <rect key="frame" x="188" y="0.0" width="93.5" height="45"/>
+                            <button hidden="YES" opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rQK-pO-N7n">
+                                <rect key="frame" x="188" y="0.0" width="93" height="45"/>
                                 <state key="normal" title="办卡攻略">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -543,6 +543,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="button1" destination="nXM-0W-dsU" id="ttg-yh-OmM"/>
+                        <outlet property="button2" destination="qVp-a6-NVX" id="cXw-VA-VYY"/>
+                        <outlet property="button3" destination="rQK-pO-N7n" id="seH-n8-bcw"/>
+                        <outlet property="button4" destination="2s9-Os-MyY" id="xGY-Ih-xdc"/>
                         <outlet property="tableView" destination="xe0-OH-sCr" id="V7G-JI-U5u"/>
                     </connections>
                 </viewController>
