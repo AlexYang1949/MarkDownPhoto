@@ -204,12 +204,12 @@
 // 登录注册
 + (void)registerWithMobile:(NSString *)mobile pwd:(NSString *)pwd code:(NSString *)code finish:(finishBlock)finished{
     NSTimeInterval cur_time = [[NSDate date] timeIntervalSince1970];
-    NSString *sign = [[NSString stringWithFormat:@"%/f%@%@",cur_time,mobile,@"market"] md5];
+    NSString *sign = [[NSString stringWithFormat:@"%.f%@%@",cur_time,mobile,@"market"] md5];
     NSDictionary *parameters = @{@"mobile":mobile,
                                  @"password":pwd,
                                  @"code":code,
                                  @"sign":sign,
-                                 @"ts":[NSString stringWithFormat:@"%/f",cur_time]};
+                                 @"ts":[NSString stringWithFormat:@"%.f",cur_time]};
     LoanHTTPManager *manager = [LoanHTTPManager sharedManager];
     [manager POST:@"app/register" parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
      {

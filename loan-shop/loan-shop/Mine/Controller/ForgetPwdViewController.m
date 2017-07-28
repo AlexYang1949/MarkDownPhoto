@@ -28,7 +28,7 @@
 }
 
 - (IBAction)getCode:(id)sender {
-    if (ISNULL(_mobileTF.text)){
+    if (ISNULL(_mobileTF.text)||[_mobileTF.text isEqualToString:@""]){
         [self showHudTitle:@"请填写手机号" delay:1.0];
         return;
     }
@@ -47,15 +47,15 @@
 }
 
 - (IBAction)resetPwd:(id)sender {
-    if (ISNULL(_mobileTF.text)){
+    if (ISNULL(_mobileTF.text)||[_mobileTF.text isEqualToString:@""]){
         [self showHudTitle:@"请填写手机号" delay:1.0];
         return;
     }
-    if (ISNULL(_pwdTF.text)){
+    if (ISNULL(_pwdTF.text)||[_pwdTF.text isEqualToString:@""]){
         [self showHudTitle:@"请填写密码" delay:1.0];
         return;
     }
-    if (ISNULL(_codeTF.text)){
+    if (ISNULL(_codeTF.text)||[_codeTF.text isEqualToString:@""]){
         [self showHudTitle:@"请填写验证码" delay:1.0];
         return;
     }
