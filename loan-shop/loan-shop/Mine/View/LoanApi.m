@@ -120,8 +120,32 @@
      }];
 }
 
++(void)getLoanClassifyListPageNum:(NSUInteger)pageNum Size:(NSUInteger)size finish:(finishBlock)finished{
+    NSDictionary *parameters =@{@"pageNum":@(pageNum),
+                                @"size":@(size)};
+    LoanHTTPManager *manager = [LoanHTTPManager sharedManager];
+    [manager POST:@"loan/classify" parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
+     {
+         NSError *error = nil;
+         id obj = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:&error];
+         if (finished==nil) {
+             return;
+         }
+         if (ISNULL(obj)) {
+             finished(YES, nil, nil);
+         }else{
+             finished(YES, obj, nil);
+         }
+     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+         finished(NO,nil,error);
+     }];
+}
+
 +(void)getLoanDetailId:(NSString *)Id finish:(finishBlock)finished{
-    NSDictionary *parameters =@{@"id":Id};
+    NSDictionary *parameters =@{@"id":Id}.mutableCopy;
+    if ([UserManager currentUser]&&![[UserManager currentUser] isEqualToString:@""]) {
+        [parameters setValue:[UserManager currentUser] forKey:@"mobile"];
+    }
     LoanHTTPManager *manager = [LoanHTTPManager sharedManager];
     [manager POST:@"loan/detail" parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
      {
@@ -182,7 +206,8 @@
 }
 
 +(void)getCreditDetailId:(NSString *)bankId finish:(finishBlock)finished{
-    NSDictionary *parameters =@{@"id":bankId};
+    NSDictionary *parameters =@{@"id":bankId,
+                                @"mobile":[UserManager currentUser]};
     LoanHTTPManager *manager = [LoanHTTPManager sharedManager];
     [manager POST:@"bank/credit/detail" parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
      {
@@ -201,9 +226,29 @@
      }];
 }
 
++(void)getBankDetailId:(NSString *)bankId finish:(finishBlock)finished{
+    NSDictionary *parameters =@{@"id":bankId,
+                                @"mobile":[UserManager currentUser]};
+    LoanHTTPManager *manager = [LoanHTTPManager sharedManager];
+    [manager POST:@"bank/detail" parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
+     {
+         NSError *error = nil;
+         id obj = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:&error];
+         if (finished==nil) {
+             return;
+         }
+         if (ISNULL(obj)) {
+             finished(YES, nil, nil);
+         }else{
+             finished(YES, obj, nil);
+         }
+     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+         finished(NO,nil,error);
+     }];
+}
 // 登录注册
 + (void)registerWithMobile:(NSString *)mobile pwd:(NSString *)pwd code:(NSString *)code finish:(finishBlock)finished{
-    NSTimeInterval cur_time = [[NSDate date] timeIntervalSince1970];
+    NSTimeInterval cur_time = [[NSDate date] timeIntervalSince1970]*1000;
     NSString *sign = [[NSString stringWithFormat:@"%.f%@%@",cur_time,mobile,@"market"] md5];
     NSDictionary *parameters = @{@"mobile":mobile,
                                  @"password":pwd,
@@ -254,7 +299,7 @@
 
 }
 + (void)resetPwdWithMobile:(NSString *)mobile pwd:(NSString *)pwd code:(NSString *)code finish:(finishBlock)finished{
-    NSTimeInterval cur_time = [[NSDate date] timeIntervalSince1970];
+    NSTimeInterval cur_time = [[NSDate date] timeIntervalSince1970]*1000;
     NSString *sign = [[NSString stringWithFormat:@"%.f%@%@",cur_time,mobile,@"market"] md5];
     NSDictionary *parameters = @{@"mobile":mobile,
                                  @"password":pwd,
@@ -280,7 +325,7 @@
 }
 
 + (void)getCodeWithMobile:(NSString *)mobile type:(NSString *)type finish:(finishBlock)finished{
-    NSTimeInterval cur_time = [[NSDate date] timeIntervalSince1970];
+    NSTimeInterval cur_time = [[NSDate date] timeIntervalSince1970]*1000;
     NSString *sign = [[NSString stringWithFormat:@"%.f%@%@",cur_time,mobile,@"market"] md5];
     NSDictionary *parameters = @{@"mobile":mobile,
                                  @"sign":sign,

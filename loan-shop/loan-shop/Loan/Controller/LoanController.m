@@ -15,7 +15,9 @@
 static NSString *cellId = @"loanCell";
 @interface LoanController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet LoanCollectionView *collectionView;
-@property(nonatomic ,strong) NSArray *dataArray;
+@property(nonatomic , strong) NSMutableArray *dataArray;
+@property (nonatomic , strong) NSMutableArray *titleArray;
+
 @end
 
 @implementation LoanController
@@ -26,8 +28,10 @@ static NSString *cellId = @"loanCell";
 }
 
 - (void)setupData{
+    _dataArray = @[].mutableCopy;
+    _titleArray = @[].mutableCopy;
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [LoanApi getLoanListPageNum:0 Size:10000 finish:^(BOOL success, NSDictionary *resultObj, NSError *error) {
+    [LoanApi getLoanClassifyListPageNum:0 Size:10000 finish:^(BOOL success, NSDictionary *resultObj, NSError *error) {
         [hud hideAnimated:YES];
         if (!success) {
             [self showHudTitle:@"网络错误！" delay:1];
@@ -36,11 +40,16 @@ static NSString *cellId = @"loanCell";
         NSUInteger errorCode = [resultObj[@"errorCode"] integerValue];
         NSDictionary *result = resultObj[@"result"];
         if (!ISNULL(result)&&errorCode==200) {
-            _dataArray = [LoanDetailModel mj_objectArrayWithKeyValuesArray:result[@"content"]];
+            for (NSDictionary *dict in result) {
+                NSArray *itemArray = [LoanDetailModel mj_objectArrayWithKeyValuesArray:dict[@"data"]];
+                [_dataArray addObject:itemArray];
+                [_titleArray addObject:dict[@"title"]];
+            }
             [_collectionView reloadData];
         }else{
             [self showHudTitle:resultObj[@"errorMessage"] delay:1];
         }
+
     }];
 }
 
@@ -57,17 +66,17 @@ static NSString *cellId = @"loanCell";
 
 #pragma mark - collectionView datasource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return _dataArray.count;
+    NSArray *itemArray = _dataArray[section];
+    return itemArray.count;
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
-    return 1;
+    return _dataArray.count;
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     LoanChannelCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
-    cell.model = _dataArray[indexPath.row];
-    
+    cell.model = _dataArray[indexPath.section][indexPath.row];
     return cell;
 }
 
@@ -82,8 +91,8 @@ static NSString *cellId = @"loanCell";
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     HotHeaderCell *header = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HotHeaderCell" forIndexPath:indexPath];
     header.hiddenMore = YES;
-    header.title = @"贷款推荐";
-    return  header;
+    header.title = _titleArray[indexPath.section];
+    return header;
 }
 
 

@@ -68,6 +68,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if(![self isLogin]) return;
+    [LoanApi getBankDetailId:((HomeCardModel *)_dataArray[indexPath.row]).id finish:nil];
     [self openHtml:((HomeCardModel *)_dataArray[indexPath.row]).link];
 }
 

@@ -263,6 +263,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="applyCountLabel" destination="ZWa-GK-0br" id="IcC-0Y-6BB"/>
                                             <outlet property="iconView" destination="meq-bj-PKI" id="ZyT-hF-mRx"/>
                                             <outlet property="limitLabel" destination="ceh-2G-4A7" id="fUI-gt-Djd"/>
                                             <outlet property="nameLabel" destination="1hQ-BP-puY" id="1zf-9c-ZDV"/>

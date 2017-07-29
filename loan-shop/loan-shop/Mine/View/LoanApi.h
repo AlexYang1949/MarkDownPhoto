@@ -26,11 +26,13 @@ typedef void(^finishBlock)(BOOL success,NSDictionary * resultObj, NSError *error
 // 贷款
 + (void)getLoanListPageNum:(NSUInteger)pageNum Size:(NSUInteger)size finish:(finishBlock)finished;
 + (void)getLoanDetailId:(NSString *)Id finish:(finishBlock)finished;
++ (void)getLoanClassifyListPageNum:(NSUInteger)pageNum Size:(NSUInteger)size finish:(finishBlock)finished;
 
 // 信用卡
 + (void)getBankListPageNum:(NSUInteger)pageNum Size:(NSUInteger)size finish:(finishBlock)finished;
 + (void)getCreditWithBankId:(NSString *)bankId finish:(finishBlock)finished;
 + (void)getCreditDetailId:(NSString *)bankId finish:(finishBlock)finished;
++ (void)getBankDetailId:(NSString *)bankId finish:(finishBlock)finished;
 
 // 登录注册
 + (void)registerWithMobile:(NSString *)mobile pwd:(NSString *)pwd code:(NSString *)code finish:(finishBlock)finished;

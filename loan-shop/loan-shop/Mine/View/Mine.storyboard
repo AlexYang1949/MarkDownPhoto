@@ -266,6 +266,7 @@
                     </view>
                     <connections>
                         <outlet property="codeTF" destination="vBM-j0-Lts" id="Kr2-gC-XW3"/>
+                        <outlet property="getCodeButton" destination="wrr-fx-9Tg" id="dmQ-80-DVV"/>
                         <outlet property="mobileTF" destination="T3d-dn-SFS" id="Oba-j4-4hY"/>
                         <outlet property="pwdTF" destination="LqW-BH-uK6" id="laE-sx-TF5"/>
                     </connections>
@@ -378,6 +379,7 @@
                     </view>
                     <connections>
                         <outlet property="codeTF" destination="jSn-uc-rBg" id="6g0-h8-WJx"/>
+                        <outlet property="getCodeButton" destination="SKa-Sl-t22" id="KPs-WA-hr2"/>
                         <outlet property="mobileTF" destination="7Q9-vh-MBa" id="6f2-bY-e9P"/>
                         <outlet property="pwdTF" destination="RPr-AP-liG" id="lRR-2r-cxV"/>
                     </connections>
@@ -588,8 +590,15 @@
                                     <action selector="topClick:" destination="QOB-LH-HYy" eventType="touchUpInside" id="Jz1-Yz-Hhb"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ycW-Vp-w1k">
+                                <rect key="frame" x="0.0" y="65" width="375" height="1"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="kY1-MW-2kL"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CSU-2e-3VR">
-                                <rect key="frame" x="0.0" y="65" width="375" height="602"/>
+                                <rect key="frame" x="0.0" y="66" width="375" height="601"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="QOB-LH-HYy" id="y5Z-4j-Pim"/>
@@ -603,9 +612,12 @@
                             <constraint firstItem="Pyt-0r-UbA" firstAttribute="width" secondItem="9ai-cH-8tc" secondAttribute="width" id="7qE-Cr-0rf"/>
                             <constraint firstItem="Pyt-0r-UbA" firstAttribute="height" secondItem="9ai-cH-8tc" secondAttribute="height" id="CDR-H6-0WJ"/>
                             <constraint firstItem="9ai-cH-8tc" firstAttribute="leading" secondItem="6rt-ck-56N" secondAttribute="leading" id="D4Y-u0-QJ6"/>
+                            <constraint firstAttribute="trailing" secondItem="ycW-Vp-w1k" secondAttribute="trailing" id="G52-TZ-h0L"/>
                             <constraint firstItem="Pyt-0r-UbA" firstAttribute="top" secondItem="BTG-au-lIN" secondAttribute="bottom" id="Ixd-s8-GqS"/>
                             <constraint firstItem="CSU-2e-3VR" firstAttribute="leading" secondItem="6rt-ck-56N" secondAttribute="leading" id="MKC-2E-L8c"/>
-                            <constraint firstItem="CSU-2e-3VR" firstAttribute="top" secondItem="Pyt-0r-UbA" secondAttribute="bottom" id="apY-Xu-cHs"/>
+                            <constraint firstItem="ycW-Vp-w1k" firstAttribute="top" secondItem="Pyt-0r-UbA" secondAttribute="bottom" id="Rdz-9n-sd4"/>
+                            <constraint firstItem="CSU-2e-3VR" firstAttribute="top" secondItem="ycW-Vp-w1k" secondAttribute="bottom" id="VhY-CC-M3v"/>
+                            <constraint firstItem="ycW-Vp-w1k" firstAttribute="leading" secondItem="6rt-ck-56N" secondAttribute="leading" id="dfJ-kb-QRN"/>
                             <constraint firstItem="9ai-cH-8tc" firstAttribute="width" secondItem="6rt-ck-56N" secondAttribute="width" multiplier="0.5" id="gm5-qT-yW9"/>
                             <constraint firstItem="jEd-t1-wpJ" firstAttribute="top" secondItem="CSU-2e-3VR" secondAttribute="bottom" id="pkc-zK-gAz"/>
                             <constraint firstItem="9ai-cH-8tc" firstAttribute="top" secondItem="BTG-au-lIN" secondAttribute="bottom" id="wcI-ql-6gd"/>
@@ -618,7 +630,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lH4-FI-D0f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3263" y="-124"/>
+            <point key="canvasLocation" x="3261.5999999999999" y="-124.58770614692655"/>
         </scene>
     </scenes>
     <resources>

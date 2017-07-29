@@ -23,6 +23,7 @@
 @property(nonatomic ,strong) NSString *remark;
 @property(nonatomic ,strong) NSString *requirement;
 @property(nonatomic ,strong) NSString *term;
+@property (nonatomic , strong) NSString *applyCount;
 
 
 @end

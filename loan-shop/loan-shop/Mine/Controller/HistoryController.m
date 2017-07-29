@@ -65,7 +65,12 @@
     }
     [cell.imageView sd_setImageWithURL:[NSURL URLWithString:model.iconShowUrl] placeholderImage:[UIImage imageNamed:@"icon"]];
     cell.textLabel.text = model.name;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 60;
 }
 - (IBAction)topClick:(UIButton *)sender{
     for (UIView *view in self.view.subviews) {

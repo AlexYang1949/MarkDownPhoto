@@ -185,7 +185,7 @@
         [self.navigationController pushViewController:detailVc animated:YES];
     }else{
         if(![self isLogin]) return;
-        
+        [LoanApi getBankDetailId:((HomeCardModel *)_bankArray[indexPath.row]).id finish:nil];
         urlStr = ((HomeCardModel *)_bankArray[indexPath.row]).link;
         [self openHtml:urlStr];
     }

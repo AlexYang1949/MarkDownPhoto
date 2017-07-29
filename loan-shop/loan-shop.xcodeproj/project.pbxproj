@@ -977,8 +977,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.loan-shop.push";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5d5675e1-31bc-4b23-b088-2bad64e3a590";
-				PROVISIONING_PROFILE_SPECIFIER = "ad hoc";
+				PROVISIONING_PROFILE = "1089f801-ef52-410d-9d0b-7f46568a28b4";
+				PROVISIONING_PROFILE_SPECIFIER = "ad hoc alex yang";
 			};
 			name = Debug;
 		};
@@ -1001,8 +1001,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.loan-shop.push";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5d5675e1-31bc-4b23-b088-2bad64e3a590";
-				PROVISIONING_PROFILE_SPECIFIER = "ad hoc";
+				PROVISIONING_PROFILE = "1089f801-ef52-410d-9d0b-7f46568a28b4";
+				PROVISIONING_PROFILE_SPECIFIER = "ad hoc alex yang";
 			};
 			name = Release;
 		};

@@ -91,7 +91,7 @@
 
 - (IBAction)applyNow:(id)sender {
     if(![self isLogin]) return;
-    
+    [LoanApi getLoanDetailId:_loanId finish:nil];
     [self openHtml:_link];
 }
 
