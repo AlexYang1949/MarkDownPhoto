@@ -82,8 +82,8 @@ static NSString *cellId = @"loanCell";
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     LoanDetailController *detailVc = [self getViewController:@"LoanDetailController" onStoryBoard:@"Loan"];
-    detailVc.loanId = ((LoanDetailModel *)_dataArray[indexPath.row]).id;
-    detailVc.link = ((LoanDetailModel *)_dataArray[indexPath.row]).link;
+    detailVc.loanId = ((LoanDetailModel *)_dataArray[indexPath.section][indexPath.row]).id;
+    detailVc.link = ((LoanDetailModel *)_dataArray[indexPath.row][indexPath.row]).link;
     [self.navigationController pushViewController:detailVc animated:YES];
 }
 
