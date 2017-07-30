@@ -470,8 +470,12 @@
 }
 
 + (void)checkIdNum:(NSString *)idNum name:(NSString *)name finish:(finishBlock)finished{
+    NSTimeInterval cur_time = [[NSDate date] timeIntervalSince1970]*1000;
+    NSString *sign = [[NSString stringWithFormat:@"%.f%@",cur_time,@"market"] md5];
     NSDictionary *parameters = @{@"name":name,
-                                 @"cardNo":idNum};
+                                 @"cardNo":idNum,
+                                 @"sign":sign,
+                                 @"ts":[NSString stringWithFormat:@"%.f",cur_time]};
     LoanHTTPManager *manager = [LoanHTTPManager sharedManager];
     [manager POST:@"screen/check-card" parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
      {
