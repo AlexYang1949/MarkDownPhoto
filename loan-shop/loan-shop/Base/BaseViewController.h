@@ -17,4 +17,5 @@
 - (void)setNavLeftButtonwithImg:(NSString *)normalImg selImg:(NSString *)selImg title:(NSString *)title action:(SEL)action;
 - (void)showHudTitle:(NSString *)title delay:(CGFloat)delay;
 - (BOOL)isLogin;
+
 @end

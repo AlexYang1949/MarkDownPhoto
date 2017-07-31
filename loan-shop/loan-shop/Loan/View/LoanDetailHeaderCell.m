@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *reteLabel;
 @property (weak, nonatomic) IBOutlet UILabel *termLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *iconView;
+@property (weak, nonatomic) IBOutlet UILabel *applyCountLabel;
 
 @end
 
@@ -37,6 +38,7 @@
     _limitLabel.text = model.limitation;
     _reteLabel.text = model.rate;
     _termLabel.text = model.term;
+    _applyCountLabel.text = [NSString stringWithFormat:@"%@人贷款成功",model.applyCount];
     [_iconView sd_setImageWithURL:[NSURL URLWithString:model.iconShowUrl] placeholderImage:[UIImage imageNamed:@"icon"]];
 }
 

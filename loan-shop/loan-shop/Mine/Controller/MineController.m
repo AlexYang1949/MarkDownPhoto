@@ -84,7 +84,7 @@
     // 进度查询
     if (indexPath.section==1 && indexPath.row==1) {
         if(![self isLogin]) return;
-
+        
         ProcessViewController *processVc = [self getViewController:@"ProcessViewController" onStoryBoard:@"CreditCard"];
         [self.navigationController pushViewController:processVc animated:YES];
     }
@@ -119,7 +119,7 @@
         [LoanApi getGroupDetailFinish:^(BOOL success, NSDictionary *resultObj, NSError *error) {
             [hud hideAnimated:YES];
             if (!success) {
-                [self showHudTitle:@"网络错误！" delay:1];
+                [self showHudTitle:@"请检查网络连接后重试！" delay:1];
                 return ;
             }
             NSDictionary *result = resultObj[@"result"];
@@ -140,7 +140,7 @@
         [LoanApi getAbortUsDetailFinish:^(BOOL success, NSDictionary *resultObj, NSError *error) {
             [hud hideAnimated:YES];
             if (!success) {
-                [self showHudTitle:@"网络错误！" delay:1];
+                [self showHudTitle:@"请检查网络连接后重试！" delay:1];
                 return ;
             }
             NSDictionary *result = resultObj[@"result"];

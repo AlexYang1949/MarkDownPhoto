@@ -90,7 +90,7 @@
         fakeVc.index = _index+1;
         if (_index==1) {
             [self checkIdentify];
-            fakeVc.titleArray = @[@"运营商信息"];
+            return;
         }else if (_index==2){
             fakeVc.titleArray = @[@"父亲姓名",@"父亲手机号",@"母亲姓名",@"母亲手机号"];
         }
@@ -110,7 +110,16 @@
         return;
     }
     [LoanApi checkIdNum:idCard name:name finish:^(BOOL success, NSDictionary *resultObj, NSError *error) {
-        
+        FakeInfoViewController *fakeVc = [self getViewController:@"FakeInfoViewController" onStoryBoard:@"Fake"];
+        fakeVc.index = _index+1;
+        if ([resultObj[@"result"] boolValue] == YES) {
+            [self showHudTitle:@"实名认证成功" delay:1.0];
+        }else{
+            [self showHudTitle:@"实名认证失败" delay:1.0];
+        }
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self.navigationController pushViewController:fakeVc animated:YES];
+        });
     }];
 }
 

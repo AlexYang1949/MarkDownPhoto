@@ -38,7 +38,7 @@
     [LoanApi getHistoryWithMobile:[UserManager currentUser] type:type finish:^(BOOL success, NSDictionary *resultObj, NSError *error) {
         [hud hideAnimated:YES];
         if (!success) {
-            [self showHudTitle:@"网络错误！" delay:1];
+            [self showHudTitle:@"请检查网络连接后重试！" delay:1];
             return ;
         }
         NSDictionary *result = resultObj[@"result"];
@@ -65,7 +65,12 @@
     }
     [cell.imageView sd_setImageWithURL:[NSURL URLWithString:model.iconShowUrl] placeholderImage:[UIImage imageNamed:@"icon"]];
     cell.textLabel.text = model.name;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 60;
 }
 - (IBAction)topClick:(UIButton *)sender{
     for (UIView *view in self.view.subviews) {
@@ -86,6 +91,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     HistoryModel *model = _dataArray[indexPath.row];
+    
     [self openHtml:model.refLink];
 }
 

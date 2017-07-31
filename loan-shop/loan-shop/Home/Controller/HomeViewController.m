@@ -45,7 +45,7 @@
     [LoanApi getAdImagePageNum:0 Size:1000 finish:^(BOOL success, NSDictionary * resultObj, NSError *error) {
         [hud hideAnimated:YES];
         if (!success) {
-            [self showHudTitle:@"网络错误！" delay:1];
+            [self showHudTitle:@"请检查网络连接后重试！" delay:1];
             return ;
         }
         NSDictionary *result = resultObj[@"result"];
@@ -185,7 +185,7 @@
         [self.navigationController pushViewController:detailVc animated:YES];
     }else{
         if(![self isLogin]) return;
-        
+        [LoanApi getBankDetailId:((HomeCardModel *)_bankArray[indexPath.row]).id finish:nil];
         urlStr = ((HomeCardModel *)_bankArray[indexPath.row]).link;
         [self openHtml:urlStr];
     }

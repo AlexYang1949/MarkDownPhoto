@@ -36,7 +36,7 @@
     [LoanApi getRareIdFinish:^(BOOL success, NSDictionary *resultObj, NSError *error) {
         [hud hideAnimated:YES];
         if (!success) {
-            [self showHudTitle:@"网络错误！" delay:1];
+            [self showHudTitle:@"请检查网络连接后重试！" delay:1];
             return ;
         }
         NSDictionary *result = resultObj[@"result"];
@@ -63,7 +63,7 @@
     [LoanApi getRareListWithId:tabId finish:^(BOOL success, NSDictionary *resultObj, NSError *error) {
         [hud hideAnimated:YES];
         if (!success) {
-            [self showHudTitle:@"网络错误！" delay:1];
+            [self showHudTitle:@"请检查网络连接后重试！" delay:1];
             return ;
         }
         NSDictionary *result = resultObj[@"result"];
