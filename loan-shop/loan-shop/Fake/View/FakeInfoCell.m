@@ -38,6 +38,11 @@
     return _inputView.text;
 }
 
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return YES;
+}
+
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
     if ([self.delegate respondsToSelector:@selector(myTextViewDidBeginEditing:)]) {
         return [self.delegate myTextViewDidBeginEditing:textField];
