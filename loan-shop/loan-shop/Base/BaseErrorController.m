@@ -19,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(20.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         
         if (_tipView!=nil) {
             [_hud hideAnimated:YES];
