@@ -30,4 +30,5 @@
  */
 + (BOOL)checkEmptyString:(NSString *)str;
 
+- (BOOL)isEmpty;
 @end

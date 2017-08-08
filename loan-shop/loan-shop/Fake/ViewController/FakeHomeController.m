@@ -65,6 +65,10 @@
 }
 
 - (IBAction)nextStep:(UIButton *)sender {
+    if (!_selectButton.selected) {
+        [self showHudTitle:@"请阅读并同意借款协议" delay:1.0];
+        return;
+    }
     FakeInfoViewController *fakeVc = [self getViewController:@"FakeInfoViewController" onStoryBoard:@"Fake"];
     fakeVc.titleArray = @[@"姓名",@"身份证",@"住址",@"是否婚配"];
     fakeVc.index = 1;
@@ -75,5 +79,10 @@
 - (IBAction)agreeClick:(UIButton *)sender {
     sender.selected = !sender.selected;
 }
+
+- (IBAction)showDeal:(UIButton *)sender {
+    [self openHtml:@"https://h5.xinkouzi365.com/static/agreement/loan.html"];
+}
+
 
 @end

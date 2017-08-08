@@ -92,21 +92,56 @@
             [self checkIdentify];
             return;
         }else if (_index==2){
+            if (![self checkParent]) return;
             fakeVc.titleArray = @[@"父亲姓名",@"父亲手机号",@"母亲姓名",@"母亲手机号"];
         }
         [self.navigationController pushViewController:fakeVc animated:YES];
     }
 }
 
+- (BOOL)checkParent{
+    NSString *fname = ((FakeInfoCell *)[_tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]]).content;
+    NSString *fphone = ((FakeInfoCell *)[_tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]]).content;
+    NSString *mname = ((FakeInfoCell *)[_tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]]).content;
+    NSString *mphone = ((FakeInfoCell *)[_tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:3 inSection:0]]).content;
+    if ([fname isEmpty]) {
+        [self showHudTitle:@"请填写父亲姓名" delay:0.5];
+        return NO;
+    }
+    if ([fphone isEmpty]) {
+        [self showHudTitle:@"请填写父亲手机号" delay:0.5];
+        return NO;
+    }
+    if ([mname isEmpty]) {
+        [self showHudTitle:@"请填写母亲姓名" delay:0.5];
+        return NO;
+    }
+    if ([mphone isEmpty]) {
+        [self showHudTitle:@"请填写母亲手机号" delay:0.5];
+        return NO;
+    }
+    return YES;
+}
+
 - (void)checkIdentify{
     NSString *name = ((FakeInfoCell *)[_tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]]).content;
     NSString *idCard = ((FakeInfoCell *)[_tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]]).content;
-    if (ISNULL(name)) {
+    NSString *address = ((FakeInfoCell *)[_tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]]).content;
+    NSString *marry = ((FakeInfoCell *)[_tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:3 inSection:0]]).content;
+    if ([name isEmpty]) {
         [self showHudTitle:@"请填写姓名" delay:0.5];
         return;
     }
-    if (ISNULL(idCard)) {
+    if ([idCard isEmpty]) {
         [self showHudTitle:@"请填写身份证号" delay:0.5];
+        return;
+    }
+    if ([address isEmpty]) {
+        [self showHudTitle:@"请填写住址" delay:0.5];
+        return;
+    }
+    if ([marry isEmpty]) {
+        [self showHudTitle:@"请填写婚配信息" delay:0.5];
         return;
     }
     [LoanApi checkIdNum:idCard name:name finish:^(BOOL success, NSDictionary *resultObj, NSError *error) {
@@ -114,12 +149,13 @@
         fakeVc.index = _index+1;
         if ([resultObj[@"result"] boolValue] == YES) {
             [self showHudTitle:@"实名认证成功" delay:1.0];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self.navigationController pushViewController:fakeVc animated:YES];
+            });
         }else{
             [self showHudTitle:@"实名认证失败" delay:1.0];
         }
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self.navigationController pushViewController:fakeVc animated:YES];
-        });
+        
     }];
 }
 
@@ -242,6 +278,7 @@
 #pragma mark --- pickerView
 
 - (void)loadPickerViewAndToolbar {
+    [self.view endEditing:YES];
     if ([self.view.subviews containsObject:_picker]) {
         return;
     }

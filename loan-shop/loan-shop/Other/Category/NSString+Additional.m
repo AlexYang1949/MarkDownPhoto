@@ -48,4 +48,11 @@
     return NO;
 }
 
+- (BOOL)isEmpty{
+    if (ISNULL(self) || [@"" isEqualToString:self] ) {
+        return YES;
+    }
+    return NO;
+}
+
 @end
