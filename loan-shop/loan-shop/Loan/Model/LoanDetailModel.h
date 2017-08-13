@@ -24,6 +24,8 @@
 @property(nonatomic ,strong) NSString *requirement;
 @property(nonatomic ,strong) NSString *term;
 @property (nonatomic , strong) NSString *applyCount;
+@property (nonatomic , assign) BOOL yn;
+@property (nonatomic , assign) BOOL nw;
 
 
 @end

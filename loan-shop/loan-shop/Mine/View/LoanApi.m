@@ -37,9 +37,9 @@
     return sharedInstance;
 }
 
-+(void)handleFakefinish:(finishBlock)finished{
++(void)handleFakeVersion:(CGFloat)version finish:(finishBlock)finished{
     LoanHTTPManager *manager = [LoanHTTPManager sharedManager];
-    [manager POST:@"screen/mock" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
+    [manager POST:@"screen/mock" parameters:@{@"version":@(version)} progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
      {
          NSError *error = nil;
          id obj = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:&error];

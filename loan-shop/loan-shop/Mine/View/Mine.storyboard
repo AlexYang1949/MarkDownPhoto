@@ -88,15 +88,21 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xAM-fC-OWt">
-                                <rect key="frame" x="87.5" y="242" width="200" height="40"/>
+                                <rect key="frame" x="72.5" y="242" width="230" height="40"/>
                                 <color key="backgroundColor" red="0.14901960784313725" green="0.48627450980392156" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="8tX-yx-3VM"/>
+                                    <constraint firstAttribute="width" constant="230" id="8tX-yx-3VM"/>
                                     <constraint firstAttribute="height" constant="40" id="hhA-oy-gJH"/>
                                 </constraints>
                                 <state key="normal" title="登录">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="lognClick:" destination="gYZ-ig-R9n" eventType="touchUpInside" id="MHQ-ta-n70"/>
                                 </connections>

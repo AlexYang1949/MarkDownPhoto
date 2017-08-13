@@ -11,6 +11,7 @@
 #import "LoanQualifyCell.h"
 #import "LoginController.h"
 #import "BaseNavController.h"
+#import "LoanWebCell.h"
 
 @interface LoanDetailController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -27,7 +28,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    _titleArray = @[@"申请条件",@"申请材料",@"审核说明"];
+//    _titleArray = @[@"申请条件",@"申请材料",@"审核说明"];
     // 申请条件 申请材料 审核说明
     [self setupData];
 }
@@ -52,21 +53,23 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 4;
+    return 2;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row==0) {
         return 180;
-    }else if (indexPath.row==1) {
-        return [LoanQualifyCell countHeightWithTitle:_model.requirement];
-    }else if (indexPath.row==2){
-        return [LoanQualifyCell countHeightWithTitle:_model.material];
-    }else if (indexPath.row==3){
-        return [LoanQualifyCell countHeightWithTitle:_model.instructions];
-    }else{
-        return 0;
     }
+    return self.view.height - 180;
+//    else if (indexPath.row==1) {
+//        return [LoanQualifyCell countHeightWithTitle:_model.requirement];
+//    }else if (indexPath.row==2){
+//        return [LoanQualifyCell countHeightWithTitle:_model.material];
+//    }else if (indexPath.row==3){
+//        return [LoanQualifyCell countHeightWithTitle:_model.instructions];
+//    }else{
+//        return 0;
+//    }
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -75,16 +78,18 @@
         cell.model = _model;
         return cell;
     }else{
-        LoanQualifyCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LoanQualifyCell"];
+        LoanWebCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LoanWebCell"];
+//        LoanQualifyCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LoanQualifyCell"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.title = _titleArray[indexPath.row-1];
-        if (indexPath.row==1) {
-            cell.content = _model.requirement;
-        }else if (indexPath.row==2){
-            cell.content = _model.material;
-        }else if (indexPath.row==3){
-            cell.content = _model.instructions;
-        }
+        cell.content = _model.instructions;
+//        cell.title = _titleArray[indexPath.row-1];
+//        if (indexPath.row==1) {
+//            cell.content = _model.requirement;
+//        }else if (indexPath.row==2){
+//            cell.content = _model.material;
+//        }else if (indexPath.row==3){
+//            cell.content = _model.instructions;
+//        }
         return cell;
     }
 }

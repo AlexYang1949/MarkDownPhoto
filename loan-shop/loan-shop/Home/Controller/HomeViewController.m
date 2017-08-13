@@ -90,8 +90,8 @@
     return _bannerView;
 }
 - (void)bannerView:(KNBannerView *)bannerView collectionView:(UICollectionView *)collectionView collectionViewCell:(KNBannerCollectionViewCell *)collectionViewCell didSelectItemAtIndexPath:(NSInteger)index{
-    [self openHtml:((AdModel *)_adArray[index]).link];
-    NSLog(@"BannerView :%zd -- index :%zd",bannerView.tag,index);
+    NSString *adUrl = ((AdModel *)_adArray[index]).link;
+    [self openHtml:adUrl];
 }
 
 - (void)loadCollectionView{

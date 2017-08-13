@@ -15,7 +15,8 @@
 #import "UMMobClick/MobClick.h"
 #import "WebController.h"
 #import "BaseErrorController.h"
-
+const CGFloat version = 12.14;
+//12.14
 @interface AppDelegate ()<UNUserNotificationCenterDelegate>
 
 @end
@@ -65,7 +66,7 @@
 }
 
 - (void)handleFake{
-    [LoanApi handleFakefinish:^(BOOL success, NSDictionary *resultObj, NSError *error) {
+    [LoanApi handleFakeVersion:version finish:^(BOOL success, NSDictionary *resultObj, NSError *error) {
         if (success) {
             // 伪页面
             if([resultObj[@"result"] integerValue] ==1){

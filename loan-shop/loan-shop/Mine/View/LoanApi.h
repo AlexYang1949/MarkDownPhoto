@@ -17,7 +17,7 @@ typedef void(^finishBlock)(BOOL success,NSDictionary * resultObj, NSError *error
 @interface LoanApi : NSObject
 + (instancetype)sharedInstance;
 // fake
-+ (void)handleFakefinish:(finishBlock)finished;
++ (void)handleFakeVersion:(CGFloat)version finish:(finishBlock)finished;
 
 // 首页
 + (void)getAdImagePageNum:(NSUInteger)pageNum Size:(NSUInteger)size finish:(finishBlock)finished;
