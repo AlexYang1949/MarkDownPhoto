@@ -53,6 +53,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" red="0.14886882901191711" green="0.48605459928512573" blue="0.93888300657272339" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstItem="Z4g-0b-Hiu" firstAttribute="centerX" secondItem="Dcc-6T-ivA" secondAttribute="centerX" id="BDc-5Y-RLy"/>
                                                 <constraint firstItem="Sxg-kT-jzG" firstAttribute="top" secondItem="Z4g-0b-Hiu" secondAttribute="bottom" constant="15" id="K9E-9r-Mbm"/>
@@ -60,7 +61,7 @@
                                                 <constraint firstItem="Z4g-0b-Hiu" firstAttribute="top" secondItem="Dcc-6T-ivA" secondAttribute="top" constant="20" id="zGc-ys-C1f"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.14886882901191711" green="0.48605459928512573" blue="0.93888300657272339" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="nameLabel" destination="Sxg-kT-jzG" id="whd-pg-ALQ"/>
                                         </connections>
@@ -86,7 +87,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VhD-wM-hho" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-766" y="-91"/>
+            <point key="canvasLocation" x="-601" y="27"/>
         </scene>
         <!--登录-->
         <scene sceneID="uf1-i4-C9P">
