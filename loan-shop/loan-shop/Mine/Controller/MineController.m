@@ -13,6 +13,7 @@
 #import "ProcessViewController.h"
 #import "HistoryController.h"
 #import "UserManager.h"
+#import "LoginHeaderCell.h"
 
 @interface MineController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -31,7 +32,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     if ([UserManager currentUser]) {
-        _dataArray[0] = @[[NSString stringWithFormat:@"%@ 已登陆",[UserManager currentUser]]];
+        _dataArray[0] = @[[NSString stringWithFormat:@"%@",[UserManager currentUser]]];
         _dataArray[3] = @[@"退出登录"];
         [_tableView reloadData];
     }
@@ -52,18 +53,22 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+    if (indexPath.row==0&&indexPath.section==0) {
+        LoginHeaderCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LoginHeaderCell"];
+        cell.name = _dataArray[indexPath.section][indexPath.row];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    }else{
+        UITableViewCell * cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.textLabel.text = _dataArray[indexPath.section][indexPath.row];
+        return cell;
     }
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.textLabel.text = _dataArray[indexPath.section][indexPath.row];
-    return cell;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section==0&&indexPath.row==0) {
-        return 60;
+        return 120;
     }else{
         return 50;
     }
@@ -93,7 +98,7 @@
         BaseNavController *loginNav = [[BaseNavController alloc] initWithRootViewController:loginVc];
         loginVc.block = ^(NSString *mobile,NSString *token){
             [UserManager saveUser:mobile];
-            _dataArray[0] = @[[NSString stringWithFormat:@"%@ 已登陆",mobile]];
+            _dataArray[0] = @[[NSString stringWithFormat:@"%@",mobile]];
             _dataArray[3] = @[@"退出登录"];
             [_tableView reloadData];
         };
