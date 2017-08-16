@@ -3,7 +3,7 @@
 //  LoanApi.m
 //  loan-shop
 //
-//  Created by 杨照珩 on 2017/7/11.
+//  Created by Alex yang on 2017/7/11.
 //  Copyright © 2017年 loanshop. All rights reserved.
 //
 

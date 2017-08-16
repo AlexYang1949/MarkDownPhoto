@@ -2,7 +2,7 @@
 //  BaseViewController.m
 //  贷款超市
 //
-//  Created by 杨照珩 on 2017/6/29.
+//  Created by Alex yang on 2017/6/29.
 //  Copyright © 2017年 dkcs. All rights reserved.
 //
 
